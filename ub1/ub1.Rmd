@@ -2,7 +2,7 @@
 title: "UB1 -- Tutorium Mathe A WS19/20"
 author: "Anton Hanke"
 date: "Tutorium: 24/10/2019"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -23,13 +23,15 @@ abline(h = 0)
 
 # Aufgab 2
 
-## Erste Teilaufgabe 
+## Erste Teilaufgabe
 Die Lösung von hermann ein wenig anderst hergeleitet, als es die meisten von euch gemacht haben.
-\begin{aligned} 
+$$
+\begin{aligned}
 \overrightarrow{A B} \cdot \overrightarrow{A C} &=1\cdot1+\frac{1}{2}\left(-\frac{1}{2}\right)=\frac{3}{4} \quad\quad  |A B|=\left(1^2+\frac{1}{2}^2\right)^{\frac{1}{2}} = \left(1+\frac{1}{4}\right)^{1 / 2} = \frac{\sqrt{5}}{2} \\
-&=|AB||AC| \cos \alpha \\ 
+&=|AB||AC| \cos \alpha \\
 &=\left(\frac{\sqrt{5}}{2}\right)^{2} \cos \alpha=\frac{5}{4} \cos \alpha
 \end{aligned}
+$$
 Daraus folgt:
 $$ \frac{3}{4}=\frac{5}{4} \cos \alpha \quad \Leftrightarrow \quad  \cos \alpha=\frac{3}{5}$$
 
@@ -38,12 +40,12 @@ $$g_1(x = 2) = 1 \quad g_2(x = 2) = -1$$
 Demnach:
 $$ \alpha = \sum \left|\arctan\left(\frac{1}{2}\right)\right|, \left|\arctan\left(-\frac{1}{2}\right)\right|$$
 ```{bash, echo = F}
-# alternativ über trigonomische Funktionin mit tan(a+b) = (tan(a)-tan(b))/(1+tan(a)*tan(b)) 
+# alternativ über trigonomische Funktionin mit tan(a+b) = (tan(a)-tan(b))/(1+tan(a)*tan(b))
 ```
 
 ## Zweite Teilaufgabe
 Haben drei Bedingungen:
-  
+ 
   - Keine Krümmung: $f''(-2)=f''(2) = 0$
   - Kein Knick: die Funktion ist bei 2, -2 ableitbar
     - $f(-2) = g_2(-2) = 1$
@@ -54,7 +56,7 @@ Haben drei Bedingungen:
 
 ## Dritte Teilaufgabe
 Relevante Ableitungen:
-\begin{array}{l}{f(x)=a x^{4}+b x^{2}+c} \\ {f^{\prime}(x)=4 a x^{3}+2b x} \\ {f^{\prime \prime}(x)=12 a x^{2}+2 b}\end{array}
+$$\begin{array}{l}{f(x)=a x^{4}+b x^{2}+c} \\ {f^{\prime}(x)=4 a x^{3}+2b x} \\ {f^{\prime \prime}(x)=12 a x^{2}+2 b}\end{array}$$
 Nach einsetzen von dem jeweiligen $x$ in die Gleichungen erhalten wir folgendes Gleichungssystem:
 $$\left\{\begin{array}{lll}{16 a+4b+c} & {=1} & {(1)} \\ {32 a+4 b} & {=\frac{1}{2}} & {(2)} \\ {48 a+2b} & {=0} & (3)\end{array}\right.$$
 Somit haben wir 3 Gleichungen die nicht voneinander abhängig sind. (Vektoren sind unabhängig voneinander, $\nexists \lambda \in \mathbb{R}: \lambda v_{1}=v_{2}$)
@@ -103,7 +105,7 @@ Dabei gilt:
   - $a=$ y-achsenabschnitt
   - $b=$ amplitude
   - $c=$ phasenverschiebung
-  
+ 
 Bedingungen:
 
 1) $a+b \cos (2 c)=1$

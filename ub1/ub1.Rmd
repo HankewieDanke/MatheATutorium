@@ -1,0 +1,130 @@
+---
+title: "UB1 -- Tutorium Mathe A WS19/20"
+author: "Anton Hanke"
+date: "Tutorium: 24/10/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Aufgabe 1
+```{r}
+wh <- function(t){3*t*exp(2-t)}
+x <- seq(0,10,0.1)
+plot(x=x, y=wh(x), ylab= "Wirksamkeit", xlab="t [h]", type = "l", ylim = c(-3, 9))
+points(x = 1, y = wh(1), col = "red")
+text(x = 1, y = wh(1), labels = paste0("(1|", round(wh(1),2),")"), pos = 4)
+dwh <- function(t){(3-3*t)*exp(2-t)}
+lines(x = x, y = dwh(x), lty = 2)
+abline(h = 0)
+```
+
+# Aufgab 2
+
+## Erste Teilaufgabe 
+Die Lösung von hermann ein wenig anderst hergeleitet, als es die meisten von euch gemacht haben.
+\begin{aligned} 
+\overrightarrow{A B} \cdot \overrightarrow{A C} &=1\cdot1+\frac{1}{2}\left(-\frac{1}{2}\right)=\frac{3}{4} \quad\quad  |A B|=\left(1^2+\frac{1}{2}^2\right)^{\frac{1}{2}} = \left(1+\frac{1}{4}\right)^{1 / 2} = \frac{\sqrt{5}}{2} \\
+&=|AB||AC| \cos \alpha \\ 
+&=\left(\frac{\sqrt{5}}{2}\right)^{2} \cos \alpha=\frac{5}{4} \cos \alpha
+\end{aligned}
+Daraus folgt:
+$$ \frac{3}{4}=\frac{5}{4} \cos \alpha \quad \Leftrightarrow \quad  \cos \alpha=\frac{3}{5}$$
+
+Von euch haben die es einige über den Tangens gelöst mit
+$$g_1(x = 2) = 1 \quad g_2(x = 2) = -1$$
+Demnach:
+$$ \alpha = \sum \left|\arctan\left(\frac{1}{2}\right)\right|, \left|\arctan\left(-\frac{1}{2}\right)\right|$$
+```{bash, echo = F}
+# alternativ über trigonomische Funktionin mit tan(a+b) = (tan(a)-tan(b))/(1+tan(a)*tan(b)) 
+```
+
+## Zweite Teilaufgabe
+Haben drei Bedingungen:
+  
+  - Keine Krümmung: $f''(-2)=f''(2) = 0$
+  - Kein Knick: die Funktion ist bei 2, -2 ableitbar
+    - $f(-2) = g_2(-2) = 1$
+    - $f(2) = g_1(2) = 1$
+  - Gleiche Steigung bei -2, 2:
+    - $f'(-2) = g_2'(-2) = -1/2$
+    - $f'(2) = g_1'(2) = 1/2$
+
+## Dritte Teilaufgabe
+Relevante Ableitungen:
+\begin{array}{l}{f(x)=a x^{4}+b x^{2}+c} \\ {f^{\prime}(x)=4 a x^{3}+2b x} \\ {f^{\prime \prime}(x)=12 a x^{2}+2 b}\end{array}
+Nach einsetzen von dem jeweiligen $x$ in die Gleichungen erhalten wir folgendes Gleichungssystem:
+$$\left\{\begin{array}{lll}{16 a+4b+c} & {=1} & {(1)} \\ {32 a+4 b} & {=\frac{1}{2}} & {(2)} \\ {48 a+2b} & {=0} & (3)\end{array}\right.$$
+Somit haben wir 3 Gleichungen die nicht voneinander abhängig sind. (Vektoren sind unabhängig voneinander, $\nexists \lambda \in \mathbb{R}: \lambda v_{1}=v_{2}$)
+
+Durch umstellen erhalten wir die Gleichung:
+$$ f(x) = -\frac{1}{128}x^4+\frac{3}{16}x^2+\frac{3}{8} $$
+
+```{r, echo = F}
+x <- seq(-4,4,0.1)
+g1 <- function(x){(1/2)*x}
+g2 <- function(x){-(1/2)*x}
+f <- function(x){-(1/128)*x^4+(3/16)*x^2+(3/8)}
+plot(x = x, y = g1(x), type = 'l', ylab = "y")
+lines(x = x, y = g2(x))
+lines(x = x, y = f(x), col = "red")
+```
+
+## Vierte Teilaufgabe
+```{r}
+x <- seq(-4,4,0.1)
+g1 <- function(x){(1/2)*x}
+g2 <- function(x){-(1/2)*x}
+f <- function(x){1+log((1/8)*x^2+0.5)}
+df <- function(x){(2*x)/(x^2+4)}
+ddf <- function(x){(-2*x^2+8)/(x^2+4)^2}
+plot(x = x, y = g1(x), type = 'l', ylab = "y")
+lines(x = x, y = g2(x))
+lines(x = x, y = f(x), col = "red")
+lines(x = x, y = df(x), col = "red", lty = 2)
+lines(x = x, y = ddf(x), col = "red", lty = 3)
+```
+
+1) testen auf symmetry -> setze 2 und -2 ein.
+2) ableitungen errechnen
+  - $h^{\prime}(x)=\frac{1}{4} x\left(\frac{1}{8} x^{2}+\frac{1}{2}\right)^{-1}=\frac{2 x}{x^{2}+4}$
+  - $h^{\prime \prime}(x)=\frac{2\left(x^{2}+4\right)-2 x(2 x)}{\left(x^{2}+4\right)^{2}}=\frac{-2 x^{2}+8}{\left(x^{2}+4\right)^{2}}$
+3) Checken das:
+  - $|h^{\prime}([2,-2])| = 1/2$ -> selbe steigung
+  - $h^{\prime\prime}([-2,2]) = 0$ -> Wendepunkte
+
+## Fünfte Teilaufgabe
+Suchen eine _symetrische_ trigonomische Funktion.
+$$\begin{array}{l}{t(x)=a+b \cos (c t)} \\ {t^{\prime}(x)=-c b \cdot \sin (c t)} \\ {t^{\prime\prime}(x)=-c^{2} b \cos (c t)}\end{array}$$
+Dabei gilt:
+
+  - $a=$ y-achsenabschnitt
+  - $b=$ amplitude
+  - $c=$ phasenverschiebung
+  
+Bedingungen:
+
+1) $a+b \cos (2 c)=1$
+2) $- cb \sin (2 c)=\frac{1}{2}$
+3) $-c^{2} b \cos (2 c)=0$
+
+Auflösen von Bedingung 3. nach $c$:
+$$\cos(2c) = 0 = \cos(\frac{1}{2}\pi) \Rightarrow c = \frac{1}{4}\pi$$
+Einsetzen von $c$ in Bedingung 1:
+$$a + b \cos\left(\frac{1}{2}\pi\right) = 1 \Rightarrow a = 1$$
+Einsetzen von $c$ in Bedingung 2, umstellen und auflösen:
+$$\sin\left(\frac{1}{2}\pi\right) = -\frac{1}{\frac{1}{2}\pi b} = 1 \Rightarrow b = -\frac{2}{\pi}$$
+Es ergibt sich nun nach einsetzen folgende Funktion:
+$$f(x) = 1 - \frac{2}{\pi} \cdot \cos\left(\frac{\pi}{4}x\right)$$
+```{r}
+x <- seq(-4,4,0.1)
+g1 <- function(x){(1/2)*x}
+g2 <- function(x){-(1/2)*x}
+f <- function(x){1 - (2/pi) * cos((pi/4)*x)}
+plot(x = x, y = g1(x), type = 'l', ylab = "y")
+lines(x = x, y = g2(x))
+lines(x = x, y = f(x), col = "red")
+
+```

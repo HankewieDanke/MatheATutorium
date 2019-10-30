@@ -1,0 +1,53 @@
+---
+title: "UB2 -- Tutorium Mathe A WS19/20"
+author: "Anton Hanke"
+date: "Tutorium: 31/10/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Aufgab 2
+Wir haben zwei Aussagen (A und B):
+$$
+\begin{array}{l}{\text { 1. } A: \Longleftrightarrow \text { "Wer von der Quantenmechanik nicht schockiert ist, der versteht sie nicht" (Nils Bohr) }} \\ {\text { 2. } B: \Longleftrightarrow \text { "Niemand versteht die Quantenmechanik" (Richard Feynman) }}\end{array}
+$$
+In diesen Aussagen verstecken sich zwei kleinere Grundaussagen:
+
+1. $a: \Longleftrightarrow$ schockiert
+2. $b: \Longleftrightarrow$ verstehen
+
+demnach lässt sich nun die Aussage A als implikation formulieren:
+$$A:\Longleftrightarrow (\neg a \Rightarrow \neg b)$$
+B dagegen ist $\neg b$.
+Ebenfalls gilt:
+$$ A \wedge B \Longleftrightarrow \neg a$$
+Da die Aussage $A \wedge B$ besagt, das niemand von der Quantenmechanik schockiert ist.
+Nun kann man folgende Aussage aufstellen:
+$$ \neg b \wedge \left(\neg a \Rightarrow \neg b\right) \Rightarrow \neg a$$
+Aus der Übungsaufgabe 1c) wissen wir, dass solche Aussagen/Implikationen nicht wahr sind.
+
+# Aufgabe 3
+Wir wollen die folgende Aussage verneinen:
+$$\forall x \in X, \exists y \in Y: \forall z \in Z: x \cdot y < z$$
+Es gilt also im ganz ganz groben als verneinung:
+$$\neg(\forall x \in X, \exists y \in Y: \forall z \in Z: x \cdot y < z)$$
+Nun ziehen wir die negation in die Klammer hinein und erhalten somit folgende Teilaussagen:
+
+1. $\neg\forall x \in X$
+2. $\neg\exists y \in Y$
+3. $\neg\forall z \in Z$
+4. $\neg(x\cdot y < z)$
+
+Diese verneinen wir nun alle einzeln und können dies dann zu einer ''gesamt''
+verneinung zusammensetzen.
+
+1. $\exists x \in X\quad$    da gilt: $\neg\forall = \exists$
+2. $\forall y \in Y\quad$    da gilt: $\neg\exists = \forall$
+3. $\exists z \in Z\quad$
+4. $x\cdot y \geq z\quad$   da gilt: $\neg < = \geq$ (in Worten: nicht kleiner als ist gleich: größer gleich als)
+
+somit erhalten wir nach zusammensetzen:
+$$\exists x \in X, \forall y \in Y: \exists z \in Z: x \cdot y \geq z$$

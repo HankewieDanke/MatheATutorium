@@ -403,7 +403,19 @@ $(document).ready(function () {
 <li><span class="math inline">\(\exists z \in Z\quad\)</span></li>
 <li><span class="math inline">\(x\cdot y \geq z\quad\)</span> da gilt: <span class="math inline">\(\neg &lt; = \geq\)</span> (in Worten: nicht kleiner als ist gleich: größer gleich als)</li>
 </ol>
-<p>somit erhalten wir nach zusammensetzen: <span class="math display">\[\exists x \in X: \forall y \in Y: \exists z \in Z: x \cdot y \geq z\]</span></p>
+<p>somit erhalten wir nach zusammensetzen: <span class="math display">\[\exists x \in X, \forall y \in Y: \exists z \in Z: x \cdot y \geq z\]</span></p>
+</div>
+<div id="aufgabe-4-vollstandige-induktion" class="section level1">
+<h1>Aufgabe 4 – Vollständige Induktion</h1>
+<p>Die Induktion läuft über zwei schritte ab. Wir wollen per Induktion zeigen: <span class="math display">\[\forall n \in \mathbb{N}^{*}: \sum_{i=1}^{n}(2 i-1)^{2}=\frac{n(2 n-1)(2 n+1)}{3}\]</span></p>
+<div id="induktionsanfang" class="section level2">
+<h2>1) Induktionsanfang:</h2>
+<p>Wir nehmen an: <span class="math inline">\(n = 1\)</span> (da wir nur für ganze Zahlen <span class="math inline">\(&gt; 0\)</span> beweisen). Setzen auf beiden Seiten der Gleichung 1 ein. <span class="math display">\[\begin{array}{l}{(2 \cdot 1-1)^{2}=1} \\ {\frac{1(2 \cdot 1-1)(2 \cdot 1+1)}{3}=1}\end{array}\]</span></p>
+</div>
+<div id="induktionsschritt" class="section level2">
+<h2>2) Induktionsschritt:</h2>
+<p>Wir stellen eine Induktionsbehauptung auf: <span class="math inline">\(\sum_{i=1}^{n+1}(2 i-1)^{2}=\frac{(n+1)(2 n+1)(2 n+3)}{3}\)</span> Die linke Seite dieser Behauptung rechnen wir nun soweit aus, bis sie der rechten Seite gleich ist. <span class="math display">\[\begin{aligned} n \rightarrow n+1 &amp;\\ \sum_{i=1}^{n+1}(2 i-1)^{2} &amp;=\sum_{i=1}^{n}(2 i-1)^{2}+[2(n+1)-1]^{2} \\ &amp;=\frac{n(2 n-1)(2 n+1)}{3}+(2 n+1)^{2} \\ &amp;=\frac{n(2 n-1)(2 n+1)+3(2 n+1)^{2}}{3} \\ &amp;=\frac{(2 n+1)[n(2 n-1)+3(2 n+1)]}{3} \\ &amp;=\frac{(2 n+1)(n+1)(2 n+3)}{3} \end{aligned}\]</span> Dies entspricht der Induktionsbehauptung und lässt sich in die Ursprungsgleichung überführen (mit <span class="math inline">\(n=n+1\)</span>).</p>
+</div>
 </div>
 
 

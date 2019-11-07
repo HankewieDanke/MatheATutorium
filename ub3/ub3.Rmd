@@ -1,0 +1,351 @@
+---
+title: "UB3 -- Tutorium Mathe A WS19/20"
+author: "Maximilian Kohnen"
+date: 'Tutorium: 07/11/2019'
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Aufgabe 1
+
+Die Implikation soll mittels Kontraposition gelöst werden. Bei Aufstellen der Kontraposition ist wichtig zu beachten, dass:
+$$ A \Rightarrow B \Leftrightarrow \neg B \Rightarrow \neg A$$
+Für unseren Fall heißt das also:
+
+$$ 
+\neg(A=B) \Rightarrow \neg(A \backslash B = B \backslash A)  \\
+A \neq B \Rightarrow A \backslash B \neq B \backslash A
+$$
+
+A und B stellen in diesem Fall Mengen dar, also beschreibt $A \backslash B$ eine Mengendifferenz.
+
+
+$$ A \neq B \Rightarrow \exists a \in A : a\notin B $$
+$$ 
+\Rightarrow a \in A \backslash B \quad \text{und}  \quad a \notin B \backslash A \quad \text{da} \quad a  \notin B \\
+\Rightarrow A \backslash B \neq B \backslash A \quad \quad \text{q.e.d}
+$$
+
+-------------
+
+Weiteres Material zu Mengen und Aussagen:
+[http://www.gm.fh-koeln.de/~konen/Mathe1-WS/ZD1-Kap01-02.pdf](http://www.gm.fh-koeln.de/~konen/Mathe1-WS/ZD1-Kap01-02.pdf)
+
+--------------
+
+# Aufgabe 2
+
+Für die Überprfung, ob die Menge M eine Gruppe darstellt, müssen die 4 Bedingungen: Abgeschlossenheit, Assoziativität, neutrales Element und inverses Element erfüllt sein.
+
+- **Abgeschlossenheit** ($a \in G, b \in G : a \circ b \in G$):
+
+    Die Tabelle zeigt, dass jede Kombination der Elemente der Menge M wiederrum ein Element der Menge M ergibt.
+
+
+
+$$
+\begin{array}{c|c c c c}
+  \circ & S_{m} & S_{n} & D_{0} & D_{180} \\
+  \hline
+  S_{m} & D_{0} & D_{180} & S_{m} & S_{n} \\
+  S_{n} & D_{180} & D_{0} & S_{n} & S_{m} \\
+  D_{0} & S_{m} & S_{n} & D_{0} & D_{180} \\
+  D_{180} & S_{n} & S_{m} & D_{180} & D_{0} \\
+\end{array}
+$$
+
+- **Assoziativität** ($(b\circ a) \circ c = a \circ (b \circ c)$):
+
+    Beispiel:
+
+
+$$(S_{m} \circ D_{180}) \circ S_{n} = S_{m} \circ (D_{180} \circ S_{n}) $$
+$$S_{n} \circ S_{n} = S_{m} \circ S_{m}$$
+$$D_{0} = D_{0}$$
+
+- **Neutrales Element** ($\exists e \in G, \forall a \in G : a \circ e = a$): $D_{0}$
+
+    Jedes Element der Menge M ergibt in der Kombination mit $D_{0}$ sich selbst (siehe Tabelle).
+
+- **Inverses Element** ($\forall a \in G, \exists \bar{a} \in G: a \circ \bar{a} = e$):
+
+    Jedes Element ist gleichzeitig sein eigenes inverses Element. Z.B.: $$S_{m} \circ S_{m} = D_{0}$$
+
+$\Rightarrow$ Alle Bedingungen sind erfüllt, daher stellt **M eine Gruppe** dar. \ 
+
+- **Kommunikativität** ($\forall a \in G, \forall b \in G: a \circ b = b \circ a$):
+
+    Beispiel:
+
+$$S_{m} \circ S_{n} = S_{n} \circ S_{m}$$
+$$D_{180} = D_{180}$$
+
+$\Rightarrow$ Nachdem auch die Kommunikativität hier erfüllt ist, stellt M sogar eine **Abelsche Gruppe** dar.
+
+# Aufgabe 3
+
+```{r plotsetup, echo=F}
+x <- seq(-2,2,0.1)
+```
+
+1. $f(x) = 10$:
+
+    $D = \mathbb{R}$ \
+    $B = \{10\}$ \
+    $\Rightarrow$ nicht surjektiv, nicht injektiv
+
+```{r, echo=F}
+y <- function(x){rep(10,length(x))}
+plot(x = x, y = y(x), xlab = "x (Urmenge/Definitionsmenge)", ylab = "f(x) (Bildmenge)", type = "l")
+```
+
+
+2. $f(x) = x^{2} + 2$:
+
+    $D = \mathbb{R}$ \
+    $B = [2, + \infty[$ \
+    $\Rightarrow$ nicht surjektiv, nicht injektiv
+    
+```{r, echo=F}
+y <- function(x){x^2+2}
+plot(x = x, y = y(x), xlab = "x (Urmenge/Definitionsmenge)", ylab = "f(x) (Bildmenge)", type = "l")
+```
+
+3. $f(x) = x^{3}$:
+
+    $D = \mathbb{R}$ \
+    $B = \mathbb{R}$ \
+    $\Rightarrow$ surjektiv und injektiv $\rightarrow$ bijektiv
+    
+```{r, echo=F}
+y <- function(x){x^3}
+plot(x = x, y = y(x), xlab = "x (Urmenge/Definitionsmenge)", ylab = "f(x) (Bildmenge)", type = "l")
+```
+
+4. $f(x) = \sqrt{x}$:
+
+    $D = \mathbb{R}^{+}$ \
+    $B = \mathbb{R}^{+}$ \
+    $\Rightarrow$ nicht surjektiv, aber injektiv
+
+```{r, echo=F}
+y <- function(x){x^(1/2)}
+plot(x = x, y = y(x), xlab = "x (Urmenge/Definitionsmenge)", ylab = "f(x) (Bildmenge)", type = "l")
+```
+
+5. $f(x) = |x| - x$:
+
+    $D = \mathbb{R}$ \
+    $B = \mathbb{R}^{+}$ \
+    $\Rightarrow$ nicht surjektiv, nicht injektiv
+
+```{r, echo=F}
+y <- function(x){abs(x)-x}
+plot(x = x, y = y(x), xlab = "x (Urmenge/Definitionsmenge)", ylab = "f(x) (Bildmenge)", type = "l")
+```
+
+6. $f(x) = (sgn(x))^{2}$ wobei $sgn(x)=1$ wenn $x \geq 0$ und $sgn(x)=-1$ wenn $x<0$:
+
+    $D = \mathbb{R}$ \
+    $B = \{1\}$ \
+    $\Rightarrow$ nicht surjektiv, nicht injektiv
+    
+```{r, echo=F}
+y <- function(x){rep(1,length(x))}
+plot(x = x, y = y(x), xlab = "x (Urmenge/Definitionsmenge)", ylab = "f(x) (Bildmenge)", type = "l")
+```
+
+    
+    
+# Aufgabe 4
+
+### Teilaufgabe a
+
+
+1. 
+
+$$
+\overrightarrow{a} + (\vec{b}  - \vec{c}) =
+\left(\begin{array}{c} 1 \\ 2 \\ -3 \end{array} \right)
++ \left( \left(\begin{array}{c} 2 \\ 1 \\ 1 \end{array} \right)
+- \left(\begin{array}{c} -1 \\ 0 \\ 3 \end{array} \right) \right) 
+= \left(\begin{array}{c} 1 \\ 2 \\ -3 \end{array} \right)
++ \left(\begin{array}{c} 3 \\ 1 \\ -2 \end{array} \right)
+= \left(\begin{array}{c} 4 \\ 3 \\ -5 \end{array} \right)
+$$
+
+2. 
+
+$$
+\overrightarrow{a} \cdot (\vec{b}  - \vec{c}) =
+\left(\begin{array}{c} 1 \\ 2 \\ -3 \end{array} \right) 
+\cdot \left(\begin{array}{c} 3 \\ 1 \\ -2 \end{array} \right)
+= 3 + 2 + 6 
+= 11
+$$
+        
+3.     
+
+$$
+(\overrightarrow{a} \cdot \vec{b})  - \vec{c}=
+\left(\begin{array}{c} 1 \\ 2 \\ -3 \end{array} \right) 
+\cdot \left(\begin{array}{c} 2 \\ 1 \\ 1 \end{array} \right)
+\cdot\vec{c}
+= (2 + 2 -3) \cdot \vec{c}
+= \vec{c}
+= \left(\begin{array}{c} -1 \\ 0 \\ 3 \end{array} \right) 
+$$
+
+4.     
+
+$$
+(\overrightarrow{a} \cdot \vec{b})  - \vec{c} \quad \rightarrow \text{Berechnung nicht möglich}
+$$
+
+
+5. 
+
+$$
+\frac{\overrightarrow{a}}{||\vec{b}  +\vec{c}||}
+= \frac{\overrightarrow{a}}{\left| \left| \left(\begin{array}{c} 2 \\ 1 \\ 1 \end{array} \right)  + \left(\begin{array}{c} -11 \\ 0 \\ 3 \end{array} \right) \right| \right| } 
+= \frac{\overrightarrow{a}}{\left| \left| \left(\begin{array}{c} 1 \\ 1 \\ 4 \end{array} \right) \right| \right| }
+= \frac{\overrightarrow{a}}{\sqrt{1+1+16}}
+= \frac{1}{\sqrt{18}}\cdot\left(\begin{array}{c} 1 \\ 2 \\ -3 \end{array} \right) 
+$$
+
+
+6. 
+
+$$
+\frac{\overrightarrow{a}}{\vec{b}  +\vec{c}} \quad \quad \rightarrow \text{Berechnung nicht möglich.}
+$$
+
+7. \ a\)
+$$
+\alpha(\overrightarrow{a}, \vec{b})
+$$
+
+$$
+\overrightarrow{a} \cdot \overrightarrow{b} = |\vec{a}| |\vec{b}| \cdot cos(\alpha)
+$$
+
+$$
+\vec{a} \cdot \vec{b}
+= \left(\begin{array}{c} 1 \\ 2 \\ -3 \end{array} \right) \cdot \left(\begin{array}{c} 2 \\ 1 \\ 1 \end{array} \right) 
+= 2 + 2 -3 = 1
+$$
+
+$$
+|\vec{a} | = \sqrt{1+4+9} = \sqrt{14}
+$$
+
+$$
+|\vec{b} | = \sqrt{4+1+1} = \sqrt{6}
+$$
+
+$$
+cos(\alpha) = \frac{1}{\sqrt{14} \cdot \sqrt{6}} \quad \quad \Rightarrow \alpha = 83,7°
+$$
+
+7. \ b\) 
+
+$$
+\theta(\vec{a},\vec{b} + \vec{c})
+$$
+
+$$
+\vec{b} + \vec{c} = \left(\begin{array}{c} 1 \\ 1 \\ 4 \end{array} \right)
+$$
+
+$$
+\vec{a} \cdot (\vec{b} + \vec{c}) 
+= \left(\begin{array}{c} 1 \\ 2 \\ -3 \end{array} \right) \cdot\left(\begin{array}{c} 1 \\ 1 \\ 4 \end{array} \right) 
+= 1 + 2 -12 
+= -9
+$$
+
+$$
+|\vec{a} | = \sqrt{14}
+$$
+
+$$
+|\vec{b} + \vec{c}| = \sqrt{1 + 1 + 16} = \sqrt{18}
+$$
+
+$$
+cos(\theta) = \frac{-9}{\sqrt{14} \cdot \sqrt{18}} \quad \quad \Rightarrow \theta = 124,5°
+$$
+
+### Teilaufgabe b
+
+$$
+\vec{a} = \left(\begin{array}{c} 1 \\ 2 \\ 0 \end{array} \right) \quad \quad \quad
+\vec{b} = \left(\begin{array}{c} 0 \\ 1 \\ 1 \end{array} \right) \quad \quad \quad
+\vec{u} = \left(\begin{array}{c} x \\ y \\ z \end{array} \right)
+$$
+
+Durch die geforderte Orthogonalität zu den beiden Vektoren sowie der Länge 7 können wir folgende Gleichungen aufstellen:
+
+$$
+\begin{aligned}
+(1)& \quad \vec{u} \cdot \vec{a} = x + 2y = 0 \\
+(2)& \quad \vec{u} \cdot \vec{b} = y + z = 0 \\
+(3)& \quad |\vec{u}| = 7 \quad \rightarrow \quad x^{2} + y^{2} + z^{2} = 49
+\end{aligned}
+$$
+
+Gleichung (1) und (2) können jeweils nach y umformuliert werden:
+
+$$
+\begin{aligned}
+(1)& \quad x = -2y \\
+(2)& \quad z = -y
+\end{aligned}
+$$
+
+Wenn man diese in Gleichung (3) einsetzt erhält man:
+
+$$
+\begin{aligned}
+(3) \quad 4y^{2} + y^{2} + y^{2} &= 49 \\
+\rightarrow 6y^{2} &= 49 \\
+\rightarrow y &= \pm \frac{7}{\sqrt{6}}
+\end{aligned}
+$$
+
+Nach Einsetzen von y in Gleichung (1) und (2):
+
+$$
+\begin{aligned}
+x &= \mp 2\cdot\frac{7}{\sqrt{6}}\\
+z &= \mp \frac{7}{\sqrt{6}}
+\end{aligned}
+$$
+
+Und somit ergeben sich die 2 zu beiden Vektoren $\vec{a}$ und $\vec{b}$ orthogonalen Vektoren:
+
+$$
+\vec{v_{1}} = \frac{1}{\sqrt{6}} \cdot \left(\begin{array}{c} -14 \\ 7 \\ -7 \end{array} \right) \quad \text{und} \quad \quad \vec{v_{1}} = \frac{1}{\sqrt{6}} \cdot \left(\begin{array}{c} 14 \\ -7 \\ +7 \end{array} \right)
+$$
+
+-----------
+
+Weiteres Material zu Vektoren:
+[http://immersivemath.com/ila/ch02_vectors/ch02.html](http://immersivemath.com/ila/ch02_vectors/ch02.html)
+
+-----------
+
+
+
+# Frage Tupel
+An n-tuple is a sequence (or ordered list) of n elements, where n is a non-negative integer.  
+Beispiele:
+
+1. Punkte
+2. Vektoren

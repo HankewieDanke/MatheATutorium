@@ -79,14 +79,14 @@ $$D_{0} = D_{0}$$
 
 $\Rightarrow$ Alle Bedingungen sind erfüllt, daher stellt **M eine Gruppe** dar. \ 
 
-- **Kommunikativität** ($\forall a \in G, \forall b \in G: a \circ b = b \circ a$):
+- **Kommultativität** ($\forall a \in G, \forall b \in G: a \circ b = b \circ a$):
 
     Beispiel:
 
 $$S_{m} \circ S_{n} = S_{n} \circ S_{m}$$
 $$D_{180} = D_{180}$$
 
-$\Rightarrow$ Nachdem auch die Kommunikativität hier erfüllt ist, stellt M sogar eine **Abelsche Gruppe** dar.
+$\Rightarrow$ Nachdem auch die Kommultativität hier erfüllt ist, stellt M sogar eine **Abelsche Gruppe** dar.
 
 # Aufgabe 3
 
@@ -213,7 +213,7 @@ $$
 
 $$
 \frac{\overrightarrow{a}}{||\vec{b}  +\vec{c}||}
-= \frac{\overrightarrow{a}}{\left| \left| \left(\begin{array}{c} 2 \\ 1 \\ 1 \end{array} \right)  + \left(\begin{array}{c} -11 \\ 0 \\ 3 \end{array} \right) \right| \right| } 
+= \frac{\overrightarrow{a}}{\left| \left| \left(\begin{array}{c} 2 \\ 1 \\ 1 \end{array} \right)  + \left(\begin{array}{c} -1 \\ 0 \\ 3 \end{array} \right) \right| \right| } 
 = \frac{\overrightarrow{a}}{\left| \left| \left(\begin{array}{c} 1 \\ 1 \\ 4 \end{array} \right) \right| \right| }
 = \frac{\overrightarrow{a}}{\sqrt{1+1+16}}
 = \frac{1}{\sqrt{18}}\cdot\left(\begin{array}{c} 1 \\ 2 \\ -3 \end{array} \right) 

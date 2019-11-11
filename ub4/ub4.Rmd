@@ -1,0 +1,142 @@
+---
+title: "UB4 -- Tutorium Mathe A WS19/20"
+author: "Anton Hanke"
+date: "Tutorium: 14/11/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Aufgabe 1.
+
+### rechen operationen
+Es seien die Komplexen Zahlen $v = a_v \cdot ib_v$ und $u = a_u \cdot ib_u$.
+
+#### Multiplikation
+Wir sollen zeigen, dass:
+$$ ||uv|| = ||u||\cdot ||v||$$
+Wir berechnen nun alle beträge und multiplkationen auf beiden Seiten der Gleichung:
+\[
+\begin{aligned}
+||uv|| =& \left|| \left(a_u \cdot ib_u\right)\cdot\left( a_v \cdot ib_v\right)\right|| \quad \quad \text{Ausmultiplizieren}\\
+||uv|| =& \left| a_ua_v + ia_ub_v + ib_ua_v + i^2b_ub_v \right|\\
+||uv|| =& \left| a_ua_v - b_ub_v + i(a_ub_v + b_ua_v) \right|\\
+||uv|| =& \sqrt{\left(a_ua_v - b_ub_v\right)^2 + \left(a_ub_v + b_ua_v\right)^2}\quad \quad |z|=|x+iy|=\sqrt{x^2+y^2}\\
+||uv|| =& \sqrt{(a_ua_v)^2 + (b_ub_v)^2 - 2 a_ua_vb_ub_v + (a_ub_v)^2 + (b_ua_v)^2 + 2a_ua_vb_ub_v}\\
+=& \sqrt{(a_ua_v)^2 + (b_ub_v)^2 + (a_ub_v)^2 + (b_ua_v)^2}.
+\end{aligned}
+\]
+
+Dies machen wir auch für die einzelnen Zahlen:
+\[
+\begin{aligned}
+|u||v| =& \sqrt{a_u^2+b_u^2}\sqrt{a_v^2+b_v^2}\\
+=& \sqrt{(a_ua_v)^2+(a_ub_v)^2 + (b_ua_v)^2 + (b_ub_v)^2}.
+\end{aligned}
+\]
+Diese beiden expressionen sind gleich.
+
+----------------------
+
+##### Alternativ Lösung
+Komplexe Zahlen lassen sich auch in ihrer Polarform darstellen.
+$$v= Re^{i\Phi}$$
+$$u= R'e^{i\Phi '}$$
+Von der Geometrischen Darstellung Komplexer Zahlen wissen wir,
+dass $R = \sqrt{a^2+b^2}$ ist.  
+![](figure1.pdf)  
+
+Demnach lässt sich der Betrag der beiden Vektoren wie folgt aufstellen:
+\[
+\begin{aligned}
+||uv|| = |RR'e^{i(\Phi\Phi')}| &= RR'\\
+\left.\begin{array}{ccc}
+|u| =& |Re^{i\Phi}| =& R\\
+|v| =& |R'e^{i\Phi'}| =& R'\\
+\end{array}%
+\right\} |u||v| &= RR'
+\end{aligned}
+\]
+
+----------------------
+
+#### Addition
+Wir sollen zeigen, dass:
+$$ ||u+v|| \leq ||u|| + ||v|| $$
+Nun berechnen wir alle Beträge und addieren:
+$$|u|+|v| = \sqrt{a_u^2+b_u^2}+\sqrt{a_v^2+b_v^2}$$
+\[
+\begin{aligned}
+|u+v| &= \sqrt{(a_u+ib_u)+(a_v+ib_v)}\\
+&= \sqrt{(a_u+a_v)^2 + (b_u+b_v)^2}\\
+&= \sqrt{a_u^2 + a_v^2 + 2a_ua_v+ b_u^2 + b_v^2 + 2b_ub_v}\\
+\end{aligned}
+\]
+Wir setzen nun zusammen und stellen um:
+\[
+\begin{array}{lc|l}
+|u+v|^2 {~\overset{?}{\leq}~} \left(|u|+|v|\right)^2 &  & \text{Quadrieren um sqrt zu entfernen}\\
+\Leftrightarrow a_u^2 + a_v^2 + 2a_ua_v+ b_u^2 + b_v^2 + 2b_ub_v {~\overset{?}{\leq}~}
+a_u^2 + a_v^2 + b_u^2 + b_v^2 + 2\sqrt{(a_u^2+b_u^2)(a_v^2+b_v^2)}&  & \text{umformen}\\
+\Leftrightarrow a_ua_v + b_ub_v {~\overset{?}{\leq}~} \sqrt{(a_u^2+b_u^2)(a_v^2+b_v^2)} &  & \text{Quadrieren um sqrt zu entfernen}\\
+\Leftrightarrow (a_ua_v+b_ub_v)^2 {~\overset{?}{\leq}~} (a_u^2+b_u^2)(a_v^2+b_v^2)&  & \text{umformen}\\
+\Leftrightarrow 2a_ub_ua_vb_v {~\overset{?}{\leq}~} a_u^2b_v^2+a_v^2b_u^2 &  & \text{}\\
+\Leftrightarrow 0 {~\overset{?}{\leq}~} a_u^2b_v^2+a_v^2b_u^2 - 2a_ub_ua_vb_v &  & \text{Zusammenfassen}\\
+\Leftrightarrow 0 {~\overset{}{\leq}~} (a_ub_v - a_vb_u)^2 &  & \blacksquare\\
+\end{array}
+\]
+
+### trigonomische Formen
+#### Trignometrische Form $z$
+Schreiben Sie $z = 3 - i8$ in trigonometrischer Form, also als $z = r\cdot e^{i\Theta}$.  
+Von dem Graphen in der ersten Teilaufgabe ist erkenntlich:
+$$\cos\alpha = \frac{a}{r}\quad \quad \sin\alpha = \frac{b}{r}$$
+Auch wissen wir, dass $r = |z|$.
+Damit können wir nun $r$ berechnen und daraus folgend den cosinus und sinus von alpha berechnen.
+Dies setzen wir folgend in die Polarkoordinatenform ein.
+\[
+\begin{aligned}
+r =& \sqrt{73}\\
+\cos\alpha = \frac{3}{r} \quad&\quad \sin\alpha = \frac{-8}{r}\\
+\Leftrightarrow z =& \sqrt{73} \left(\frac{3}{\sqrt{73}}-\frac{8}{\sqrt{73}}i\right)\\
+\Leftrightarrow z =& \sqrt{73}e^{i\cdot\sin^{-1}\left(\frac{-8}{\sqrt{73}}\right)}
+\end{aligned}
+\]
+
+#### Finde $u$
+Es soll eine Zahl existieren:
+$u = Re^{i\Phi} = R(\cos\Phi+i\sin\Phi)$  
+für die gilt: $u^2 = z$.  
+Hierbei muss gelten: $\sin\Phi < 0\rightarrow \Phi \in [-\pi, 0]$.  
+Nach der Ersten Bedingung können wir folgend aufstellen:
+$$ R^2 e^{2i\Phi} = \sqrt{73}e^{i\sin^{-1}\left(\frac{-8}{\sqrt{73}}\right)}$$
+Dies ermöglicht die Auflösung von den variablen:
+$$
+\left\{\begin{array}{cc}
+R = \sqrt{r} &= (73)^{\frac{1}{4}}\\
+2\Phi = \sin^{-1}\left(\frac{-8}{\sqrt{73}}\right) =& \Phi = \frac{\sin^{-1}\left(\frac{-8}{\sqrt{73}}\right)}{2}\\
+\end{array}\right. \Leftrightarrow u = (73)^\frac{1}{4} e^{i\frac{\sin^{-1}\left(\frac{-8}{\sqrt{73}}\right)}{2}}
+$$
+
+### Punktemengen in der komplexen Ebene
+#### (a)
+$$\text{Im}z = |z|$$
+Wir wissen $R = |z|$ und $\text{Im}z = R\sin\alpha$.
+Somit:
+$$R\sin\alpha = R \Leftrightarrow \sin\alpha = 1$$
+daraus:
+$$z = Re^{i\pi /2} = iR$$
+Damit entspricht z der y-Achse und ist element der Reelen Zahlen.
+
+#### (b)
+
+#### (c)
+#### (d)
+#### (e)
+#### (f)
+
+# Aufgabe 2.
+
+# Aufgabe 3.
+

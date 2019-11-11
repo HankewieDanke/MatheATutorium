@@ -1,0 +1,42 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikzit}
+% all other packages and stuff you need for the picture
+%
+\begin{document}
+
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (0) at (0, 7) {};
+		\node [style=none] (1) at (0, -2) {};
+		\node [style=none] (2) at (-2, 0) {};
+		\node [style=none] (3) at (7, 0) {};
+        \node [style=none] (4) at (0, 7) {};
+        \node [style=none] (5) at (7, 0) {};
+		\node [style=none] (6) at (4, 0) {};
+		\node [style=none] (7) at (1, 5) {};
+        \node [anchor = west,style=none] (a) at (5, 3) {$ a = r\cos\alpha$};
+        \node [anchor = west,style=none] (b) at (5, 2) {$b= r\sin\alpha$};
+        \node [style=none] (8) at (5, 4) {};
+		\node [style=none] (9) at (1.25, 6.5) {};
+		\node [style=none] (10) at (0, 0) {};
+		\node [style=none] (11) at (0.75, 6) {};
+		\node [style=none] (12) at (0.75, 6) {$r^2$};
+		\node [style=none] (13) at (2, 5) {};
+		\node [style=none] (14) at (2, 5) {$2\alpha$};
+		\node [style=none] (15) at (1.75, 0) {};
+		\node [style=none] (16) at (1.25, 1) {};
+		\node [style=none] (17) at (2, 0.75) {$\alpha$};
+		\node [style=none] (18) at (2.75, -2) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+        \draw [->] (2.center) to (5.center) node[anchor = north west]{Reele Zahlen};
+        \draw [->] (1.center) to (4.center) node[anchor = south east]{Komplexe Zahlen};
+		\draw [bend left] (7.center) to (6.center);
+		\draw [<-, green] (9.center) to (10.center);
+        \draw [->, dashed] (10.center) to (8.center) node[anchor = south west]{$z = a+ ib$};
+		\draw [bend left=45] (16.center) to (15.center);
+	\end{pgfonlayer}
+\end{tikzpicture}
+
+\end{document}

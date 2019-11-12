@@ -68,7 +68,8 @@ Nun berechnen wir alle Beträge und addieren:
 $$|u|+|v| = \sqrt{a_u^2+b_u^2}+\sqrt{a_v^2+b_v^2}$$
 \[
 \begin{aligned}
-|u+v| &= \sqrt{(a_u+ib_u)+(a_v+ib_v)}\\
+|u+v| &= |(a_u+ib_u)+(a_v+ib_v)|\\
+&= \underbrace{a_u+a_v}_x+i\cdot\underbrace{(b_u+b_v)}_y\\
 &= \sqrt{(a_u+a_v)^2 + (b_u+b_v)^2}\\
 &= \sqrt{a_u^2 + a_v^2 + 2a_ua_v+ b_u^2 + b_v^2 + 2b_ub_v}\\
 \end{aligned}
@@ -120,21 +121,20 @@ R = \sqrt{r} &= (73)^{\frac{1}{4}}\\
 $$
 
 ### Punktemengen in der komplexen Ebene
-#### (a)
-$$\text{Im}(z) = |z|$$
+#### (a) $\text{Im}(z) = |z|$
 Wir wissen $R = |z|$ und $\text{Im}(z) = R\sin\alpha$.
 Somit:
 $$R\sin\alpha = R \Leftrightarrow \sin\alpha = 1$$
 daraus:
 $$z = Re^{i\pi /2} = iR$$
-Damit entspricht z der y-Achse und ist element der Reelen Zahlen.
+Damit entspricht z der y-Achse und ist element der complexen Zahlen.
 
 #### (b) $z = |z|$
 \[
 \begin{aligned}
 z = |z| &\Leftrightarrow R\left(\cos\alpha + i\sin\alpha\right) = R\\
 &\Leftrightarrow \left\{\begin{array}{cc}\cos\alpha =&1\\ \sin\alpha =& 0\end{array}\right.\quad\alpha = 0.\\
-z &= \mathbb{R}
+z &= \mathbb{R}^+
 \end{aligned}
 \]
 

@@ -421,7 +421,8 @@ $(document).ready(function () {
 <h4>Addition</h4>
 <p>Wir sollen zeigen, dass: <span class="math display">\[ ||u+v|| \leq ||u|| + ||v|| \]</span> Nun berechnen wir alle Beträge und addieren: <span class="math display">\[|u|+|v| = \sqrt{a_u^2+b_u^2}+\sqrt{a_v^2+b_v^2}\]</span> <span class="math display">\[
 \begin{aligned}
-|u+v| &amp;= \sqrt{(a_u+ib_u)+(a_v+ib_v)}\\
+|u+v| &amp;= |(a_u+ib_u)+(a_v+ib_v)|\\
+&amp;= \underbrace{a_u+a_v}_x+i\cdot\underbrace{(b_u+b_v)}_y\\
 &amp;= \sqrt{(a_u+a_v)^2 + (b_u+b_v)^2}\\
 &amp;= \sqrt{a_u^2 + a_v^2 + 2a_ua_v+ b_u^2 + b_v^2 + 2b_ub_v}\\
 \end{aligned}
@@ -468,9 +469,9 @@ R = \sqrt{r} &amp;= (73)^{\frac{1}{4}}\\
 </div>
 <div id="punktemengen-in-der-komplexen-ebene" class="section level3">
 <h3>Punktemengen in der komplexen Ebene</h3>
-<div id="a" class="section level4">
-<h4>(a)</h4>
-<p><span class="math display">\[\text{Im}(z) = |z|\]</span> Wir wissen <span class="math inline">\(R = |z|\)</span> und <span class="math inline">\(\text{Im}(z) = R\sin\alpha\)</span>. Somit: <span class="math display">\[R\sin\alpha = R \Leftrightarrow \sin\alpha = 1\]</span> daraus: <span class="math display">\[z = Re^{i\pi /2} = iR\]</span> Damit entspricht z der y-Achse und ist element der Reelen Zahlen.</p>
+<div id="a-textimz-z" class="section level4">
+<h4>(a) <span class="math inline">\(\text{Im}(z) = |z|\)</span></h4>
+<p>Wir wissen <span class="math inline">\(R = |z|\)</span> und <span class="math inline">\(\text{Im}(z) = R\sin\alpha\)</span>. Somit: <span class="math display">\[R\sin\alpha = R \Leftrightarrow \sin\alpha = 1\]</span> daraus: <span class="math display">\[z = Re^{i\pi /2} = iR\]</span> Damit entspricht z der y-Achse und ist element der complexen Zahlen.</p>
 </div>
 <div id="b-z-z" class="section level4">
 <h4>(b) <span class="math inline">\(z = |z|\)</span></h4>
@@ -478,7 +479,7 @@ R = \sqrt{r} &amp;= (73)^{\frac{1}{4}}\\
 \begin{aligned}
 z = |z| &amp;\Leftrightarrow R\left(\cos\alpha + i\sin\alpha\right) = R\\
 &amp;\Leftrightarrow \left\{\begin{array}{cc}\cos\alpha =&amp;1\\ \sin\alpha =&amp; 0\end{array}\right.\quad\alpha = 0.\\
-z &amp;= \mathbb{R}
+z &amp;= \mathbb{R}^+
 \end{aligned}
 \]</span></p>
 </div>

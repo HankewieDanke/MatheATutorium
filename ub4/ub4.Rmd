@@ -45,7 +45,7 @@ $$v= Re^{i\Phi}$$
 $$u= R'e^{i\Phi '}$$
 Von der Geometrischen Darstellung Komplexer Zahlen wissen wir,
 dass $R = \sqrt{a^2+b^2}$ ist.  
-![](figure1.pdf)  
+![](figure1.pdf){width=550pt height=370pt}
 
 Demnach lässt sich der Betrag der beiden Vektoren wie folgt aufstellen:
 \[
@@ -184,6 +184,59 @@ Hier muss umgestellt werden:
 
 
 # Aufgabe 2.
+### (a) $z_1 = z + \frac{1}{\bar{z}}$
+\begin{equation}
+    \begin{aligned}
+        z_1 &= a+ib + \frac{1}{a-ib} \cdot \frac{\bar{\bar{z}}}{\bar{\bar{z}}}\\
+        \Rightarrow z_1 &= a+ib + \frac{a+ib}{(a+ib)(a-ib)}\\
+        \Rightarrow \quad&= a+ib + \frac{a+ib}{a^2+ b^2}\\
+        \Rightarrow \quad&= a + ib + \frac{a}{a^2+b^2} + ib + \frac{ib}{a^2+b^2}\\
+        \Rightarrow z_1 &= \left(a + \frac{a}{a^2+b^2}\right) + i\left(b + \frac{b}{a^2+b^2}\right)
+    \end{aligned}
+\end{equation}
+
+### (b) $z_2 = \bar{z}^2 + \frac{1}{z^2}$
+Gleiche vorgehensweise wie bei der Aufgabe (a).
+\begin{equation}
+    \begin{aligned}
+        z_2 &= (a+ib)^2 + \frac{1}{(a+ib)^2} \\
+        \Rightarrow \quad &= \underbrace{a^2 - b^2 - 2iab}_c + \frac{(a-ib)^2}{(a-ib)^2(a+ib)^2} \\
+        \Rightarrow \quad &= c + \frac{\overbrace{a^2-b^2-2iab}^c}{(a^2+b^2)^2} \\
+        \Rightarrow z_2 &= \underbrace{a^2 - b^2 + \frac{a^2-b^2}{(a^2+b^2)^2}}_{a_2} \underbrace{- 2\left(ab + \frac{ab}{(a^2+b^2)^2}\right)}_{b_2}i
+    \end{aligned}
+\end{equation}
 
 # Aufgabe 3.
+### (a) $\tan\left(\alpha - \frac{\pi}{4}\right) + \frac{1}{\tan\left(\alpha + \frac{\pi}{t} \right)}$
+Wir erinnern uns: $\tan \alpha = \frac{\sin\alpha}{\cos\alpha}$
+Auch erinnern wir uns:
+\begin{equation}
+    \begin{aligned}
+        \cos(a+b) &= \cos a \cos b - \sin a \sin b\\
+        \sin(a+b) &= \sin a \cos b + \sin b \cos a
+    \end{aligned}
+\end{equation}
+Dies verwenden wir im folgenden:
+\[
+\begin{aligned}
+    \tan\left(\alpha - \frac{\pi}{4}\right) &= \frac{\sin\left(\alpha - \frac{\pi}{4}\right)}{\cos\left(\alpha - \frac{\pi}{4}\right)} \\
+    \sin\left(\alpha - \frac{\pi}{4}\right) &= \sin \alpha \cos \frac{\pi}{4} - \sin \frac{\pi}{4} \cos \alpha\\
+    \Rightarrow &= \frac{\sqrt{2}}{2} \left(\sin\alpha - \cos\alpha\right)\\
+    \cos\left(\alpha - \frac{\pi}{4}\right) &= \frac{\sqrt{2}}{2} \left(\cos\alpha + \sin\alpha\right)\\
+    \Rightarrow &\tan\left(\alpha - \frac{\pi}{4}\right) = \frac{\frac{\sqrt{2}}{2} \left(\sin\alpha - \cos\alpha\right)}{\frac{\sqrt{2}}{2} \left(\cos\alpha + \sin\alpha\right)}\\
+    &\tan\left(\alpha + \frac{\pi}{4}\right) = \frac{\frac{\sqrt{2}}{2} \left(\sin\alpha + \cos\alpha\right)}{\frac{\sqrt{2}}{2} \left(\cos\alpha - \sin\alpha\right)}\\
+\end{aligned}
+\]
+Diese Gleichungen setzen wir in die Uhrsprungsgleichung ein und erhalten:
+\[
+\tan\left(\alpha - \frac{\pi}{4}\right) + \frac{1}{\tan\left(\alpha + \frac{\pi}{t} \right)} =
+\frac{\left(\sin\alpha - \cos\alpha\right)}{\left(\cos\alpha + \sin\alpha\right)}+
+\frac{\left(\cos\alpha - \sin\alpha\right)}{\left(\sin\alpha + \cos\alpha\right)}=
+0.
+\]
 
+### (b) $\frac{\left(\sin\alpha - \cos\alpha\right)}{\left(\cos\alpha + \sin\alpha\right)}$
+Hier erinnern wir uns an die erste Teilaufgabe und sehen das folgendes gilt:
+\[
+\tan\left(\alpha - \frac{\pi}{4}\right)
+\]

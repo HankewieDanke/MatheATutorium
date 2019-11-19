@@ -1,0 +1,97 @@
+---
+title: "UB5 -- Tutorium Mathe A WS19/20"
+author: "Anton Hanke"
+date: "Tutorium: 21/11/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Aufgabe 1
+Es gilt:
+
+- $v_1, \dots, v_r$ linear unabhängig.
+- $v_0 \perp v_1, \dots, v_r$
+
+Zeige: $v_0$ linear unabhängig von allen anderen $v$.
+Für lineare unabhägnigkeit muss folgendes gelten:
+$$\lambda_{0} \overrightarrow{v_{0}}+\lambda_{1} \overrightarrow{v_{1}}+\ldots+\lambda_{r} \overrightarrow{v_{r}}=\overrightarrow{0}$$
+Somit soll auch gelten, dass:
+$$\lambda_0 = \lambda_1 = \ldots = \lambda_r = 0$$
+
+Wir machen uns nun die orthogonalität zunutze.
+Es gilt: $v_0 \cdot v_i = 0 \quad (i = 1, \ldots, r)$  
+
+Um die obig beschrieben summe zu kürzen können wir also auf beiden seiten mit
+$v_0$ multiplizieren:
+\[
+\lambda_0 \underbrace{|v_0|}_{\neq 0} + \sum_{i=1}^r \lambda_i \underbrace{v_0 \cdot v_i}_{= 0} = 0.
+\]
+Dies impliziert, dass: $\lambda_0 = 0$
+somit ist die unabhängigkeit bewiesen, da
+$\lambda_0 = \lambda_1 = \ldots = \lambda_r = 0$ 
+bewiesen wurde.
+
+# Aufgabe 2
+
+### (a)
+Nicht linear unabhängig.
+`dim span (u,v) = 1`
+Somit ein vektor spant: $\mathbb{R}$.
+
+### (b)
+Es gelte:
+$$
+u=\left(\begin{array}{l}{0} \\ {1} \\ {1}\end{array}\right) \quad v=\left(\begin{array}{l}{1} \\ {1} \\ {0}\end{array}\right) \quad w=\left(\begin{array}{l}{0} \\ {0} \\ {0}\end{array}\right)
+$$
+Vektor $w$ trägt nicht zu aufgespanten Raum bei, da gilt:
+$$\dim \text{span}(w) =0$$
+Damit spant sich die Dimension wie folgt auf:
+\[\text{span}(u,v,w) = \text{span}(u,v) \Rightarrow \dim = 2\]
+
+### (c)
+Es gilt:
+$$ V := \left\{ v | \forall i \in v : i > 0 \right\} $$
+
+Somit gilt für $v \in V$:
+$$v \in \mathbb{R}^3 \quad \Rightarrow \text{span}(v) \leq \mathbb{R}^3$$
+Daraus folgt: $\dim\text{span}(v) \leq 3$.
+Die Menge $V$ enthält alle Vektoren der Kanonischen Basis und
+ermöglicht somit die Schlussfolgerung das: $\text{span}(V) = \mathbb{R}^3$.
+Somit gilt: $\dim(V) = 3$.
+
+# Aufgabe 3
+Hinwiese:
+
+- $f: \mathbb{R}^{3} \rightarrow \mathbb{R}^{3}, x \rightarrow A x$
+- Multiplikation eines Vektors mit einer Matrix ist eine lineare Abbildung.
+
+$A$ sei eine $3\times 3$ matrix. Wir haben folgende Vektoren gegeben:
+\[
+u=\left(\begin{array}{l}{1} \\ {2} \\ {3}\end{array}\right), \quad
+v=\left(\begin{array}{c}{1} \\ {-1} \\ {8}\end{array}\right)
+\]
+Aus dem Hinweis erkennen wir:
+$x \leftarrow Ax$.  
+$x$ als Variable ist beliebig ersetzbar, zum Bleistift durch: $x = w = (\lambda u + \mu v)$. 
+Somit stellt sich folgendes Gleichungssystem auf:
+$$ Aw = A\left(\lambda u + \mu v\right) = \lambda \underbrace{Au}_{=b}
+   + \mu \underbrace{Av}_{=b} = (\lambda + \mu)\times b $$
+Beachte! $\lambda \& \mu =$ skalar.  
+Damit $Aw = b$ gelten kann muss $\sum\lambda + \mu = 1$ gelten.  
+Durch resubsitution: $w = \lambda u + (1-\lambda) v$.  
+Somit gelten als weitere Lösungen folgende Vektormenge:
+$$
+W := \left\{\left. \lambda
+\left(\begin{array}{c}
+{1}\\{2}\\{3}
+\end{array}\right)
++ (1 -\lambda)
+\left(\begin{array}{c}
+{1}\\{-1}\\{0}
+\end{array}\right)
+\right| \lambda \in \mathbb{R}
+\right\}
+$$

@@ -178,7 +178,7 @@ Hier muss umgestellt werden:
         z\pm zi &= -1 \pm i \\
         z(1\pm i) &= -1 \pm i\\
         z&= \frac{-1\pm i}{1\pm i} = \frac{(1\mp i)(-1\pm i)}{2}\\
-        &= \frac{1\pm 2i -1 }{2} = i
+        &= \frac{1\pm 2i -1 }{2} = \pm i
     \end{aligned}
 \end{equation}
 
@@ -199,7 +199,7 @@ Hier muss umgestellt werden:
 Gleiche vorgehensweise wie bei der Aufgabe (a).
 \begin{equation}
     \begin{aligned}
-        z_2 &= (a+ib)^2 + \frac{1}{(a+ib)^2} \\
+        z_2 &= (a-ib)^2 + \frac{1}{(a+ib)^2} \\
         \Rightarrow \quad &= \underbrace{a^2 - b^2 - 2iab}_c + \frac{(a-ib)^2}{(a-ib)^2(a+ib)^2} \\
         \Rightarrow \quad &= c + \frac{\overbrace{a^2-b^2-2iab}^c}{(a^2+b^2)^2} \\
         \Rightarrow z_2 &= \underbrace{a^2 - b^2 + \frac{a^2-b^2}{(a^2+b^2)^2}}_{a_2} \underbrace{- 2\left(ab + \frac{ab}{(a^2+b^2)^2}\right)}_{b_2}i

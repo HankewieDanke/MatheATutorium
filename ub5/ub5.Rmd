@@ -44,7 +44,9 @@ Somit ein vektor spant: $\mathbb{R}$.
 ### (b)
 Es gelte:
 $$
-u=\left(\begin{array}{l}{0} \\ {1} \\ {1}\end{array}\right) \quad v=\left(\begin{array}{l}{1} \\ {1} \\ {0}\end{array}\right) \quad w=\left(\begin{array}{l}{0} \\ {0} \\ {0}\end{array}\right)
+u=\left(\begin{array}{l}{0} \\ {1} \\ {1}\end{array}\right) \quad
+v=\left(\begin{array}{l}{1} \\ {1} \\ {0}\end{array}\right) \quad
+w=\left(\begin{array}{l}{0} \\ {0} \\ {0}\end{array}\right)
 $$
 Vektor $w$ trägt nicht zu aufgespanten Raum bei, da gilt:
 $$\dim \text{span}(w) =0$$
@@ -56,8 +58,8 @@ Es gilt:
 $$ V := \left\{ v | \forall i \in v : i > 0 \right\} $$
 
 Somit gilt für $v \in V$:
-$$v \in \mathbb{R}^3 \quad \Rightarrow \text{span}(v) \leq \mathbb{R}^3$$
-Daraus folgt: $\dim\text{span}(v) \leq 3$.
+$$v \in \mathbb{R}^n \quad \Rightarrow \text{span}(v) \leq \mathbb{R}^n$$
+Daraus folgt für die Vektoren aus der Aufgabe: $\dim\text{span}(v) \leq 3$.
 Die Menge $V$ enthält alle Vektoren der Kanonischen Basis und
 ermöglicht somit die Schlussfolgerung das: $\text{span}(V) = \mathbb{R}^3$.
 Somit gilt: $\dim(V) = 3$.

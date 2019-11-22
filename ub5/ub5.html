@@ -379,7 +379,7 @@ summary {
 <p>Zeige: <span class="math inline">\(v_0\)</span> linear unabhängig von allen anderen <span class="math inline">\(v\)</span>. Für lineare unabhägnigkeit muss folgendes gelten: <span class="math display">\[\lambda_{0} \overrightarrow{v_{0}}+\lambda_{1} \overrightarrow{v_{1}}+\ldots+\lambda_{r} \overrightarrow{v_{r}}=\overrightarrow{0}\]</span> Somit soll auch gelten, dass: <span class="math display">\[\lambda_0 = \lambda_1 = \ldots = \lambda_r = 0\]</span></p>
 <p>Wir machen uns nun die orthogonalität zunutze. Es gilt: <span class="math inline">\(v_0 \cdot v_i = 0 \quad (i = 1, \ldots, r)\)</span></p>
 <p>Um die obig beschrieben summe zu kürzen können wir also auf beiden seiten mit <span class="math inline">\(v_0\)</span> multiplizieren: <span class="math display">\[
-\lambda_0 \underbrace{|v_0|}_{\neq 0} + \sum_{i=1}^r \lambda_i \underbrace{v_0 \cdot v_i}_{= 0} = 0.
+\lambda_0 \underbrace{|v_0|^2}_{\neq 0} + \sum_{i=1}^r \lambda_i \underbrace{v_0 \cdot v_i}_{= 0} = 0.
 \]</span> Dies impliziert, dass: <span class="math inline">\(\lambda_0 = 0\)</span> somit ist die unabhängigkeit bewiesen, da <span class="math inline">\(\lambda_0 = \lambda_1 = \ldots = \lambda_r = 0\)</span> bewiesen wurde.</p>
 </div>
 <div id="aufgabe-2" class="section level1">
@@ -391,13 +391,15 @@ summary {
 <div id="b" class="section level3">
 <h3>(b)</h3>
 <p>Es gelte: <span class="math display">\[
-u=\left(\begin{array}{l}{0} \\ {1} \\ {1}\end{array}\right) \quad v=\left(\begin{array}{l}{1} \\ {1} \\ {0}\end{array}\right) \quad w=\left(\begin{array}{l}{0} \\ {0} \\ {0}\end{array}\right)
+u=\left(\begin{array}{l}{0} \\ {1} \\ {1}\end{array}\right) \quad
+v=\left(\begin{array}{l}{1} \\ {1} \\ {0}\end{array}\right) \quad
+w=\left(\begin{array}{l}{0} \\ {0} \\ {0}\end{array}\right)
 \]</span> Vektor <span class="math inline">\(w\)</span> trägt nicht zu aufgespanten Raum bei, da gilt: <span class="math display">\[\dim \text{span}(w) =0\]</span> Damit spant sich die Dimension wie folgt auf: <span class="math display">\[\text{span}(u,v,w) = \text{span}(u,v) \Rightarrow \dim = 2\]</span></p>
 </div>
 <div id="c" class="section level3">
 <h3>(c)</h3>
-<p>Es gilt: <span class="math display">\[ V := \left\{ v | \forall i \in v : i &gt; 0 \right\} \]</span></p>
-<p>Somit gilt für <span class="math inline">\(v \in V\)</span>: <span class="math display">\[v \in \mathbb{R}^n \quad \Rightarrow \text{span}(v) \leq \mathbb{R}^n\]</span> Daraus folgt: <span class="math inline">\(\dim\text{span}(v) \leq 3\)</span>. Die Menge <span class="math inline">\(V\)</span> enthält alle Vektoren der Kanonischen Basis und ermöglicht somit die Schlussfolgerung das: <span class="math inline">\(\text{span}(V) = \mathbb{R}^3\)</span>. Somit gilt: <span class="math inline">\(\dim(V) = 3\)</span>.</p>
+<p>Es gilt: <span class="math display">\[ V := \left\{ v | \exists i \in v : i \geq 0 \right\} \]</span> Auch gilt: <span class="math inline">\(\lambda \in \mathbb{R^+}\)</span></p>
+<p>Somit gilt für <span class="math inline">\(v \in V\)</span>: <span class="math display">\[v \in \mathbb{R}^n \quad \Rightarrow \text{span}(v) \leq \mathbb{R}^n\]</span> Daraus folgt für die Vektoren aus der Aufgabe: <span class="math inline">\(\dim\text{span}(v) \leq 3\)</span>. Die Menge <span class="math inline">\(V\)</span> enthält alle Vektoren der Kanonischen Basis und ermöglicht somit die Schlussfolgerung das: <span class="math inline">\(\text{span}(V) = \mathbb{R}^3\)</span>. Somit gilt: <span class="math inline">\(\dim(V) = 3\)</span>.</p>
 </div>
 </div>
 <div id="aufgabe-3" class="section level1">

@@ -27,7 +27,7 @@ Es gilt: $v_0 \cdot v_i = 0 \quad (i = 1, \ldots, r)$
 Um die obig beschrieben summe zu kürzen können wir also auf beiden seiten mit
 $v_0$ multiplizieren:
 \[
-\lambda_0 \underbrace{|v_0|}_{\neq 0} + \sum_{i=1}^r \lambda_i \underbrace{v_0 \cdot v_i}_{= 0} = 0.
+\lambda_0 \underbrace{|v_0|^2}_{\neq 0} + \sum_{i=1}^r \lambda_i \underbrace{v_0 \cdot v_i}_{= 0} = 0.
 \]
 Dies impliziert, dass: $\lambda_0 = 0$
 somit ist die unabhängigkeit bewiesen, da
@@ -55,7 +55,8 @@ Damit spant sich die Dimension wie folgt auf:
 
 ### (c)
 Es gilt:
-$$ V := \left\{ v | \forall i \in v : i > 0 \right\} $$
+$$ V := \left\{ v | \exists i \in v : i \geq 0 \right\} $$
+Auch gilt: $\lambda \in \mathbb{R^+}$
 
 Somit gilt für $v \in V$:
 $$v \in \mathbb{R}^n \quad \Rightarrow \text{span}(v) \leq \mathbb{R}^n$$

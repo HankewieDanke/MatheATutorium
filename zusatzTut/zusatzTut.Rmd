@@ -1,8 +1,12 @@
 ---
-title: "UB5 -- Tutorium Mathe A WS19/20"
-author: "Anton Hanke"
-date: "Tutorium: 21/11/2019"
-output: pdf_document
+title: "Zusatztutorium Mathe A WS19/20"
+author: "Anton Hanke, Maximillian Kohnen, Felix Schnabel"
+date: "Fragestunde: 27/11/19"
+output:
+  html_document:
+    toc: TRUE
+    toc_depth: 3
+    toc_float: TRUE
 ---
 
 ```{r setup, include=FALSE}
@@ -11,8 +15,153 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Mathematische Logik
 
-# Mengen und algebraische Struckturen
+## Aussagen
 
-# Komplexe Zahlen und trignometrische Zahlen
+### Implikationen
+
+## Quantoren
+
+## Beweise
+
+# Mengen und algebraische Struckturen
+Mengen sind Zusammenfassungen bestimmter, wohlunterscheidbarer Objekte.
+Für jedes Objekt ist eine klare zuordnung zur Menge erkentlich
+
+-------------
+
+Mengen sind keine Aussagen!!
+
+-------------
+
+
+## sonder mengen & Mengen Relationen
+- $\emptyset \subset \mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}$
+- $A \subset B$ !Aussage!
+- $A \cap B$
+- $A \cup B$
+- $A\setminus B\quad \wedge \quad B\setminus A$
+- $A \times B = \left\{ (a,\,b): a \in A, b \in B\right\}$
+
+## Abbildungen
+$$f: A \rightarrow B$$
+
+- A $=$ Definitionsmenge, von hier bilden wir ab.
+- B $=$ Zielmenge, hierdrauf wird abgebildet.
+- Bildmenge: $\subset B$ welche sich aus $f(A)$ ergibt.
+
+1. Injektive Abbildung: $\forall i\in B|~~ \# (a \in A) \leq 1 : f(a) \rightarrow i$
+2. Surjektive Abbildung: $\forall i \in B|~~\# (a \in A) \geq 1 : f(a) \rightarrow i$
+3. Bijektive Abbildung: $\forall i \in B|~~ \# (a \in A) = 1 : f(a) \rightarrow i \qquad$ (1. $\wedge$ 2.)
+
+### Gruppen $(G, \oplus)$
+
+- **Abgeschlossenheit** $$a \in G, b \in G : a \oplus b \in G$$
+- **Assoziativität** $$(b\oplus a) \oplus c = a \oplus (b \oplus c)$$
+- **Neutrales Element** $D_{0}$ $$\exists e \in G, \forall a \in G : a \oplus e = a$$
+- **Inverses Element** $$\forall a \in G, \exists \bar{a} \in G: a \oplus \bar{a} = e$$
+- **Kommultativität** (abelsche Gruppe):$$\forall a \in G, \forall b \in G: a \oplus b = b \oplus a$$
+
+### Ringe $(M, \oplus, \otimes)$
+
+1. $(M, \oplus)$ ablesche Gruppe
+2. $a \otimes ( b \otimes c) = (a \otimes b) \otimes c$ assoziativität gegeben.
+3. Distributiv: $\forall a,b,c \in M : a \otimes (b\oplus c) = a \otimes b \oplus a \otimes c$.
+
+- Kommutativ wenn: $a \otimes b = b \otimes a$
+- unitär wenn: $\exists 1 \in M : a \otimes 1 = 1 \otimes a = a$.
+
+### Körper $(K, \oplus, \otimes)$
+1. $(K, \oplus)$ is abelsche Gruppe mit $D_0 = 0$.
+2. $(K \setminus \{0\}, \otimes)$ abelsche Gruppe mit $D_0 = 1$.
+3. Distributivgesetz gilt.
+
+- **Unterschied zu Ringen:** $(M, \otimes)$ keine abelsche Gruppe, kein Inverses!
+
+## Vektorrechnung
+Vektoren sind tupel mit $n$ elementen ($n = \dim{V}$).  
+Sie erfüllen alle bedingungen eines Körpers und lassen sich
+nicht mit sich selbst multiplizieren.
+
+- Linearkombination:
+$$\vec{z} = \sum _{ i = 1 } ^ k \mu _i \vec{x} _i \in V$$
+Hierbei sind $\mu$ skalare $(\mu \in \mathbb{R})$
+
+- Skalarprodukt:
+"Vektor multiplikation".  
+$$\mathbb{R}^n \mathbb{R}^n = \mathbb{R}$$
+Relevant ist, das beide Vektoren gleiche Dimension haben.  
+$$ \vec{v} \cdot \vec{w} = \sum _{i = 1} ^n v_i w_i \in \mathbb{R}$$
+
+- Vektor betrag:
+$$|\vec{v}|^2 = \vec{v}\cdot\vec{v}$$
+$$\Rightarrow |\vec{v}| = \sqrt{\sum_{i = 1} ^n v_i^2}$$
+Ein Vektor lässt sich normieren mit: $\vec{e}_v = \frac{\vec{v}}{|\vec{v}|}$.
+In $\mathbb{R}^{2}$ gilt: $\vec{e} = \left(\begin{array}{c}\cos \alpha\\ \sin \alpha \end{array}\right)$
+
+- Winkel zwischen Vektoren:  
+  Sind vektoren ortogonal ($\alpha = 90^{circ}$) gilt: $\vec{u}\cdot\vec{v} = 0 \Leftrightarrow \vec{u} \bot \vec{v}$  
+  Allgemein berechnet sich der Winkel mit:
+  $$\vec{u}\cdot\vec{v} = |\vec{u}||\vec{v}|\cos\theta$$
+
+
+### Basis eines Vektorraums
+Die Basis eines Vektorraums ist die Menge an vektoren,
+mit welchen sich über Linearkombination jeder Vektor
+im Vektorraum berechnen lässt, sie wird der span des Raums gennant:
+$$\forall \vec{v} \in V: \exists \lambda_{1}, \ldots, \lambda_{k} \in \mathbb{R}: \vec{v}=\sum_{i=1}^{n} \lambda_{i} \vec{e}_{i}$$  
+Die Vektoren dieser Basis spannen den Vektorraum auf und werden als $\text{span}{V}$ bezeichent, wobei $V :\Leftrightarrow \{\vec{v}_i,\dots, \vec{v}_k\} \in \mathbb{R}$
+
+Drei relevante Basen sind:
+
+1. Kanonische Basis: $\mathbb{R}^{n} \left\{ \vec{e}_{1} = \left( 1,\dots,0 \right), \vec{e}_{i} = (0,\dots, 1,\dots, 0), \vec{e}_{n} = \left( 0,\dots,1 \right)\right\}\quad i = 1, \dots, n$
+2. normierte Basis: $\left\{ \vec{v}_{i} \in X \right\}: |\vec{v}_{i}| = 1~~ \forall i = 1, \dots, n$
+3. orthogonale Basis: $\left\{ \vec{v}_{i} \in X \right\}: \vec{v}_{i} \cdot \vec{v}_{j} = 0~~\forall i,j = 1, \dots, n$
+
+Alle Vektoren der Basis des Vektorraums müssen linear unabhängig voneinander sein:
+$$\sum_{i=1}^{r} \lambda_{1} \vec{v}_{1}+\ldots_{i}+\lambda_{r} \vec{v}_{r}^{2}=\vec{O} \Leftrightarrow \lambda_{i}=0 \quad i=1, \ldots, r$$
+Lineare Abbhängigkeit ist gegeben, wenn $\exists \lambda \neq 0$ sodass $\lambda\vec{v}_{1}\cdot\lambda\vec{v}_{2} = \vec{0}$.  
+
+Die Dimension des (aufgespannten) Vektorraums entspricht der
+Anzahl an Basis oder Span Vektoren.
+$$\dim V = \text{span} \left( V \right)$$
+
+
+
+# Komplexe Zahlen und trignometrische Funktionen
+
+## Darstellungen Komplexer Zahlen
+
+### Kartesische Darstellung
+
+### Polarkoordinaten Darstellung
+
+### Euler Darstellung
+
+## Rechenoperationen Komplexer Zahlen
+
+## Trigonometrische Funktione
+
+### Geometrische Interpretation
+
+### Eigenschaften und wichtige Gleichungen
+
+### Wichtige Werte
 
 # Lineare Gleichungssysteme
+
+## Matrixrechung
+
+### Matrix inverse
+
+### Matrix determinanten
+
+### Spalten und Nullraum
+
+## Eliminationsverfahren
+
+### Gauß Verfahren
+
+### Matrixform
+
+## Lösbarkeit
+

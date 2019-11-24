@@ -1,0 +1,18 @@
+---
+title: "UB5 -- Tutorium Mathe A WS19/20"
+author: "Anton Hanke"
+date: "Tutorium: 21/11/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Mathematische Logik
+
+# Mengen und algebraische Struckturen
+
+# Komplexe Zahlen und trignometrische Zahlen
+
+# Lineare Gleichungssysteme

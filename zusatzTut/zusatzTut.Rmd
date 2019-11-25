@@ -6,7 +6,7 @@ output:
   html_document:
     toc: TRUE
     toc_depth: 3
-    toc_float: TRUE
+    toc_float: FALSE
 ---
 
 ```{r setup, include=FALSE}
@@ -152,19 +152,154 @@ $$\dim V = \text{span} \left( V \right)$$
 
 ### Wichtige Werte
 
-# Lineare Gleichungssysteme
+# Matrizen und Lineare Algebra
+Lineare Gleichungssysteme stellen sich wie folgt da:
+\[\left\{
+\begin{array}{lcll}
+    \lambda_{1,\:1}~ x_1 + 
+    \lambda_{1,\:\dots }~ x_{\dots} + 
+    \lambda_{i,\:1}~ x_i &=& b_1 & \text{Gl.}~ 1 \\
+    \lambda_{1,\:\dots}~ x_1 + 
+    \lambda_{\dots ,\:\dots}~ x_{\dots} + 
+    \lambda_{i,\:\dots }~ x_{i} &=& b_{\dots} & \text{Gl.}~\dots \\
+    \lambda_{1,\:j}~ x_1 + 
+    \lambda_{\dots,\:j}~ x_{\dots} + 
+    \lambda_{i,\:j}~ x_i &=& b_k & \text{Gl.}~ k
+\end{array}
+\right.\]
+Dies lässt sich wie folgt umschreiben: $$Ax = b$$
+Dabei sind $x$ und $b$ vectoren.
+$A$ ist eine Matrix.
+$$ A = \begin{pmatrix}
+    \lambda_{1,\:1} & \lambda_{1,\:\dots } & \lambda_{i,\:1} \\
+    \lambda_{1,\:\dots} & \lambda_{\dots ,\:\dots} & \lambda_{i,\:\dots } \\
+    \lambda_{1,\:j} & \lambda_{\dots,\:j} & \lambda_{i,\:j} \\
+\end{pmatrix}$$
+Eine Matrix wird durch ihre Dimensionen beschreiben:
+
+- $m$: \# Zeilen
+- $n$: \# Spalten
 
 ## Matrixrechung
+Matrizen haben folgende Eigenschaften:
+
+1. Assoziativ
+2. Dissoziativ
+3. _nicht_ kommutativ!
+
+### Matrix addition/subtraktion
+Matrizen müssen identische Dimensionen haben.
+Addition der einzelnen Elemente aufeinander.
+
+### Matrix multiplikation
+Kriterium: innere Dimensionen gleich.
+\[\underset{m\times n}{A} \times \underset{n \times p}{B} = \underset{m \times p}{C}\]
+An sich ergibt sich die Ergebnismatrix aus Skalarprodukten der
+Zeilen und Spalten der Inputmatrizen.
+\[
+\begin{pmatrix}
+    &&\\
+    i_1&i_{C}&i_k\\
+    &&\\
+\end{pmatrix}
+\begin{pmatrix}
+    &j_i&\\
+    &j_{C}&\\
+    &j_k&\\
+\end{pmatrix}
+\begin{pmatrix}
+    &&\\
+    &C_{ij}&\\
+    &&\\
+\end{pmatrix}
+\Longleftrightarrow
+C_{i,\: j} = \sum_{k = 1}^{n} a_{ik} \cdot b_{jk}
+\]
+
+Das neutrale Element der Matrix multiplikation ist die Identitätsmatrix,
+eine Diagonalmatrix, mit der Determinante 1:
+$$I=
+\begin{pmatrix}
+    1 & 0 & 0\\
+    0 & 1 & 0\\
+    0 & 0 & 1\\
+\end{pmatrix}
+$$
+
+#### Linearkombinationen für Berechnungen:
+1. Spalten:  
+    $$j_C = x_B^{\: j}\lambda_A + y_B^{\: j} \theta_A + z_B^{\: j} \mu_A$$
+    Die Spalte $j$ von $C$ ergibt sich aus der Vektorsumme der Spalten von
+    $A$ multipliziert mit den Elementen in der $j$ten Spalte von $B$.
+2. Zeilen:
+   $$i_C = x_A^{\: i} \lambda_B + y_A^{\: i} \theta_B + z_A^{\: i} \mu_B$$
+   Die Zeile $i$ von $C$ ergibt sich aus der Vektersumme der Zeilen von
+   $B$ multipliziert mit den Elementen in der $i$ten Zeile von $A$.
+
+### Matrix transposition
+"Rotation einer matrix":  
+\[ \underset{m \times n}{A} =
+\begin{pmatrix}
+    a_{1,1} & \cdots & a_{1,n} \\
+    \vdots  &        & \vdots  \\
+    a_{m,1} & \cdots & a_{m,n} \\
+\end{pmatrix} \longrightarrow
+\underset{m \times n }{A}^{T} =
+\begin{pmatrix}
+    a_{1,1} & \cdots & a_{m,1} \\
+    \vdots  &        & \vdots  \\
+    a_{1,n} & \cdots & a_{m,n} \\
+\end{pmatrix}
+\]
+Spiegelung um die Diagonale.
+```{r, echo = F}
+matrix(seq(1,9),nrow = 3)
+t(matrix(seq(1,9),nrow = 3))
+```
+Wenn gilt: $A = A^T$ so ist die Matrix Spiegelsymmetrisch.  
+Diagonalmatrizen immer Spiegelsymmetrisch.
 
 ### Matrix inverse
+Die Inverse Matrix ist das Inverse Element eines Elements in dem Körper
+der Matrix Multiplikation.  
+Es gilt: $A^{-1} A = AA^{-1} = I$
 
-### Matrix determinanten
+
+### Matrix Diagonalisierung und determinanten
+Durch Diagonalisierung (alle Elemente der Matrix _über/unter_ Diagonale $=0$)
+lassen sich die **Pivot Elemente** (Elemente auf Diagonale) bestimmen.  
+Generel:
+$$EA = A'$$
+Dabei $E=$ Eliminationsmatrix.
+Die Eliminationsmatrix die Benötigt wird um eine Matrix
+vollständig in eine Upper Diagnalmatrix zu überführen ist
+die lower Diagonalmatrix der Matrix A.  
+$$\underbrace{E'\underbrace{EA}_{A'}}_{A''}$$
+Somit:
+$$\underbrace{E''}_{\text{under triangel}}A = \overbrace{A''}^{\text{Upper triangel}}$$
+Aus den Diagonalmatrizen kann man die **Pivot Elemente** ablesen.
+$$
+\begin{pmatrix}
+    \fbox{x} & x & x \\
+    x   & \fbox{x} & x\\
+    x   & x & \fbox{x}\\
+\end{pmatrix}
+$$
+
+<center>
+    $\blacktriangleright$ Beachte Multiplikationsreihenfolge, nicht kummutativ $\blacktriangleleft$  
+</center>
+Die Determinante einer matrix:
+$$\det{A} = \prod \text{Pivot Elemente}$$
+In einer Matrix mit $\det{A}\neq 0$ gibt es entweder 0 oder $\infty$ viele
+Lösungen für Gleichungssysteme.
+Die Matrix ist Singulär und hat kein Inverses.
 
 ### Spalten und Nullraum
 
 ## Eliminationsverfahren
 
-### Gauß Verfahren
+### Matrix erweiterung oder auch Gauß Verfahren
 
 ### Matrixform
 

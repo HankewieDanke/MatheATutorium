@@ -13,15 +13,20 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Mathematische Logik 1
+# Mathematische Logik
+!!MACHT FELIX!!
 
 ## Aussagen
+!!MACHT FELIX!!
 
 ### Implikationen
+!!MACHT FELIX!!
 
 ## Quantoren
+!!MACHT FELIX!!
 
 ## Beweise
+!!MACHT FELIX!!
 
 # Mengen und algebraische Struckturen
 Mengen sind Zusammenfassungen bestimmter, wohlunterscheidbarer Objekte.

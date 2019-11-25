@@ -13,7 +13,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Mathematische Logik
+# Mathematische Logik 1
 
 ## Aussagen
 

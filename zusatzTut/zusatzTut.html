@@ -411,8 +411,7 @@ summary {
 <li><a href="#spalten-und-nullraum">Spalten und Nullraum</a></li>
 </ul></li>
 <li><a href="#eliminationsverfahren">Eliminationsverfahren</a><ul>
-<li><a href="#matrix-erweiterung-oder-auch-gauß-verfahren">Matrix erweiterung oder auch Gauß Verfahren</a></li>
-<li><a href="#matrixform">Matrixform</a></li>
+<li><a href="#matrix-erweiterung-oder-auch-gauß-verfahren">Matrix Erweiterung oder auch Gauß Verfahren</a></li>
 </ul></li>
 <li><a href="#lösbarkeit">Lösbarkeit</a></li>
 </ul></li>
@@ -585,6 +584,7 @@ Die Vektoren dieser Basis spannen den Vektorraum auf und werden als <span class=
 <li><span class="math inline">\(m\)</span>: # Zeilen</li>
 <li><span class="math inline">\(n\)</span>: # Spalten</li>
 </ul>
+<p><strong><em>Die Lösungsmenge eines LGS ist durch äquivalente umformungen unverändert.</em></strong></p>
 <div id="matrixrechung" class="section level2">
 <h2>Matrixrechung</h2>
 <p>Matrizen haben folgende Eigenschaften:</p>
@@ -688,11 +688,30 @@ Generel: <span class="math display">\[EA = A'\]</span> Dabei <span class="math i
 </div>
 <div id="eliminationsverfahren" class="section level2">
 <h2>Eliminationsverfahren</h2>
+<ol style="list-style-type: decimal">
+<li>Gleichungssystem aufstellen</li>
+<li>Gleichungen äquivalent umformen, bis eine dieser nurnoch von einer Variable abhängig ist. Erlaubte Umformungen:
+<ul>
+<li>Permutationen (Gleichungen vertauschen)</li>
+<li>Skalieren von Gleichungen mit <span class="math inline">\(\lambda \neq 0\)</span></li>
+<li>Linearkombination von Gleichungen</li>
+</ul></li>
+<li>Auflösen der Variable.</li>
+<li>Resubsititution und schrittweise ermittlung der weiteren Variablen.</li>
+</ol>
 <div id="matrix-erweiterung-oder-auch-gauß-verfahren" class="section level3">
-<h3>Matrix erweiterung oder auch Gauß Verfahren</h3>
-</div>
-<div id="matrixform" class="section level3">
-<h3>Matrixform</h3>
+<h3>Matrix Erweiterung oder auch Gauß Verfahren</h3>
+<p>Erweiterte Matrix aufstellen <span class="math inline">\((A|b)\)</span>: <span class="math display">\[
+\left(\left. 
+\begin{matrix}
+    a_{1,1} &amp; \cdots &amp; a_{1,n} \\
+    \vdots  &amp; \ddots &amp; \vdots  \\
+    a_{m,1} &amp; \cdots &amp; a_{m,n} \\
+\end{matrix}
+\right|
+\begin{array}{c}b_1\\ b_{\dots}\\ b_m\end{array}
+\right)
+\]</span></p>
 </div>
 </div>
 <div id="lösbarkeit" class="section level2">

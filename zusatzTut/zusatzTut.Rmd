@@ -180,6 +180,8 @@ Eine Matrix wird durch ihre Dimensionen beschreiben:
 - $m$: \# Zeilen
 - $n$: \# Spalten
 
+**_Die Lösungsmenge eines LGS ist durch äquivalente umformungen unverändert._**
+
 ## Matrixrechung
 Matrizen haben folgende Eigenschaften:
 
@@ -277,7 +279,7 @@ die lower Diagonalmatrix der Matrix A.
 $$\underbrace{E'\underbrace{EA}_{A'}}_{A''}$$
 Somit:
 $$\underbrace{E''}_{\text{under triangel}}A = \overbrace{A''}^{\text{Upper triangel}}$$
-Aus den Diagonalmatrizen kann man die **Pivot Elemente** ablesen.
+Aus den Diagonalmatrizen kann man die **Pivot Elemente** a
 $$
 \begin{pmatrix}
     \fbox{x} & x & x \\
@@ -298,10 +300,28 @@ Die Matrix ist Singulär und hat kein Inverses.
 ### Spalten und Nullraum
 
 ## Eliminationsverfahren
+1. Gleichungssystem aufstellen
+2. Gleichungen äquivalent umformen, bis eine dieser nurnoch von einer Variable abhängig ist.
+   Erlaubte Umformungen:
+   - Permutationen (Gleichungen vertauschen)
+   - Skalieren von Gleichungen mit $\lambda \neq 0$
+   - Linearkombination von Gleichungen
+3. Auflösen der Variable.
+4. Resubsititution und schrittweise ermittlung der weiteren Variablen.
 
-### Matrix erweiterung oder auch Gauß Verfahren
-
-### Matrixform
+### Matrix Erweiterung oder auch Gauß Verfahren
+Erweiterte Matrix aufstellen $(A|b)$:
+\[
+\left(\left. 
+\begin{matrix}
+    a_{1,1} & \cdots & a_{1,n} \\
+    \vdots  & \ddots & \vdots  \\
+    a_{m,1} & \cdots & a_{m,n} \\
+\end{matrix}
+\right|
+\begin{array}{c}b_1\\ b_{\dots}\\ b_m\end{array}
+\right)
+\]
 
 ## Lösbarkeit
 

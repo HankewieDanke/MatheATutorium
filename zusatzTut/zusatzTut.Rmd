@@ -290,6 +290,7 @@ $$
 
 <center>
     $\blacktriangleright$ Beachte Multiplikationsreihenfolge, nicht kummutativ $\blacktriangleleft$  
+    $\blacktriangleright$ $E$ sind Einheitsmatrizen und somit 1 auf Diagnoalle! $\blacktriangleleft$  
 </center>
 Die Determinante einer matrix:
 $$\det{A} = \prod \text{Pivot Elemente}$$
@@ -309,7 +310,7 @@ Die Matrix ist Singulär und hat kein Inverses.
 3. Auflösen der Variable.
 4. Resubsititution und schrittweise ermittlung der weiteren Variablen.
 
-### Matrix Erweiterung oder auch Gauß Verfahren
+### Matrix Erweiterung und Gauß Verfahren
 Erweiterte Matrix aufstellen $(A|b)$:
 \[
 \left(\left. 

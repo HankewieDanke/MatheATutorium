@@ -411,7 +411,7 @@ summary {
 <li><a href="#spalten-und-nullraum">Spalten und Nullraum</a></li>
 </ul></li>
 <li><a href="#eliminationsverfahren">Eliminationsverfahren</a><ul>
-<li><a href="#matrix-erweiterung-oder-auch-gauß-verfahren">Matrix Erweiterung oder auch Gauß Verfahren</a></li>
+<li><a href="#matrix-erweiterung-und-gauß-verfahren">Matrix Erweiterung und Gauß Verfahren</a></li>
 </ul></li>
 <li><a href="#lösbarkeit">Lösbarkeit</a></li>
 </ul></li>
@@ -670,7 +670,7 @@ Es gilt: <span class="math inline">\(A^{-1} A = AA^{-1} = I\)</span></p>
 <h3>Matrix Diagonalisierung und determinanten</h3>
 <p>Durch Diagonalisierung (alle Elemente der Matrix <em>über/unter</em> Diagonale <span class="math inline">\(=0\)</span>) lassen sich die <strong>Pivot Elemente</strong> (Elemente auf Diagonale) bestimmen.<br />
 Generel: <span class="math display">\[EA = A'\]</span> Dabei <span class="math inline">\(E=\)</span> Eliminationsmatrix. Die Eliminationsmatrix die Benötigt wird um eine Matrix vollständig in eine Upper Diagnalmatrix zu überführen ist die lower Diagonalmatrix der Matrix A.<br />
-<span class="math display">\[\underbrace{E'\underbrace{EA}_{A'}}_{A''}\]</span> Somit: <span class="math display">\[\underbrace{E''}_{\text{under triangel}}A = \overbrace{A''}^{\text{Upper triangel}}\]</span> Aus den Diagonalmatrizen kann man die <strong>Pivot Elemente</strong> ablesen. <span class="math display">\[
+<span class="math display">\[\underbrace{E'\underbrace{EA}_{A'}}_{A''}\]</span> Somit: <span class="math display">\[\underbrace{E''}_{\text{under triangel}}A = \overbrace{A''}^{\text{Upper triangel}}\]</span> Aus den Diagonalmatrizen kann man die <strong>Pivot Elemente</strong> a <span class="math display">\[
 \begin{pmatrix}
     \fbox{x} &amp; x &amp; x \\
     x   &amp; \fbox{x} &amp; x\\
@@ -678,7 +678,8 @@ Generel: <span class="math display">\[EA = A'\]</span> Dabei <span class="math i
 \end{pmatrix}
 \]</span></p>
 <center>
-<span class="math inline">\(\blacktriangleright\)</span> Beachte Multiplikationsreihenfolge, nicht kummutativ <span class="math inline">\(\blacktriangleleft\)</span>
+<span class="math inline">\(\blacktriangleright\)</span> Beachte Multiplikationsreihenfolge, nicht kummutativ <span class="math inline">\(\blacktriangleleft\)</span><br />
+<span class="math inline">\(\blacktriangleright\)</span> <span class="math inline">\(E\)</span> sind Einheitsmatrizen und somit 1 auf Diagnoalle! <span class="math inline">\(\blacktriangleleft\)</span>
 </center>
 <p>Die Determinante einer matrix: <span class="math display">\[\det{A} = \prod \text{Pivot Elemente}\]</span> In einer Matrix mit <span class="math inline">\(\det{A}\neq 0\)</span> gibt es entweder 0 oder <span class="math inline">\(\infty\)</span> viele Lösungen für Gleichungssysteme. Die Matrix ist Singulär und hat kein Inverses.</p>
 </div>
@@ -699,8 +700,8 @@ Generel: <span class="math display">\[EA = A'\]</span> Dabei <span class="math i
 <li>Auflösen der Variable.</li>
 <li>Resubsititution und schrittweise ermittlung der weiteren Variablen.</li>
 </ol>
-<div id="matrix-erweiterung-oder-auch-gauß-verfahren" class="section level3">
-<h3>Matrix Erweiterung oder auch Gauß Verfahren</h3>
+<div id="matrix-erweiterung-und-gauß-verfahren" class="section level3">
+<h3>Matrix Erweiterung und Gauß Verfahren</h3>
 <p>Erweiterte Matrix aufstellen <span class="math inline">\((A|b)\)</span>: <span class="math display">\[
 \left(\left. 
 \begin{matrix}

@@ -411,7 +411,8 @@ summary {
 <li><a href="#spalten-und-nullraum">Spalten und Nullraum</a></li>
 </ul></li>
 <li><a href="#eliminationsverfahren">Eliminationsverfahren</a><ul>
-<li><a href="#matrix-erweiterung-und-gauß-verfahren">Matrix Erweiterung und Gauß Verfahren</a></li>
+<li><a href="#matrix-erweiterung">Matrix Erweiterung</a></li>
+<li><a href="#gauß-jordan-verfahren">Gauß-Jordan-Verfahren</a></li>
 </ul></li>
 <li><a href="#lösbarkeit">Lösbarkeit</a></li>
 </ul></li>
@@ -513,7 +514,7 @@ Sie erfüllen alle bedingungen eines Körpers und lassen sich nicht mit sich sel
 <span class="math display">\[ \vec{v} \cdot \vec{w} = \sum _{i = 1} ^n v_i w_i \in \mathbb{R}\]</span></p></li>
 <li><p>Vektor betrag: <span class="math display">\[|\vec{v}|^2 = \vec{v}\cdot\vec{v}\]</span> <span class="math display">\[\Rightarrow |\vec{v}| = \sqrt{\sum_{i = 1} ^n v_i^2}\]</span> Ein Vektor lässt sich normieren mit: <span class="math inline">\(\vec{e}_v = \frac{\vec{v}}{|\vec{v}|}\)</span>. In <span class="math inline">\(\mathbb{R}^{2}\)</span> gilt: <span class="math inline">\(\vec{e} = \left(\begin{array}{c}\cos \alpha\\ \sin \alpha \end{array}\right)\)</span></p></li>
 <li><p>Winkel zwischen Vektoren:<br />
-Sind vektoren ortogonal (<span class="math inline">\(\alpha = 90^{circ}\)</span>) gilt: <span class="math inline">\(\vec{u}\cdot\vec{v} = 0 \Leftrightarrow \vec{u} \bot \vec{v}\)</span><br />
+Sind vektoren ortogonal (<span class="math inline">\(\alpha = 90^{\circ}\)</span>) gilt: <span class="math inline">\(\vec{u}\cdot\vec{v} = 0 \Leftrightarrow \vec{u} \bot \vec{v}\)</span><br />
 Allgemein berechnet sich der Winkel mit: <span class="math display">\[\vec{u}\cdot\vec{v} = |\vec{u}||\vec{v}|\cos\theta\]</span></p></li>
 </ul>
 <div id="basis-eines-vektorraums" class="section level3">
@@ -665,11 +666,21 @@ Diagonalmatrizen immer Spiegelsymmetrisch.</p>
 <h3>Matrix inverse</h3>
 <p>Die Inverse Matrix ist das Inverse Element eines Elements in dem Körper der Matrix Multiplikation.<br />
 Es gilt: <span class="math inline">\(A^{-1} A = AA^{-1} = I\)</span></p>
+<hr />
+<p>Nur, aber nicht alle, quadratischen Matrizen sind invertierbar.</p>
+<hr />
+<p>Matrizen sind invertierbar, wenn sie nicht-Singulär sind. <span class="math display">\[\exists A \,|\,\det{A} \neq 0 \Rightarrow \exists!\, A^{-1} : AA^{-1} = I\]</span> Demnach sind LGS mit genau einer Lösung lösbar, wenn die Matrix invertierbar ist.</p>
 </div>
 <div id="matrix-diagonalisierung-und-determinanten" class="section level3">
 <h3>Matrix Diagonalisierung und determinanten</h3>
 <p>Durch Diagonalisierung (alle Elemente der Matrix <em>über/unter</em> Diagonale <span class="math inline">\(=0\)</span>) lassen sich die <strong>Pivot Elemente</strong> (Elemente auf Diagonale) bestimmen.<br />
-Generel: <span class="math display">\[EA = A'\]</span> Dabei <span class="math inline">\(E=\)</span> Eliminationsmatrix. Die Eliminationsmatrix die Benötigt wird um eine Matrix vollständig in eine Upper Diagnalmatrix zu überführen ist die lower Diagonalmatrix der Matrix A.<br />
+Generel: <span class="math display">\[EA = A'\]</span> Dabei <span class="math inline">\(E=\)</span> Eliminationsmatrix. Eigenschaften:</p>
+<ul>
+<li>Immer invertierbar</li>
+<li><span class="math inline">\(\det{E} = 1\)</span></li>
+<li>Lower oder Upper Diagonalmatrix</li>
+</ul>
+<p>Die Eliminationsmatrix die Benötigt wird um eine Matrix vollständig in eine Upper Diagnalmatrix zu überführen ist die lower Diagonalmatrix der Matrix A.<br />
 <span class="math display">\[\underbrace{E'\underbrace{EA}_{A'}}_{A''}\]</span> Somit: <span class="math display">\[\underbrace{E''}_{\text{under triangel}}A = \overbrace{A''}^{\text{Upper triangel}}\]</span> Aus den Diagonalmatrizen kann man die <strong>Pivot Elemente</strong> a <span class="math display">\[
 \begin{pmatrix}
     \fbox{x} &amp; x &amp; x \\
@@ -679,7 +690,7 @@ Generel: <span class="math display">\[EA = A'\]</span> Dabei <span class="math i
 \]</span></p>
 <center>
 <span class="math inline">\(\blacktriangleright\)</span> Beachte Multiplikationsreihenfolge, nicht kummutativ <span class="math inline">\(\blacktriangleleft\)</span><br />
-<span class="math inline">\(\blacktriangleright\)</span> <span class="math inline">\(E\)</span> sind Einheitsmatrizen und somit 1 auf Diagnoalle! <span class="math inline">\(\blacktriangleleft\)</span>
+<span class="math inline">\(\blacktriangleright\)</span> <span class="math inline">\(E\)</span> sind Einheitsmatrizen und somit 1 auf Diagnoale! (<span class="math inline">\(\det(E) = 1\)</span>) <span class="math inline">\(\blacktriangleleft\)</span>
 </center>
 <p>Die Determinante einer matrix: <span class="math display">\[\det{A} = \prod \text{Pivot Elemente}\]</span> In einer Matrix mit <span class="math inline">\(\det{A}\neq 0\)</span> gibt es entweder 0 oder <span class="math inline">\(\infty\)</span> viele Lösungen für Gleichungssysteme. Die Matrix ist Singulär und hat kein Inverses.</p>
 </div>
@@ -698,10 +709,10 @@ Generel: <span class="math display">\[EA = A'\]</span> Dabei <span class="math i
 <li>Linearkombination von Gleichungen</li>
 </ul></li>
 <li>Auflösen der Variable.</li>
-<li>Resubsititution und schrittweise ermittlung der weiteren Variablen.</li>
+<li>Resubstitution und schrittweise ermittlung der weiteren Variablen.</li>
 </ol>
-<div id="matrix-erweiterung-und-gauß-verfahren" class="section level3">
-<h3>Matrix Erweiterung und Gauß Verfahren</h3>
+<div id="matrix-erweiterung" class="section level3">
+<h3>Matrix Erweiterung</h3>
 <p>Erweiterte Matrix aufstellen <span class="math inline">\((A|b)\)</span>: <span class="math display">\[
 \left(\left. 
 \begin{matrix}
@@ -713,6 +724,56 @@ Generel: <span class="math display">\[EA = A'\]</span> Dabei <span class="math i
 \begin{array}{c}b_1\\ b_{\dots}\\ b_m\end{array}
 \right)
 \]</span></p>
+<p>Multiplikation der erweiterten Matrix mit E (siehe Diagonalisierung, entweder <span class="math inline">\(L\)</span> oder <span class="math inline">\(U\)</span>).<br />
+<span class="math display">\[
+\left(\left.
+\begin{matrix}
+    \alpha_{1,1} &amp; \cdots &amp; \alpha_{1,n} \\
+    0  &amp; \ddots &amp; \vdots  \\
+    0 &amp; 0 &amp; \alpha_{m,n} \\
+\end{matrix}
+\right|\, E \times \,
+\begin{array}{c}b_1\\ b_{\dots}\\ b_m\end{array}
+\right)
+\]</span> Damit ist das Gleichungssystem durch substitution von unten nach oben lösbar. So können sowohl nicht Singuläre systeme vollständig gelöst als auch die Lösungsmengen Singulärer Systeme bestimmt werden.</p>
+</div>
+<div id="gauß-jordan-verfahren" class="section level3">
+<h3>Gauß-Jordan-Verfahren</h3>
+<p>Hat eine Matrix ein Inverses so kann die Eindeutige Lösung mit diesem Berechnet werden: <span class="math display">\[x = b A^{-1}\]</span> Um das Inverse einer Matrix zu berechnen, kann man eine Erweiterete Matrix von A mit I aufstellen:</p>
+<p><span class="math display">\[
+\left(\left.~~\overbrace{
+\begin{matrix}
+    a_{1,1} &amp; \cdots &amp; a_{1,n} \\
+    \vdots  &amp; \ddots &amp; \vdots  \\
+    a_{m,1} &amp; \cdots &amp; a_{m,n} \\
+\end{matrix}\:}^{A}
+\,\,\right|\,\,
+\overbrace{
+\begin{matrix}
+    1 &amp; \cdots &amp; 0 \\
+    \vdots  &amp; \diagdown &amp; \vdots  \\
+    0 &amp; \cdots &amp; 1 \\
+\end{matrix}\:}^{I}~~
+\right)
+\]</span> In Schritten wird nun die Linke Matrix (<span class="math inline">\(A\)</span>) mittels <span class="math inline">\(E\)</span> in eine <span class="math inline">\(I\)</span> umgewandelt.<br />
+Hierbei wird auch immer <span class="math inline">\(I\)</span> mit <span class="math inline">\(E\)</span> multipliziert.<br />
+Erhalten wird:</p>
+<p><span class="math display">\[
+\left(\left.~~\overbrace{
+\begin{matrix}
+    1 &amp; \cdots &amp; 0 \\
+    \vdots  &amp; \diagdown &amp; \vdots  \\
+    0 &amp; \cdots &amp; 1 \\
+\end{matrix}\:}^{EA}~~
+\,\,\right|\,\,
+\overbrace{
+\begin{matrix}
+    \alpha_{1,1} &amp; \cdots &amp; \alpha_{1,n} \\
+    \vdots  &amp; \ddots &amp; \vdots  \\
+    \alpha_{m,1} &amp; \cdots &amp; \alpha_{m,n} \\
+\end{matrix}\:}^{EI}~~
+\right)
+\]</span> Hierbei ist nun: <span class="math inline">\(EI = A^{-1}\)</span>.</p>
 </div>
 </div>
 <div id="lösbarkeit" class="section level2">

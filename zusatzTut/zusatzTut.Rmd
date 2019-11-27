@@ -7,6 +7,8 @@ output:
     toc: TRUE
     toc_depth: 3
     toc_float: FALSE
+  pdf_document:
+    toc: TRUE
 ---
 
 ```{r setup, include=FALSE}
@@ -104,7 +106,7 @@ Ein Vektor lässt sich normieren mit: $\vec{e}_v = \frac{\vec{v}}{|\vec{v}|}$.
 In $\mathbb{R}^{2}$ gilt: $\vec{e} = \left(\begin{array}{c}\cos \alpha\\ \sin \alpha \end{array}\right)$
 
 - Winkel zwischen Vektoren:  
-  Sind vektoren ortogonal ($\alpha = 90^{circ}$) gilt: $\vec{u}\cdot\vec{v} = 0 \Leftrightarrow \vec{u} \bot \vec{v}$  
+  Sind vektoren ortogonal ($\alpha = 90^{\circ}$) gilt: $\vec{u}\cdot\vec{v} = 0 \Leftrightarrow \vec{u} \bot \vec{v}$  
   Allgemein berechnet sich der Winkel mit:
   $$\vec{u}\cdot\vec{v} = |\vec{u}||\vec{v}|\cos\theta$$
 
@@ -266,13 +268,29 @@ Die Inverse Matrix ist das Inverse Element eines Elements in dem Körper
 der Matrix Multiplikation.  
 Es gilt: $A^{-1} A = AA^{-1} = I$
 
+------------
+
+Nur, aber nicht alle, quadratischen Matrizen sind invertierbar.
+
+------------
+
+Matrizen sind invertierbar, wenn sie nicht-Singulär sind.
+$$\exists A \,|\,\det{A} \neq 0 \Rightarrow \exists!\, A^{-1} : AA^{-1} = I$$
+Demnach sind LGS mit genau einer Lösung lösbar,
+wenn die Matrix invertierbar ist.  
+
 
 ### Matrix Diagonalisierung und determinanten
 Durch Diagonalisierung (alle Elemente der Matrix _über/unter_ Diagonale $=0$)
 lassen sich die **Pivot Elemente** (Elemente auf Diagonale) bestimmen.  
 Generel:
 $$EA = A'$$
-Dabei $E=$ Eliminationsmatrix.
+Dabei $E=$ Eliminationsmatrix. Eigenschaften:
+
+- Immer invertierbar
+- $\det{E} = 1$
+- Lower oder Upper Diagonalmatrix
+
 Die Eliminationsmatrix die Benötigt wird um eine Matrix
 vollständig in eine Upper Diagnalmatrix zu überführen ist
 die lower Diagonalmatrix der Matrix A.  
@@ -290,7 +308,7 @@ $$
 
 <center>
     $\blacktriangleright$ Beachte Multiplikationsreihenfolge, nicht kummutativ $\blacktriangleleft$  
-    $\blacktriangleright$ $E$ sind Einheitsmatrizen und somit 1 auf Diagnoalle! $\blacktriangleleft$  
+    $\blacktriangleright$ $E$ sind Einheitsmatrizen und somit 1 auf Diagnoale! ($\det(E) = 1$) $\blacktriangleleft$  
 </center>
 Die Determinante einer matrix:
 $$\det{A} = \prod \text{Pivot Elemente}$$
@@ -308,9 +326,9 @@ Die Matrix ist Singulär und hat kein Inverses.
    - Skalieren von Gleichungen mit $\lambda \neq 0$
    - Linearkombination von Gleichungen
 3. Auflösen der Variable.
-4. Resubsititution und schrittweise ermittlung der weiteren Variablen.
+4. Resubstitution und schrittweise ermittlung der weiteren Variablen.
 
-### Matrix Erweiterung und Gauß Verfahren
+### Matrix Erweiterung
 Erweiterte Matrix aufstellen $(A|b)$:
 \[
 \left(\left. 
@@ -323,6 +341,67 @@ Erweiterte Matrix aufstellen $(A|b)$:
 \begin{array}{c}b_1\\ b_{\dots}\\ b_m\end{array}
 \right)
 \]
+
+Multiplikation der erweiterten Matrix mit E (siehe Diagonalisierung, entweder $L$ oder $U$).  
+\[
+\left(\left.
+\begin{matrix}
+    \alpha_{1,1} & \cdots & \alpha_{1,n} \\
+    0  & \ddots & \vdots  \\
+    0 & 0 & \alpha_{m,n} \\
+\end{matrix}
+\right|\, E \times \,
+\begin{array}{c}b_1\\ b_{\dots}\\ b_m\end{array}
+\right)
+\]
+Damit ist das Gleichungssystem durch substitution von unten nach oben lösbar.
+So können sowohl nicht Singuläre systeme vollständig gelöst als auch
+die Lösungsmengen Singulärer Systeme bestimmt werden.
+
+### Gauß-Jordan-Verfahren
+Hat eine Matrix ein Inverses so kann die Eindeutige Lösung mit diesem Berechnet werden:
+$$x = b A^{-1}$$
+Um das Inverse einer Matrix zu berechnen, kann man eine Erweiterete Matrix von A mit I aufstellen:
+
+\[
+\left(\left.~~\overbrace{
+\begin{matrix}
+    a_{1,1} & \cdots & a_{1,n} \\
+    \vdots  & \ddots & \vdots  \\
+    a_{m,1} & \cdots & a_{m,n} \\
+\end{matrix}\:}^{A}
+\,\,\right|\,\,
+\overbrace{
+\begin{matrix}
+    1 & \cdots & 0 \\
+    \vdots  & \diagdown & \vdots  \\
+    0 & \cdots & 1 \\
+\end{matrix}\:}^{I}~~
+\right)
+\]
+In Schritten wird nun die Linke Matrix ($A$) mittels $E$
+in eine $I$ umgewandelt.  
+Hierbei wird auch immer $I$ mit $E$ multipliziert.  
+Erhalten wird:
+
+\[
+\left(\left.~~\overbrace{
+\begin{matrix}
+    1 & \cdots & 0 \\
+    \vdots  & \diagdown & \vdots  \\
+    0 & \cdots & 1 \\
+\end{matrix}\:}^{EA}~~
+\,\,\right|\,\,
+\overbrace{
+\begin{matrix}
+    \alpha_{1,1} & \cdots & \alpha_{1,n} \\
+    \vdots  & \ddots & \vdots  \\
+    \alpha_{m,1} & \cdots & \alpha_{m,n} \\
+\end{matrix}\:}^{EI}~~
+\right)
+\]
+Hierbei ist nun: $EI = A^{-1}$ und wir können somit das Gleichungssystem $x = bA^{-1}$
+lösen.
 
 ## Lösbarkeit
 

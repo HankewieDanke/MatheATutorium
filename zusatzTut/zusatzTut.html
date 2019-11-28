@@ -371,11 +371,11 @@ summary {
 <div id="TOC">
 <ul>
 <li><a href="#mathematische-logik">Mathematische Logik</a><ul>
-<li><a href="#aussagen">Aussagen</a><ul>
-<li><a href="#implikationen">Implikationen</a></li>
-</ul></li>
+<li><a href="#aussagen">Aussagen</a></li>
 <li><a href="#quantoren">Quantoren</a></li>
-<li><a href="#beweise">Beweise</a></li>
+<li><a href="#beweise">Beweise</a><ul>
+<li><a href="#beweis-über-vollständige-induktion">Beweis über vollständige Induktion</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#mengen-und-algebraische-struckturen">Mengen und algebraische Struckturen</a><ul>
 <li><a href="#sonder-mengen-mengen-relationen">sonder mengen &amp; Mengen Relationen</a></li>
@@ -425,18 +425,62 @@ summary {
 <div id="aussagen" class="section level2">
 <h2>Aussagen</h2>
 <p>!!MACHT FELIX!!</p>
-<div id="implikationen" class="section level3">
-<h3>Implikationen</h3>
-<p>!!MACHT FELIX!!</p>
-</div>
 </div>
 <div id="quantoren" class="section level2">
 <h2>Quantoren</h2>
-<p>!!MACHT FELIX!!</p>
+<p><span class="math inline">\(\forall\)</span> : Für alle</p>
+<p><span class="math inline">\(\exists\)</span> : Es existiert mindestens ein</p>
+<p><span class="math inline">\(\exists!\)</span> : Es exsitiert genau ein</p>
+<p><span class="math inline">\(\neg\exists\)</span>: Es exsitiert kein</p>
 </div>
 <div id="beweise" class="section level2">
 <h2>Beweise</h2>
-<p>!!MACHT FELIX!!</p>
+<p>Um etwas Mathematisch zu Beweisen gibt mehrere Ansätze. Die wichtigsten sind:</p>
+<ul>
+<li><p><strong>Direkter Beweis:</strong> Wir beweisen A <span class="math inline">\(=&gt;\)</span> B mittels A <span class="math inline">\(=&gt;\)</span> A’ <span class="math inline">\(=&gt;\)</span> A’’ <span class="math inline">\(=&gt;\)</span> B</p>
+<p>Bsp: Sei <span class="math inline">\(n\in\mathbb{N}\)</span> Dann gilt: n ungerade =&gt; <span class="math inline">\(n^2\)</span> auch ungerade</p>
+<p>n ungerade =&gt; <span class="math inline">\(\exists m \in \mathbb{N}: 2m+1=n\)</span></p>
+<p>=&gt;<span class="math inline">\((2m+1)^2 = 4m^2+4m+1 = 2(2m^2+2m)+1 =&gt; n^2\)</span></p>
+<p>mit <span class="math inline">\(2(2m^2+2m)\in \mathbb{N}\)</span> und gerade</p>
+<p>Da <span class="math inline">\(n^2 = 2(2m^2+2m)\)</span> <strong>+1</strong> ist auch <span class="math inline">\(n^2\)</span> eine ungerade Zahl.</p></li>
+<li><p><strong>Kontraposition</strong> Anstatt A =&gt; B z.z., zeigt man <span class="math inline">\(\neg B =&gt; \neg A\)</span></p>
+<p>Bsp: Sei <span class="math inline">\(n\in\{k^2|k\in\mathbb{N}\}\)</span> Dann gilt:</p>
+<p><span class="math inline">\(n\)</span> gerade <span class="math inline">\(=&gt;\)</span> <span class="math inline">\(\sqrt n\)</span> gerade</p>
+<p>Kontraposition:</p>
+<p><span class="math inline">\(\sqrt n\)</span> gerade <span class="math inline">\(-&gt;\)</span> n ungerade</p>
+<p><span class="math inline">\(\forall m \in \mathbb{N}:n=k^2 =&gt; k^2\)</span> gerade <span class="math inline">\(=&gt; k \ gerade\)</span></p></li>
+<li><p><strong>Indirekter Beweis (Widerspruchsbeweis)</strong> Wir nehmen <span class="math inline">\(A =&gt; B\)</span>, dann können wir sagen wenn <span class="math inline">\(\neg B \wedge A =&gt; \neg A\)</span> an und zeigen, dass es zum Widerspruch führt</p>
+<p><span class="math inline">\(\neg(A \wedge (\neg B)) &lt;=&gt; A =&gt; B\)</span></p>
+<p>Bsp: Für <span class="math inline">\(A= B = \{-1,1\}\)</span> gilt  <span class="math inline">\(min(A)*min(B) = min (A*B)\)</span> mit <span class="math inline">\(A*B := \forall a \in A \wedge b \in B, A*B= a*b\)</span></p>
+<p><span class="math inline">\(min(A)=-1, min (B) =-1 , min(A*B) = -1\)</span></p>
+<p><span class="math inline">\(min(A)*min(B)= -1*-1 = 1 \neq -1 = min(A*B)\)</span></p></li>
+</ul>
+<div id="beweis-über-vollständige-induktion" class="section level3">
+<h3>Beweis über vollständige Induktion</h3>
+<p>Bei der Vollständigen Induktion wird für eine finite Definitionsmenge die Aussage bewiesen.</p>
+<p>Zu zeigen sind:</p>
+<ul>
+<li><p><strong>Induktionsanfang</strong>: Die Aussage gilt für das erste Element / die ersten X Element</p></li>
+<li><p><strong>Induktionsannahme</strong>: <strong>Wir nehmen an:</strong> die Aussage gilt für beliebige und feste Elemente der Menge</p></li>
+<li><p><strong>Induktionschritt</strong> : Wir beweisen, dass für das nächste Element / die nächsten Elemente die Bedingung auch erfüllt wird mittels verwendung der Induktionsannahme</p></li>
+</ul>
+<p>-Bsp:</p>
+<p><span class="math inline">\(\forall n\ge1\)</span> gilt <span class="math inline">\(\sum_{k=1}^{n} k=\frac{n(n+1)}{2}\)</span></p>
+<p>-<strong>Induktionsanfang</strong>: Wir zeigen, dass die Formel für <span class="math inline">\(n=1\)</span> richtig ist.</p>
+<p><span class="math inline">\(\sum_{k=1}^{1} k=1 &lt;=&gt; \frac{1(1+1)}{2}=\frac{2}{2}=1\)</span></p>
+<p>-<strong>Induktionsannahme</strong>: Wir nehmen an, <span class="math inline">\(\sum_{k=1}^{n} k=\frac{n(n+1)}{2}\)</span> gilt für alle <em>feste</em> und <em>beliebiege</em> n.</p>
+<p>-<strong>Induktionsschritt</strong> Wir zeigen, dass <span class="math inline">\(\sum_{k=1}^{n} k=\frac{n(n+1)}{2}\)</span> für <span class="math inline">\(n -&gt; n+1\)</span> gilt.</p>
+<p><span class="math inline">\(\sum_{k=1}^{n+1} k=(n+1)+\sum_{k=1}^{n} k\)</span></p>
+<p>mittels Induktionsannahme nehmen wir an:</p>
+<p><span class="math inline">\(\sum_{k=1}^{n} k=\frac{n(n+1)}{2}\)</span></p>
+<p>somit ist</p>
+<p><span class="math inline">\(\sum_{k=1}^{n+1} k=(n+1)+\sum_{k=1}^{n} k=\sum_{k=1}^{n} k=(n+1)+\frac{n(n+1)}{2}=\frac{2(n+1)}{2}\frac{n(n+1)}{2}\)</span></p>
+<ul>
+<li>ausklammern von (n+1)</li>
+</ul>
+<p><span class="math inline">\(=\frac{(n+2)*(n+1)}{2}=\frac{((n+1)+1)*(n+1)}{2}\)</span> was der Form <span class="math inline">\(\sum_{k=1}^{n} k=\frac{n(n+1)}{2}\)</span> für <span class="math inline">\(n -&gt; n+1\)</span> entspricht</p>
+<p>Wir haben mittels Induktionsannahme bewiesen, dass für jedes Element <span class="math inline">\(n\)</span> die gleichung für das darrauffolgende Element <span class="math inline">\(n+1\)</span> gilt. Da die Gleichung für das erste Element <span class="math inline">\(n=1\)</span> gilt und für alle darauffolgenden gilt: <span class="math display">\[\sum_{k=1}^{n} k=\frac{n(n+1)}{2} \ \ \ \ \  \forall n\ge1\]</span></p>
+</div>
 </div>
 </div>
 <div id="mengen-und-algebraische-struckturen" class="section level1">
@@ -684,8 +728,8 @@ Generel: <span class="math display">\[EA = A'\]</span> Dabei <span class="math i
 <span class="math display">\[\underbrace{E'\underbrace{EA}_{A'}}_{A''}\]</span> Somit: <span class="math display">\[\underbrace{E''}_{\text{under triangel}}A = \overbrace{A''}^{\text{Upper triangel}}\]</span> Aus den Diagonalmatrizen kann man die <strong>Pivot Elemente</strong> a <span class="math display">\[
 \begin{pmatrix}
     \fbox{x} &amp; x &amp; x \\
-    x   &amp; \fbox{x} &amp; x\\
-    x   &amp; x &amp; \fbox{x}\\
+    0   &amp; \fbox{x} &amp; x\\
+    0   &amp; 0 &amp; \fbox{x}\\
 \end{pmatrix}
 \]</span></p>
 <center>
@@ -773,7 +817,7 @@ Erhalten wird:</p>
     \alpha_{m,1} &amp; \cdots &amp; \alpha_{m,n} \\
 \end{matrix}\:}^{EI}~~
 \right)
-\]</span> Hierbei ist nun: <span class="math inline">\(EI = A^{-1}\)</span>.</p>
+\]</span> Hierbei ist nun: <span class="math inline">\(EI = A^{-1}\)</span> und wir können somit das Gleichungssystem <span class="math inline">\(x = A^{-1}b\)</span> lösen.</p>
 </div>
 </div>
 <div id="lösbarkeit" class="section level2">

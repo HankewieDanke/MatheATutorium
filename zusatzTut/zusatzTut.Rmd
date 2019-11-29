@@ -2,6 +2,8 @@
 title: "Zusatztutorium Mathe A WS19/20"
 author: "Anton Hanke, Maximillian Kohnen, Felix Schnabel"
 date: "Fragestunde: 27/11/19"
+header-includes:
+   - \usepackage{stmaryrd}
 output:
   html_document:
     toc: TRUE
@@ -21,14 +23,103 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Aussagen
 !!MACHT FELIX!!
 
-### Implikationen
-!!MACHT FELIX!!
-
 ## Quantoren
-!!MACHT FELIX!!
+
+$\forall$ : Für alle
+
+$\exists$ : Es existiert mindestens ein
+
+$\exists!$ : Es exsitiert genau ein
+
+$\neg\exists$: Es exsitiert kein
+
 
 ## Beweise
-!!MACHT FELIX!!
+Um etwas Mathematisch zu Beweisen gibt mehrere Ansätze. Die wichtigsten sind:
+
+- **Direkter Beweis:**
+  Wir beweisen A $=>$ B mittels A $=>$ A' $=>$ A'' $=>$ B
+  
+  
+  
+    Bsp: Sei $n\in\mathbb{N}$ Dann gilt: n ungerade => $n^2$ auch ungerade
+  
+    n ungerade => $\exists m \in \mathbb{N}: 2m+1=n$ 
+    
+    =>$(2m+1)^2 = 4m^2+4m+1 = 2(2m^2+2m)+1 => n^2$ 
+    
+    mit $2(2m^2+2m)\in \mathbb{N}$ und gerade
+    
+    Da $n^2 = 2(2m^2+2m)$ **+1** ist auch $n^2$ eine ungerade Zahl.
+    
+- **Kontraposition**
+  Anstatt A => B z.z., zeigt man $\neg B => \neg A$
+  
+  
+  
+    Bsp: Sei $n\in\{k^2|k\in\mathbb{N}\}$ Dann gilt:
+    
+    $n$ gerade $=>$ $\sqrt n$ gerade
+    
+    Kontraposition:
+    
+    $\sqrt n$ gerade $->$ n ungerade
+    
+    $\forall m \in \mathbb{N}:n=k^2 => k^2$ gerade $=> k \ gerade$
+    
+- **Indirekter Beweis (Widerspruchsbeweis)**
+  Wir nehmen $A => B$, dann können wir sagen wenn $\neg B \wedge A => \neg A$ an und zeigen, dass es zum Widerspruch führt
+
+    $\neg(A \wedge (\neg B)) <=> A => B$
+  
+    Bsp: Für $A= B = \{-1,1\}$ gilt \ $min(A)*min(B) = min (A*B)$ mit $A*B := \forall a \in A \wedge b \in B, A*B= a*b$
+    
+    $min(A)=-1, min (B) =-1 , min(A*B) = -1$
+    
+    $min(A)*min(B)= -1*-1 = 1 \neq -1 = min(A*B)$
+    
+    
+
+### Beweis über vollständige Induktion
+
+Bei der Vollständigen Induktion wird für eine finite Definitionsmenge die Aussage bewiesen.
+
+Zu zeigen sind:
+
+- **Induktionsanfang**: Die Aussage gilt für das erste Element / die ersten X Element
+
+- **Induktionsannahme**: **Wir nehmen an:** die Aussage gilt für beliebige und feste Elemente der Menge
+
+- **Induktionschritt** : Wir beweisen, dass für das nächste Element / die nächsten Elemente die Bedingung auch erfüllt wird mittels verwendung der Induktionsannahme
+
+-Bsp: 
+
+$\forall n\ge1$ gilt $\sum_{k=1}^{n} k=\frac{n(n+1)}{2}$
+
+-**Induktionsanfang**: Wir zeigen, dass die Formel für $n=1$ richtig ist.
+
+$\sum_{k=1}^{1} k=1 <=> \frac{1(1+1)}{2}=\frac{2}{2}=1$
+
+-**Induktionsannahme**: Wir nehmen an, $\sum_{k=1}^{n} k=\frac{n(n+1)}{2}$ gilt für alle *feste* und *beliebiege* n.
+
+-**Induktionsschritt**
+Wir zeigen, dass $\sum_{k=1}^{n} k=\frac{n(n+1)}{2}$ für $n -> n+1$ gilt.
+
+$\sum_{k=1}^{n+1} k=(n+1)+\sum_{k=1}^{n} k$
+
+mittels Induktionsannahme nehmen wir an:
+
+$\sum_{k=1}^{n} k=\frac{n(n+1)}{2}$
+
+somit ist 
+
+$\sum_{k=1}^{n+1} k=(n+1)+\sum_{k=1}^{n} k=\sum_{k=1}^{n} k=(n+1)+\frac{n(n+1)}{2}=\frac{2(n+1)}{2}\frac{n(n+1)}{2}$
+
+- ausklammern von (n+1)
+
+$=\frac{(n+2)*(n+1)}{2}=\frac{((n+1)+1)*(n+1)}{2}$ was der Form $\sum_{k=1}^{n} k=\frac{n(n+1)}{2}$ für $n -> n+1$ entspricht
+
+Wir haben mittels Induktionsannahme bewiesen, dass für jedes Element $n$ die gleichung für das darrauffolgende Element $n+1$ gilt. Da die Gleichung für das erste Element $n=1$ gilt und für alle darauffolgenden gilt: $$\sum_{k=1}^{n} k=\frac{n(n+1)}{2} \ \ \ \ \  \forall n\ge1$$
 
 # Mengen und algebraische Struckturen
 Mengen sind Zusammenfassungen bestimmter, wohlunterscheidbarer Objekte.
@@ -405,8 +496,8 @@ Aus den Diagonalmatrizen kann man die **Pivot Elemente** a
 $$
 \begin{pmatrix}
     \fbox{x} & x & x \\
-    x   & \fbox{x} & x\\
-    x   & x & \fbox{x}\\
+    0   & \fbox{x} & x\\
+    0   & 0 & \fbox{x}\\
 \end{pmatrix}
 $$
 
@@ -504,7 +595,7 @@ Erhalten wird:
 \end{matrix}\:}^{EI}~~
 \right)
 \]
-Hierbei ist nun: $EI = A^{-1}$ und wir können somit das Gleichungssystem $x = bA^{-1}$
+Hierbei ist nun: $EI = A^{-1}$ und wir können somit das Gleichungssystem $x = A^{-1}b$
 lösen.
 
 ## Lösbarkeit

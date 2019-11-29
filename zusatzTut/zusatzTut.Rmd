@@ -136,23 +136,127 @@ $$\dim V = \text{span} \left( V \right)$$
 
 # Komplexe Zahlen und trignometrische Funktionen
 
+Die Menge $\mathbb{R}$ kann um die Menge $\mathbb{C}$ der komplexen der Zahlen erweitert werden. Dies erlaubt es Gleichungen zu lösen, in der eine Wurzel aus einer negativen Zahl gezogen werden muss z.B. $x= \sqrt{-8}$. 
+
+Hierfür wird die "imaginäre Zahl i" eingeführt, für die gilt: $i^2 = -1$ bzw. $i= \pm \sqrt{-1}$. Die Menge der komplexen Zahlen wird dann definiert als $\mathbb{C} = \{a+ib; a, b \in \mathbb{R} \}$
+
 ## Darstellungen Komplexer Zahlen
+
+Generell kann man 3 Darstellungstypen von komplexen Zahlen unterscheiden:
+
+- Kartesische Darstellung
+
+- Darstellung über Polarkoordinaten
+
+- Euler Formel
 
 ### Kartesische Darstellung
 
-### Polarkoordinaten Darstellung
+In der kartesischen Darstellung gilt folgende Schreibweise für komplexe Zahlen: $$z=a+ib$$
+mit folgendem reellen und imaginären Teil von z: $$Re(z)=a \quad \quad Im(z)=b$$
 
-### Euler Darstellung
+Mithilfe der kartesichen Darstellung lassen sich komplexe Zahlen durch einfaches Ablesen des reellen und imaginären Teils in ein 2D-Koordinatensystem abbilden (mit der x-Achse als reelle Achse und der y-Achse als imaginäre Achse).
+
+### Darstellung über Polarkoordinaten
+
+Komplexe Zahlen können auch über Polarkoordinaten dargestellt werden. Die generelle Schreibweise dafür sieht wie folgt aus: $$z=R\cos{\phi}+iR\sin{\phi}$$
+
+
+$R$ steht für den Betrag der komplexen Zahl und gibt den Abstand von z zum Koordinatenursprung (0,0) an. $$R=\sqrt{a^2+b^2}=\sqrt{z\bar{z}}$$
+
+Der Winkel $\phi$ wird auch als Argument von z bezeichnet und kann mit Hilfe des $\tan$ berechnet werden: $$\tan{\phi}=\frac{b}{a} \quad \Longrightarrow \quad \phi=\arctan{\frac{b}{a}}$$
+
+Vergleicht man die Darstellung über Polarkoordinaten mit der kartesischen Darstellung wird folgender Zusammenhang deutlich: $$Re(z)=a=R\cos{\phi}; \quad \quad Im(z)=b=R\sin{\phi}$$
+
+
+### Euler Formel
+
+Eine weitere Möglichkeit komplexe Zahlen darzustellen bietet die Euler Formel. Diese sieht wie folgt aus: $$z=Re^{i\phi}$$
+
+Der Vorteil der Eulerformel liegt vor allem in der Berechnung von Produkten und Divisionen komplexer Zahlen. Für normale Addition und Substraktion empfiehlt sich jedoch die kartesische Darstellung.
+
+### Komplexe Zahlen im Koordinatensystem
+
+![](Gaußsche_Zahlenebene.png){width=300pt height=100pt}
 
 ## Rechenoperationen Komplexer Zahlen
 
-## Trigonometrische Funktione
+Komplexe Zahlen können miteinander verrechnet werden. Hierbei soll am Ende eine neue komplexe Zahl entstehen mit einem reellen und einem imaginären Teil.
+
+Beim Rechnen mit komplexen Zahlen gelten folgende übliche Rechenregeln:
+
+- Addition ($+$) / Subtraktion ($-$)
+
+- Multiplikation ($*$)
+
+- somit auch die Distributivität und Kommuntativität!
+
+Die Ausnahme bildet die Division. Damit man einen reellen und imaginären Teil eines Ausdrucks $\frac{z_1}{z_2}$ definieren kann, muss der Nenner $\in \mathbb{R}$ sein. Dies kann erreicht werden indem man mit der komplex konjugierten Zahl $\bar{z}_2$ der komplexen Zahl im Nenner $z_2$ multipliziert. $$\text{wenn} \quad z=a+ib \quad \text{dann ist} \quad \bar{z}=a-ib$$
+
+$$\Longrightarrow z\bar{z}=(a+ib)(a-ib)=a^2+b^2$$
+
+
+## Trigonometrische Funktionen
+
+Trigonometrische Funktionen (auch Winkelfunktionen genannt) beschreiben rechnerische Zusammenhänge zwischen Winkel und Seitenverhältnisse. Zu den elementaren trigonometrischen Funktionen gehören:
+
+- $\sin{\phi}$
+
+- $\cos{\phi}$
+
+- $\tan{\phi}$
 
 ### Geometrische Interpretation
 
+Zur geometrischen Interpretation ist es wichtig die Definitionen der trigonometrischen Funktionen zu kennne:
+
+$$\cos{\phi}=\frac{\text{Ankathete}}{\text{Hypothenuse}}; \quad  \sin{\phi}=\frac{\text{Gegenkathete}}{\text{Hypothenuse}}; \quad \tan{\phi}=\frac{\text{Gegenkathete}}{\text{Ankathetete}}$$
+
+woraus folgt: $$\tan{\phi}=\frac{\sin{\phi}}{\cos{\phi}}$$
+
+![](Trigonometrie.png){width=300pt height=100pt}
+
 ### Eigenschaften und wichtige Gleichungen
 
+Trigonmetrische Funktionen weisen aufgrund ihrer Periodizität bestimmte Eigenschaften auf. Die vier wichtigsten sind die folgenden:
+
+- $\sin{(\phi+2k\pi)}=\sin{(\phi)}; \quad \cos{(\phi+2k\pi)}=\cos{(\phi)} \quad \text{mit} k \in \mathbb{R}$
+
+- $\sin{(\phi+\frac{\pi}{2})}=\cos{(\phi)}; \quad \cos{(\phi+\frac{\pi}{2})}=-\sin{(\phi)}$
+
+- $\sin{(\phi+\pi)}=-\sin{(\phi)}; \quad \cos{(\phi+\pi)}=\cos{(\phi)}$
+
+- $\sin{(-\phi)}=-\sin{(\phi)} (\text{ungerade}); \quad \cos{(-\phi)}=\cos{(\phi)} (\text{gerade})$
+
+Darüber hinaus gibt es auch einige wichtige Identitäten, die man kennen sollte:
+
+- $\sin^2{\phi}+\cos^2{\phi}=1$
+
+- $\sin{(2\phi)}=2\sin{\phi}\cos{\phi}$
+
+- $\cos{(2\phi)}=\cos^2{\phi}-\sin^2{\phi}=2\cos^2{\phi}-1$
+
+- $\sin{(\alpha+\beta)}=\sin{\alpha}\cos{\beta}+\cos{\alpha}\sin{\beta}$
+
+- $\cos{(\alpha+\beta)}=\cos{\alpha}\cos{\beta}-\sin{\alpha}\sin{\beta}$
+
+
 ### Wichtige Werte
+
+Zur Berechnung von trigonmetrischen Funktionen gibt es einige besondere Werte, die man im Kopf haben sollte.
+
+$$
+\begin{array}{l|c|c|c|c|c|c|c}
+  \text{Winkel} & 0º & 30º & 45º & 60º & 90º & 180º & 360º \\
+  \hline
+  \text{Bogenmaß} & 0 & \frac{\pi}{6} & \frac{\pi}{4} & \frac{\pi}{3} & \frac{\pi}{2} & \pi & 2\pi\\
+  \hline
+  \cos & 1 & \frac{\sqrt{3}}{2} & \frac{\sqrt{2}}{2} & \frac{1}{2} & 0 & -1 & 1\\
+  \hline
+  \sin & 0 & \frac{1}{2} & \frac{\sqrt{2}}{2} & \frac{\sqrt{3}}{2} & 1 & 0 & 0\\
+\end{array}
+$$
+
 
 # Matrizen und Lineare Algebra
 Lineare Gleichungssysteme stellen sich wie folgt da:

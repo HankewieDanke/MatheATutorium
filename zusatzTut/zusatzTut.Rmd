@@ -54,7 +54,7 @@ $\exists$ : Es existiert mindestens ein
 
 $\exists!$ : Es exsitiert genau ein
 
-$\neg\exists$: Es exsitiert kein
+$\nexists$: Es exsitiert kein
 
 
 ## Beweise
@@ -431,6 +431,13 @@ Lösungen für Gleichungssysteme.
 Die Matrix ist Singulär und hat kein Inverses.
 
 ### Spalten und Nullraum
+- Spaltenraum:  
+  Aufgespannt durch Spalten einer Matrix.
+  Dimension ist abhängig von der anzahl linear unabhängiger gleichungen.
+- Nullraum:  
+  - $\dim span(\vec{0}) = 0$  
+  - $\lambda \left(\begin{array}{c}0\\0 \\0 \end{array}\right)$
+  - $\sum_{i = 1}^{n} \lambda _{i} \vec{v}_i = \left(\begin{array}{c}0\\0\\0\end{array}\right)$
 
 ## Eliminationsverfahren
 1. Gleichungssystem aufstellen

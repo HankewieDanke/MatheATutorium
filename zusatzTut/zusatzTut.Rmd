@@ -45,6 +45,7 @@ Eine Implikation w?re zum Beispiel:
  $$(1) \Rightarrow (2)$$ 
  
 Eine Implikation hat so wie eine Aussage einen Wahrheitswert.
+
 ## Quantoren
 
 $\forall$ : Für alle

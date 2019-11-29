@@ -268,7 +268,7 @@ Der Vorteil der Eulerformel liegt vor allem in der Berechnung von Produkten und 
 
 ### Komplexe Zahlen im Koordinatensystem
 
-![](Gaußsche_Zahlenebene.png){width=300pt height=100pt}
+![](Gaußsche_Zahlenebene.png){width=400px height=300px}
 
 ## Rechenoperationen Komplexer Zahlen
 
@@ -305,7 +305,7 @@ $$\cos{\phi}=\frac{\text{Ankathete}}{\text{Hypothenuse}}; \quad  \sin{\phi}=\fra
 
 woraus folgt: $$\tan{\phi}=\frac{\sin{\phi}}{\cos{\phi}}$$
 
-![](Trigonometrie.png){width=300pt height=100pt}
+![](Trigonometrie.png){width=400px height=200px}
 
 ### Eigenschaften und wichtige Gleichungen
 
@@ -475,7 +475,7 @@ Demnach sind LGS mit genau einer Lösung lösbar,
 wenn die Matrix invertierbar ist.  
 
 
-### Matrix Diagonalisierung und determinanten
+### Matrix Diagonalisierung
 Durch Diagonalisierung (alle Elemente der Matrix _über/unter_ Diagonale $=0$)
 lassen sich die **Pivot Elemente** (Elemente auf Diagonale) bestimmen.  
 Generel:
@@ -505,13 +505,116 @@ $$
     $\blacktriangleright$ Beachte Multiplikationsreihenfolge, nicht kummutativ $\blacktriangleleft$  
     $\blacktriangleright$ $E$ sind Einheitsmatrizen und somit 1 auf Diagnoale! ($\det(E) = 1$) $\blacktriangleleft$  
 </center>
-Die Determinante einer matrix:
-$$\det{A} = \prod \text{Pivot Elemente}$$
+
+### Determinanten
+
+Die Determinante ist eine reelle Zahl, die NUR für quadratische Matrizen definiert ist.
+
 In einer Matrix mit $\det{A}\neq 0$ gibt es entweder 0 oder $\infty$ viele
 Lösungen für Gleichungssysteme.
 Die Matrix ist Singulär und hat kein Inverses.
 
+Determinanten können auf verschiedene Arten und weisen berechnet werden:
+
+- Über Pivot-Elemente (für Dreiecksmatrizen)
+
+- Über die Sarrus-Regel (NUR für $3$x$3$-Matrizen)
+
+- Über den Laplace'schen Entwicklungssatz
+
+#### Über Pivot-Elemente
+
+Die Determinante einer Upper-triangle-Matrix kann sehr einfach über die Multiplikation der Pivot-Elemente berechnet werden:
+$$\det{A} = \prod \text{Pivot Elemente}$$
+
+Daher bietet die Diagonlisierung einer Matrix eine Möglichkeit der Determinanten-Berechnung. 
+
+#### Über die Sarrus-Regel (ACHTUNG nur für $3$x$3$-Matrizen)
+
+![](Sarrus-regel.png){width=200px height=150px} $\Rightarrow a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}-a_{31}a_{22}a_{13}-a_{32}a_{23}a_{11}-a_{33}a_{21}a_{12}$ 
+
+#### Über den Laplace'schen Entwicklungssatz
+
+$$\text{det}A=\sum_{i=1}^{n} (-1)^{i+j}a_{ij}\text{det}A_{ij}$$
+wobei $A_{ij}$ Matrix A ohne $i$-te Zeile und $j$-te Spalte ist.
+
+#### Eigenschaften von Determinanten
+
+Bei der Berechung von det($A$) müssen folgende Eigenschaften von Determinanten beachtet werden, wenn die Matrix $A$ vorher umgeformt wird:
+
+1. Ein Zeilentausch in der Matrix $A$ hat einen Vorzeichenwechsel (also Multiplikation mit -1) von det($A$) zur Folge. Dieser Vorzeichenwechsel gilt pro Zeilentausch.
+
+$$
+\begin{vmatrix}
+    a & b \\
+    c & d \\
+\end{vmatrix} = -
+\begin{vmatrix}
+    c & d \\
+    b & a \\
+\end{vmatrix}
+$$
+
+2. Eine Multiplikation einer Zeile von $A$ mit einem Faktor $\lambda$ bedeutet, dass man am Ende den berechneten Wert durch diese Faktor teilen muss, da:
+
+$$
+\begin{vmatrix}
+    \lambda a & \lambda b \\
+    c & d \\
+\end{vmatrix} = \lambda
+\begin{vmatrix}
+    a & b \\
+    c & d \\
+\end{vmatrix}
+$$
+
+3. Eine Elimination durch Subtraktion zweier Zeilen hat keine Folge für det($A$), solange die umzuformende Gleichung nicht mit einem Faktor multipliziert wird.
+
+$$
+\begin{vmatrix}
+    a & b \\
+    c-\lambda a & d-\lambda b \\
+\end{vmatrix} =
+\begin{vmatrix}
+    a & b \\
+    c & d \\
+\end{vmatrix}
+$$
+
+$$ \text{Achtung:} \quad
+\begin{vmatrix}
+    a & b \\
+    \lambda c-a & \lambda d-b \\
+\end{vmatrix} = \lambda
+\begin{vmatrix}
+    a & b \\
+    c & d \\
+\end{vmatrix} \ne
+\begin{vmatrix}
+    a & b \\
+    c & d \\
+\end{vmatrix}
+$$
+
+4. wenn es eine Null-Zeile gibt oder ein Pivot-Element Null ist, dann ist det($A$) = 0.
+
+5. außerdem gibt es folgende Vereinfachungen bei der Determinantenberechnung:
+
+- $\text{det}(AB)=\text{det}(A)\text{det}(B)$
+
+- $\text{det}(A^{-1})=\frac{1}{\text{det}(A)}$
+
+- $\text{det}(A^m)=(\text{det}(A))^m$
+
+- $\text{det}(\lambda A)=\lambda^n \text{det}(A)$  (mit A = $n$x$n$ Matrix)
+
+- $\text{det}(A^T)=\text{det}(A)$
+
+
+
 ### Spalten und Nullraum
+
+
 
 ## Eliminationsverfahren
 1. Gleichungssystem aufstellen
@@ -600,3 +703,10 @@ lösen.
 
 ## Lösbarkeit
 
+Das LGS $Ax=b$ ist nur eindeutig lösbar für ein beliebiges $b$, wenn eine der drei folgenden Bedingungen (alle sind äquivalent zueinander) erfüllt ist:
+
+- $A$ ist invertierbar ($Ax=b \Rightarrow A^{-1}Ax=A^{-1} \Rightarrow x=A^{-1}b$)
+
+- alle Pivot-Elemente sind ungleich Null
+
+- die Determinante von A ist ungleich Null

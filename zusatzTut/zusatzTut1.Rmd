@@ -8,7 +8,7 @@ output:
   html_document:
     toc: TRUE
     toc_depth: 3
-    toc_float: TRUE
+    toc_float: FALSE
   pdf_document:
     toc: TRUE
 ---
@@ -16,6 +16,8 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+**Disclaimer:** *Wir geben keine Garantie auf die Richtigkeit und Vollständigkeit dieses Dokuments. Diese Zusammenfassung soll lediglich einen Überblick über die Inhalte der Vorlesung geben. Klausurrevelant ist theoretisch alles, was in der Vorlesung oder in den Übungsblättern durchgenommen wurde*
 
 # Mathematische Logik
 
@@ -40,7 +42,7 @@ Die Aussage (1) ist eine falsche Aussage, die Aussage (2) ist wahr.
 
 Eine Implikation beschreibt eine Folgerung. 
 
-Eine Implikation w?re zum Beispiel:
+Eine Implikation wäre zum Beispiel:
 
  $$(1) \Rightarrow (2)$$ 
  
@@ -54,11 +56,11 @@ $\exists$ : Es existiert mindestens ein
 
 $\exists!$ : Es exsitiert genau ein
 
-$\neg\exists$: Es exsitiert kein
+$\nexists$: Es exsitiert kein
 
 
 ## Beweise
-Um etwas Mathematisch zu Beweisen gibt mehrere Ansätze. Die wichtigsten sind:
+Um etwas mathematisch zu Beweisen gibt mehrere Ansätze. Die wichtigsten sind:
 
 - **Direkter Beweis:**
   Wir beweisen A $=>$ B mittels A $=>$ A' $=>$ A'' $=>$ B
@@ -86,14 +88,13 @@ Um etwas Mathematisch zu Beweisen gibt mehrere Ansätze. Die wichtigsten sind:
     
     Kontraposition:
     
-    $\sqrt n$ gerade $->$ n ungerade
+    $\sqrt n$ ungerade $->$ n ungerade
     
     $\forall m \in \mathbb{N}:n=k^2 => k^2$ gerade $=> k \ gerade$
     
-- **Indirekter Beweis (Widerspruchsbeweis)**
-  Wir nehmen $A => B$, dann können wir sagen wenn $\neg B \wedge A => \neg A$ an und zeigen, dass es zum Widerspruch führt
-
-    $\neg(A \wedge (\neg B)) <=> A => B$
+- **Indirekter Beweis (Widerspruchsbeweis)** (nicht so wichtig)
+  
+    Wir nehmen $A => B$, dann können wir sagen wenn $\neg B \wedge A => \neg A$ an und zeigen, dass es zum Widerspruch führt
   
     Bsp: Für $A= B = \{-1,1\}$ gilt \ $min(A)*min(B) = min (A*B)$ mit $A*B := \forall a \in A \wedge b \in B, A*B= a*b$
     
@@ -113,6 +114,8 @@ Zu zeigen sind:
 
 - **Induktionsannahme**: **Wir nehmen an:** die Aussage gilt für beliebige und feste Elemente der Menge
 
+- **Induktionsbehauptung**: **Wir behaupten**, dass die Aussage auch für alle nachfolgenden Elementer der Menge gilt
+
 - **Induktionschritt** : Wir beweisen, dass für das nächste Element / die nächsten Elemente die Bedingung auch erfüllt wird mittels verwendung der Induktionsannahme
 
 -Bsp: 
@@ -125,6 +128,8 @@ $\sum_{k=1}^{1} k=1 <=> \frac{1(1+1)}{2}=\frac{2}{2}=1$
 
 -**Induktionsannahme**: Wir nehmen an, $\sum_{k=1}^{n} k=\frac{n(n+1)}{2}$ gilt für alle *feste* und *beliebiege* n.
 
+-**Induktionsbehauptung**: Wir behaupten, dass $\sum_{k=1}^{n+1} k=\frac{(n+1)((n+)+1)}{2}$
+
 -**Induktionsschritt**
 Wir zeigen, dass $\sum_{k=1}^{n} k=\frac{n(n+1)}{2}$ für $n -> n+1$ gilt.
 
@@ -136,7 +141,7 @@ $\sum_{k=1}^{n} k=\frac{n(n+1)}{2}$
 
 somit ist 
 
-$\sum_{k=1}^{n+1} k=(n+1)+\sum_{k=1}^{n} k=\sum_{k=1}^{n} k=(n+1)+\frac{n(n+1)}{2}=\frac{2(n+1)}{2}\frac{n(n+1)}{2}$
+$\sum_{k=1}^{n+1} k=(n+1)+\sum_{k=1}^{n} k=(n+1)+\frac{n(n+1)}{2}=\frac{2(n+1)}{2}\frac{n(n+1)}{2}$
 
 - ausklammern von (n+1)
 
@@ -144,7 +149,7 @@ $=\frac{(n+2)*(n+1)}{2}=\frac{((n+1)+1)*(n+1)}{2}$ was der Form $\sum_{k=1}^{n} 
 
 Wir haben mittels Induktionsannahme bewiesen, dass für jedes Element $n$ die gleichung für das darrauffolgende Element $n+1$ gilt. Da die Gleichung für das erste Element $n=1$ gilt und für alle darauffolgenden gilt: $$\sum_{k=1}^{n} k=\frac{n(n+1)}{2} \ \ \ \ \  \forall n\ge1$$
 
-# Mengen und algebraische Struckturen
+# Mengen und algebraische Strukturen
 Mengen sind Zusammenfassungen bestimmter, wohlunterscheidbarer Objekte.
 Für jedes Objekt ist eine klare zuordnung zur Menge erkentlich
 
@@ -155,7 +160,7 @@ Mengen sind keine Aussagen!!
 -------------
 
 
-## sonder mengen & Mengen Relationen
+## Sondermengen & Mengenrelationen
 - $\emptyset \subset \mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}$
 - $A \subset B$ !Aussage!
 - $A \cap B$
@@ -177,23 +182,23 @@ $$f: A \rightarrow B$$
 ### Gruppen $(G, \oplus)$
 
 - **Abgeschlossenheit** $$a \in G, b \in G : a \oplus b \in G$$
-- **Assoziativität** $$(b\oplus a) \oplus c = a \oplus (b \oplus c)$$
+- **Assoziativität** $$(a\oplus b) \oplus c = a \oplus (b \oplus c)$$
 - **Neutrales Element** $D_{0}$ $$\exists e \in G, \forall a \in G : a \oplus e = a$$
 - **Inverses Element** $$\forall a \in G, \exists \bar{a} \in G: a \oplus \bar{a} = e$$
 - **Kommultativität** (abelsche Gruppe):$$\forall a \in G, \forall b \in G: a \oplus b = b \oplus a$$
 
 ### Ringe $(M, \oplus, \otimes)$
 
-1. $(M, \oplus)$ ablesche Gruppe
-2. $a \otimes ( b \otimes c) = (a \otimes b) \otimes c$ assoziativität gegeben.
+1. $(M, \oplus)$ Ablesche Gruppe
+2. $a \otimes ( b \otimes c) = (a \otimes b) \otimes c$ Assoziativität gegeben.
 3. Distributiv: $\forall a,b,c \in M : a \otimes (b\oplus c) = a \otimes b \oplus a \otimes c$.
 
 - Kommutativ wenn: $a \otimes b = b \otimes a$
 - unitär wenn: $\exists 1 \in M : a \otimes 1 = 1 \otimes a = a$.
 
 ### Körper $(K, \oplus, \otimes)$
-1. $(K, \oplus)$ is abelsche Gruppe mit $D_0 = 0$.
-2. $(K \setminus \{0\}, \otimes)$ abelsche Gruppe mit $D_0 = 1$.
+1. $(K, \oplus)$ is Abelsche Gruppe mit $D_0 = 0$.
+2. $(K \setminus \{0\}, \otimes)$ Abelsche Gruppe mit $D_0 = 1$.
 3. Distributivgesetz gilt.
 
 - **Unterschied zu Ringen:** $(M, \otimes)$ keine abelsche Gruppe, kein Inverses!
@@ -212,6 +217,10 @@ Hierbei sind $\mu$ skalare $(\mu \in \mathbb{R})$
 $$\mathbb{R}^n \mathbb{R}^n = \mathbb{R}$$
 Relevant ist, das beide Vektoren gleiche Dimension haben.  
 $$ \vec{v} \cdot \vec{w} = \sum _{i = 1} ^n v_i w_i \in \mathbb{R}$$
+
+
+    *Hinweis: Da Vektoren nicht normal miteinander multipliziert werden können, gehen wir (auch in der Klausur) davon, dass ein Punkt zwischen zwei Vektoren für das Skalarprodukt steht und NICHT für eine normale Multiplikation.*
+
 
 - Vektor betrag:
 $$|\vec{v}|^2 = \vec{v}\cdot\vec{v}$$
@@ -240,15 +249,13 @@ Drei relevante Basen sind:
 
 Alle Vektoren der Basis des Vektorraums müssen linear unabhängig voneinander sein:
 $$\sum_{i=1}^{r} \lambda_{1} \vec{v}_{1}+\ldots_{i}+\lambda_{r} \vec{v}_{r}^{2}=\vec{O} \Leftrightarrow \lambda_{i}=0 \quad i=1, \ldots, r$$
-Lineare Abbhängigkeit ist gegeben, wenn $\exists \lambda \neq 0$ sodass $\lambda\vec{v}_{1}\cdot\lambda\vec{v}_{2} = \vec{0}$.  
+Lineare Abbhängigkeit ist gegeben, wenn $\exists \lambda \neq 0$ sodass $\lambda_1\vec{v}_{1}+\lambda_2\vec{v}_{2} = \vec{0}$.  
 
 Die Dimension des (aufgespannten) Vektorraums entspricht der
 Anzahl an Basis oder Span Vektoren.
-$$\dim V = \text{span} \left( V \right)$$
+$$\dim(V) = \# \text{Basis}(V) \quad \text{bzw.} \quad \text{Span}(V)=\mathbb{R}^{\text{dim}(V)}$$
 
-
-
-# Komplexe Zahlen und trignometrische Funktionen
+# Komplexe Zahlen und trigonometrische Funktionen
 
 Die Menge $\mathbb{R}$ kann um die Menge $\mathbb{C}$ der komplexen der Zahlen erweitert werden. Dies erlaubt es Gleichungen zu lösen, in der eine Wurzel aus einer negativen Zahl gezogen werden muss z.B. $x= \sqrt{-8}$. 
 
@@ -338,9 +345,9 @@ Trigonmetrische Funktionen weisen aufgrund ihrer Periodizität bestimmte Eigensc
 
 - $\sin{(\phi+\frac{\pi}{2})}=\cos{(\phi)}; \quad \cos{(\phi+\frac{\pi}{2})}=-\sin{(\phi)}$
 
-- $\sin{(\phi+\pi)}=-\sin{(\phi)}; \quad \cos{(\phi+\pi)}=\cos{(\phi)}$
+- $\sin{(\phi+\pi)}=-\sin{(\phi)}; \quad \cos{(\phi+\pi)}=-\cos{(\phi)}$
 
-- $\sin{(-\phi)}=-\sin{(\phi)} (\text{ungerade}); \quad \cos{(-\phi)}=\cos{(\phi)} (\text{gerade})$
+- $\sin{(-\phi)}=-\sin{(\phi)}; \quad \cos{(-\phi)}=\cos{(\phi)}$
 
 Darüber hinaus gibt es auch einige wichtige Identitäten, die man kennen sollte:
 
@@ -406,18 +413,18 @@ Eine Matrix wird durch ihre Dimensionen beschreiben:
 Matrizen haben folgende Eigenschaften:
 
 1. Assoziativ
-2. Dissoziativ
+2. Distributiv
 3. _nicht_ kommutativ!
 
-### Matrix addition/subtraktion
+### Matrix Addition/Subtraktion
 Matrizen müssen identische Dimensionen haben.
 Addition der einzelnen Elemente aufeinander.
 
-### Matrix multiplikation
-Kriterium: innere Dimensionen gleich.
+### Matrix Multiplikation
+Kriterium: innere Dimensionen gleich. D.h. \# Spalten Matrix $A$ = \# Zeilen Matrix $B$
 \[\underset{m\times n}{A} \times \underset{n \times p}{B} = \underset{m \times p}{C}\]
 An sich ergibt sich die Ergebnismatrix aus Skalarprodukten der
-Zeilen und Spalten der Inputmatrizen.
+Zeilen der Matrix $A$ mit den Spalten der Matrix $B$ der Inputmatrizen.
 \[
 \begin{pmatrix}
     &&\\
@@ -428,7 +435,7 @@ Zeilen und Spalten der Inputmatrizen.
     &j_i&\\
     &j_{C}&\\
     &j_k&\\
-\end{pmatrix}
+\end{pmatrix}=
 \begin{pmatrix}
     &&\\
     &C_{ij}&\\
@@ -458,7 +465,7 @@ $$
    Die Zeile $i$ von $C$ ergibt sich aus der Vektersumme der Zeilen von
    $B$ multipliziert mit den Elementen in der $i$ten Zeile von $A$.
 
-### Matrix transposition
+### Matrix Transposition
 "Rotation einer matrix":  
 \[ \underset{m \times n}{A} =
 \begin{pmatrix}
@@ -466,7 +473,7 @@ $$
     \vdots  &        & \vdots  \\
     a_{m,1} & \cdots & a_{m,n} \\
 \end{pmatrix} \longrightarrow
-\underset{m \times n }{A}^{T} =
+\underset{n \times m }{A}^{T} =
 \begin{pmatrix}
     a_{1,1} & \cdots & a_{m,1} \\
     \vdots  &        & \vdots  \\
@@ -501,7 +508,7 @@ wenn die Matrix invertierbar ist.
 ### Matrix Diagonalisierung
 Durch Diagonalisierung (alle Elemente der Matrix _über/unter_ Diagonale $=0$)
 lassen sich die **Pivot Elemente** (Elemente auf Diagonale) bestimmen.  
-Generel:
+Generell:
 $$EA = A'$$
 Dabei $E=$ Eliminationsmatrix. Eigenschaften:
 
@@ -524,10 +531,9 @@ $$
 \end{pmatrix}
 $$
 
-<center>
-    $\blacktriangleright$ Beachte Multiplikationsreihenfolge, nicht kummutativ $\blacktriangleleft$  
-    $\blacktriangleright$ $E$ sind Einheitsmatrizen und somit 1 auf Diagnoale! ($\det(E) = 1$) $\blacktriangleleft$  
-</center>
+
+$\blacktriangleright$ Beachte Multiplikationsreihenfolge, nicht kummutativ $\blacktriangleleft$  
+$\blacktriangleright$ $E$ sind Einheitsmatrizen und somit 1 auf Diagnoale! ($\det(E) = 1$) $\blacktriangleleft$  
 
 ### Determinanten
 
@@ -541,7 +547,7 @@ Determinanten können auf verschiedene Arten und weisen berechnet werden:
 
 - Über Pivot-Elemente (für Dreiecksmatrizen)
 
-- Über die Sarrus-Regel (NUR für $3$x$3$-Matrizen)
+- Über die Sarrus-Regel (NUR für $3\times3$-Matrizen)
 
 - Über den Laplace'schen Entwicklungssatz
 
@@ -552,7 +558,7 @@ $$\det{A} = \prod \text{Pivot Elemente}$$
 
 Daher bietet die Diagonlisierung einer Matrix eine Möglichkeit der Determinanten-Berechnung. 
 
-#### Über die Sarrus-Regel (ACHTUNG nur für $3$x$3$-Matrizen)
+#### Über die Sarrus-Regel (ACHTUNG nur für $3\times 3$-Matrizen)
 
 ![](Sarrus-regel.png){width=200px height=150px} $\Rightarrow a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}-a_{31}a_{22}a_{13}-a_{32}a_{23}a_{11}-a_{33}a_{21}a_{12}$ 
 
@@ -574,7 +580,7 @@ $$
 \end{vmatrix} = -
 \begin{vmatrix}
     c & d \\
-    b & a \\
+    a & b \\
 \end{vmatrix}
 $$
 
@@ -629,13 +635,21 @@ $$
 
 - $\text{det}(A^m)=(\text{det}(A))^m$
 
-- $\text{det}(\lambda A)=\lambda^n \text{det}(A)$  (mit A = $n$x$n$ Matrix)
+- $\text{det}(\lambda A)=\lambda^n \text{det}(A)$  (mit A = $n\times n$ Matrix)
 
 - $\text{det}(A^T)=\text{det}(A)$
 
 
 
 ### Spalten und Nullraum
+- Spaltenraum:  
+  Aufgespannt durch Spalten einer Matrix.
+  Dimension ist abhängig von der anzahl linear unabhängiger gleichungen.
+- Nullraum:  
+  - $\dim span(\vec{0}) = 0$  
+  - $\lambda \left(\begin{array}{c}0\\0 \\0 \end{array}\right)$
+  - $\sum_{i = 1}^{n} \lambda _{i} \vec{v}_i = \left(\begin{array}{c}0\\0\\0\end{array}\right)$
+
 
 
 
@@ -681,7 +695,7 @@ die Lösungsmengen Singulärer Systeme bestimmt werden.
 
 ### Gauß-Jordan-Verfahren
 Hat eine Matrix ein Inverses so kann die Eindeutige Lösung mit diesem Berechnet werden:
-$$x = b A^{-1}$$
+$$x = A^{-1}b$$
 Um das Inverse einer Matrix zu berechnen, kann man eine Erweiterete Matrix von A mit I aufstellen:
 
 \[
@@ -736,11 +750,3 @@ Lösbarkeit von Gleichungssystemen einteilbar in zwei Untergruppen, wenn $A$ qua
    Im LGS gilt:
    - $0 \in Eb \Leftrightarrow \infty \text{ Lsg.}$
    - $0 \notin Eb \Leftrightarrow 0 \text{ Lsg.}$
-
-Das LGS $Ax=b$ ist nur eindeutig lösbar für ein beliebiges $b$, wenn eine der drei folgenden Bedingungen (alle sind äquivalent zueinander) erfüllt ist:
-
-- $A$ ist invertierbar ($Ax=b \Rightarrow A^{-1}Ax=A^{-1} \Rightarrow x=A^{-1}b$)
-
-- alle Pivot-Elemente sind ungleich Null
-
-- die Determinante von A ist ungleich Null

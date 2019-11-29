@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Aussagen
 
-Wohlformulierte beschreibende S?tze nennt man "Aussagen" (Behauptungen, Mitteilungen). ( (Franz von Kutzschera und Alfred Breitkopf, Einf?hrung in die moderne Logik, 7. neu bearbeitete Auflage, Freiburg im Breisgau, 2000).)
+Wohlformulierte beschreibende Sätze nennt man "Aussagen" (Behauptungen, Mitteilungen). ( (Franz von Kutzschera und Alfred Breitkopf, Einführung in die moderne Logik, 7. neu bearbeitete Auflage, Freiburg im Breisgau, 2000).)
 
 Aussagen besitzen Eigenschaften, welche logisch relevant sind.
 

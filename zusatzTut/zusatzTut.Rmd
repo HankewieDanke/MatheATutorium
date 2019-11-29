@@ -8,7 +8,7 @@ output:
   html_document:
     toc: TRUE
     toc_depth: 3
-    toc_float: FALSE
+    toc_float: TRUE
   pdf_document:
     toc: TRUE
 ---
@@ -18,10 +18,33 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Mathematische Logik
-!!MACHT FELIX!!
 
 ## Aussagen
-!!MACHT FELIX!!
+
+Wohlformulierte beschreibende Sätze nennt man "Aussagen" (Behauptungen, Mitteilungen). ( (Franz von Kutzschera und Alfred Breitkopf, Einführung in die moderne Logik, 7. neu bearbeitete Auflage, Freiburg im Breisgau, 2000).)
+
+Aussagen besitzen Eigenschaften, welche logisch relevant sind.
+
+Aussagen wären zum Beispiel:
+
+(1) Der Mars hat eine ähnliche Atmosphäre wie die Erde.
+
+(2) Der Mars bewegt sich, abgesehen von Bahnstörungen, auf einer elliptischen Bahn um die Sonne.
+
+Die Aussagen (1) und (2) besitzen einen Wahrheitswert.
+
+Die Aussage (1) ist eine falsche Aussage, die Aussage (2) ist wahr.
+
+
+### Implikationen
+
+Eine Implikation beschreibt eine Folgerung. 
+
+Eine Implikation w?re zum Beispiel:
+
+ $$(1) \Rightarrow (2)$$ 
+ 
+Eine Implikation hat so wie eine Aussage einen Wahrheitswert.
 
 ## Quantoren
 
@@ -207,7 +230,7 @@ Die Basis eines Vektorraums ist die Menge an vektoren,
 mit welchen sich über Linearkombination jeder Vektor
 im Vektorraum berechnen lässt, sie wird der span des Raums gennant:
 $$\forall \vec{v} \in V: \exists \lambda_{1}, \ldots, \lambda_{k} \in \mathbb{R}: \vec{v}=\sum_{i=1}^{n} \lambda_{i} \vec{e}_{i}$$  
-Die Vektoren dieser Basis spannen den Vektorraum auf und werden als $\text{span}{V}$ bezeichent, wobei $V :\Leftrightarrow \{\vec{v}_i,\dots, \vec{v}_k\} \in \mathbb{R}$
+Die Vektoren dieser Basis spannen den Vektorraum auf und werden als $\text{span}{V}$ bezeichent, wobei $V :\Leftrightarrow \{\vec{v}_i,\dots, \vec{v}_k\} \in \mathbb{R}^{n}$
 
 Drei relevante Basen sind:
 
@@ -702,6 +725,17 @@ Hierbei ist nun: $EI = A^{-1}$ und wir können somit das Gleichungssystem $x = A
 lösen.
 
 ## Lösbarkeit
+Lösbarkeit von Gleichungssystemen einteilbar in zwei Untergruppen, wenn $A$ quadratisch:
+
+1. $\det(A) \neq 0 \Rightarrow \exists ! A^{-1}$  
+   Das LGS hat genau *_eine und nur eine_* lösung.
+   Gaus-Jordan Verfahren anwendbar.  
+   Alle Spaltenvektoren Linear unabhängig.
+2. $\det(A) = 0 \Rightarrow \nexists A^{-1}$  
+   Ein Pivot element in $EA = 0$  
+   Im LGS gilt:
+   - $0 \in Eb \Leftrightarrow \infty \text{ Lsg.}$
+   - $0 \notin Eb \Leftrightarrow 0 \text{ Lsg.}$
 
 Das LGS $Ax=b$ ist nur eindeutig lösbar für ein beliebiges $b$, wenn eine der drei folgenden Bedingungen (alle sind äquivalent zueinander) erfüllt ist:
 

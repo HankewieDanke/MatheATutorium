@@ -1,0 +1,6 @@
+patrick/
+.DS_Store
+*.log
+*.out
+*[L,l]oesung*
+.R*

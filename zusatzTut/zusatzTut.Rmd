@@ -298,7 +298,7 @@ Der Vorteil der Eulerformel liegt vor allem in der Berechnung von Produkten und 
 
 ### Komplexe Zahlen im Koordinatensystem
 
-![](Gaußsche_Zahlenebene.png){width=400px height=300px}
+![](Gauss_Zahlenebene.png){width=400px height=300px}
 
 ## Rechenoperationen Komplexer Zahlen
 
@@ -514,15 +514,15 @@ Dabei $E=$ Eliminationsmatrix. Eigenschaften:
 
 - Immer invertierbar
 - $\det{E} = 1$
-- Lower oder Upper Diagonalmatrix
+- Lower oder Upper Dreiecksmatrix
 
 Die Eliminationsmatrix die Benötigt wird um eine Matrix
 vollständig in eine Upper Diagnalmatrix zu überführen ist
-die lower Diagonalmatrix der Matrix A.  
+die lower Dreiecksmatrix der Matrix A.  
 $$\underbrace{E'\underbrace{EA}_{A'}}_{A''}$$
 Somit:
 $$\underbrace{E''}_{\text{under triangel}}A = \overbrace{A''}^{\text{Upper triangel}}$$
-Aus den Diagonalmatrizen kann man die **Pivot Elemente** a
+Aus den Dreiecksmatrizen kann man die **Pivot Elemente** ablesen:
 $$
 \begin{pmatrix}
     \fbox{x} & x & x \\

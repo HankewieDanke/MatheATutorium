@@ -1,0 +1,179 @@
+---
+title: "UB7 -- Tutorium Mathe A WS19/20"
+author: "Anton Hanke"
+date: "Tutorium: 21/11/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Aufgabe 1
+Gegeben:
+$$\left\{\begin{array}{l}{x_{1}-2 x_{2}+x_{3}-x_{4}+3 x_{5}=1} \\ {-x_{1}+x_{2}-x_{3}+x_{4}-x_{5}=2}\end{array}\right.$$
+
+### (a)
+$$
+\begin{pmatrix}
+    1   &   -2  &   1   &   -1  &   3\\
+    -1  &   1   &   -1  &   1   &   -1\\
+\end{pmatrix}
+\times \left(\begin{array}{c}x_1\\x_2\\x_3\\x_4\\x_5\\\end{array}\right)
+= \left(\begin{array}{c}1\\2\\\end{array}\right)
+$$
+
+### (b)
+Wir haben hier eine breite matrix ($m < n$) $A$.
+Mit dieser ist ein inhomogenes Gleichungssystem aufgestellt.
+Wir wollen die Lösungsmenge beschreiben.
+Somit müssen wir eine:
+
+- Spezielle \& partikuläre Lösung
+- folgend allgemeine Lösung (Nullraum von $A$)
+
+bestimmen.
+Dies ergibt sich aus dem Zusammenhang der beiden Lösungen.
+Eine Partikuläre Lösung des inhomogenen Gleichungssystems
+erweitert den Vektorraum der Lösungsmenge des homogenen Gleichungssystems
+der matrix $A$ um eine Dimension, wodurch nun gelten kann das:
+$$\vec{b}\in \text{span}(\text{Lösungsmenge})$$
+
+---------------------------
+
+Wir bestimmen zunächst die partikuläre Lösung mittels Elimination:
+
+\begin{equation}
+\left(\begin{array}{cc}
+    \left. 
+    \begin{matrix}
+    1   &   -2  &   1   &   -1  &   3\\
+    -1  &   1   &   -1  &   1   &   -1\\
+    \end{matrix}
+    \right|
+    \begin{array}{c}1\\2\\\end{array}
+\end{array}\right)
+\longrightarrow
+\left(\begin{array}{cc}
+    \left.
+    \begin{matrix}
+    1   &   -2  &   1   &   -1  &   3\\
+    0  &   -1   &   0  &   0   &   2\\
+    \end{matrix}
+    \right|
+    \begin{array}{c}1\\3\\\end{array}
+\end{array}\right)
+\end{equation}
+From this we deduct that the variables $x_{3:5}$ are free.
+Thus $\dim\left|\,\text{span}[\:(A|0)\:]\,\right| = 3$.
+
+1) spezielle Lösung:
+   Stellen kombination an variablen auf die alle möglichen Lösungen des LGS $(A|0)$
+   darstellen:
+   $$\vec{x} = \left(\begin{array}{c}\mu - \alpha + \beta \\
+   2\mu \\ \alpha \\ \beta \\ \mu \\ \end{array}\right)$$
+2) Partikuläre Lösung:
+
+   - Alle freien Variablen $=0$ setzen
+   - restlichen Variablen berechnen.
+
+   Daraus folgt mit $(A|b)'$ das: $x_2 = -3$ und $x_1 = 1 + 2x_2 = -5$.
+   Somit die Partikuläre Lösung:
+   $$x_p = \left(\begin{array}{c}-5\\-3\\0\\0\\0\\\end{array}\right)$$
+3) Wir folgern:
+   $$ x = \left(\begin{array}{c}-5\\-3\\0\\0\\0\\\end{array}\right) +\left(\begin{array}{c}\mu - \alpha + \beta \\
+   2\mu \\ \alpha \\ \beta \\ \mu \\ \end{array}\right)$$
+
+### (c)
+Wir wollen nun eine Basis unserer Allgemeinen Lösung berechnen, dies ist möglich durch Berechnung
+von expliziten speziellen Lösungen.  
+Hier setzen wir für jeweils eine der freien Variablen in unserer speziellen Lösung einen Wert (1) und die anderen
+0, daraus berechnen wir die pivo-variabeln. Somit errechnen wir 3 Vektoren und erhalten:
+$$\left(\begin{array}{c}1\\2\\0\\0\\1\\\end{array}\right)\quad \left(\begin{array}{c}1\\0\\0\\1\\0\\\end{array}\right)\quad \left(\begin{array}{c}-1\\0\\1\\0\\0\\\end{array}\right)$$
+
+### (d)
+In unserer Lösungsmenge sind nur 3 unabhängige Vektoren möglich,
+siehe (b).
+
+# Aufgabe 2)
+### (A)
+$$U = \left(\begin{array}{lllll}{\fbox{1}} & {2} & {2} & {4} & {6} \\ {0} & {0} & {\fbox{1}} & {2} & {3} \\ {0} & {0} & {0} & {0} & {0}\end{array}\right)$$
+
+- Pivo: $x_1 \& x_2$
+- frei: rest
+
+Dementsprechend expliziete spezielle Lösungen berechnen wie in Aufgabe (1).
+
+### (B)
+$$U = \left(\begin{array}{ccc}{\fbox{2}} & {4} & {2} \\ {0} & {\fbox{4}} & {4} \\ {0} & {0} & {0}\end{array}\right)$$
+
+- Pivot: $x_1 \& x_2$
+- frei: $x_3$
+
+# Aufgabe (3)
+Wir erinnern uns an die Berechnung von Eigenwerten und Vektoren:  
+\begin{align*}
+    A&=
+    \begin{pmatrix}
+    \alpha_{1} & \alpha_{2} \\
+    \alpha_{3} & \alpha_{4}
+    \end{pmatrix} \\
+    \det & |A-\lambda I|=0 \\
+    \Rightarrow&
+    \left|
+    \begin{array}{ll}
+    \alpha_{1}-\lambda & \alpha_{2} \\
+    \alpha_{3} & \alpha_{4}-\lambda\\
+    \end{array}\right|=0\\
+    \overset{\text{Lap. Entwicklungssatz}}{\longrightarrow}&
+    \,\left\{
+    \begin{array}{l}
+    {(\alpha_1-\lambda)(\alpha_4 - \lambda)- \alpha_2 \alpha_{3}=0} \\ 
+    {\lambda=\left\{\mu \in \mathbb{R}\, |\, \alpha_{1} \alpha_{4}+\lambda^{2}-\lambda\left(\alpha_{1}+\alpha_{4}\right)-\alpha_{2}, \alpha_{3}=0\right\}}
+    \end{array}
+    \right.
+\end{align*}
+
+Nun sind die Vektoren:
+$X:\Leftrightarrow\left\{x | \lambda_{i} \in\{\lambda\}:(A-\lambda_i I) x=0\right\}$
+  
+
+Die betrachtete Matrix erfüllt:
+
+- $3 \times 3$
+- $\lambda = \{0,1,2\}$
+
+### (a)
+Es gilt: $$\dim | N(A) | = \#\text{Spalten} - \text{Rg}(A)$$
+
+
+### (b)
+Wir wisse: $\prod_{i = 1}^{n} \lambda_i = \det\left|\: A\:\right|$  
+Da 0 ein Eigenwert ist gilt
+nun:
+\[\det\left|\: A^{T}A\: | = \det\left|\: A\: |\cdot \det|\: A^{T}\:\right|= 0 \cdot \det|\: A^{T}\:\right|= 0.\]
+
+### (c)
+Wir beachten den Hinweis und erkennen folgende Beschreibung für erwähnte Determinante:
+\[\det\left|\: \left( A + I \right)^{-1} - \mu I\:\right|= 0\]
+Wir befolgen nun in unseren Umformungen denn Hinweis und kommen auf:
+\[\det\left|\: \left( A+I \right)\left( A+I \right)^{-1} - \mu \left( A+I \right)\:\right|= 0\]
+
+Durch Umformen und berechnen:  
+
+\begin{align}
+    \det\left|\: I - \mu \left( A+I \right)\:\right|&= 0\\
+    \det\left|\: - \mu \left( A - \frac{1 - \mu}{\mu}I \right)\:\right|&= 0\\
+    \mu \det\left|\: A - \frac{1- \mu }{ \mu } I\:\right|&= 0\\
+    \det\left|\: A - \frac{1 - \mu }{ \mu } I\:\right|&= 0
+\end{align}
+
+Damit dies mit unserer $A$ matrix vom Anfang lösbar ist muss gelten: $\frac{1- \mu }{ \mu } = \{0,1,2\}$.  
+Durch gleichsetzen des Bruches mit den Eigenwerten von $A$ errechnen sich folgende
+Eigenwerte für $\left( A + I \right)^{-1}$:
+
+- $\mu = 1$
+- $\mu = \frac{1}{2}$
+- $\mu = \frac{1}{3}$
+
+

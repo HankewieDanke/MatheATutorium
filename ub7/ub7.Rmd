@@ -145,7 +145,10 @@ Die betrachtete Matrix erfüllt:
 
 ### (a)
 Es gilt: $$\dim | N(A) | = \#\text{Spalten} - \text{Rg}(A)$$
-
+Der Eigenraum des Eigenwertes $\lambda = 0$ ist der Nullraum von $A$.
+Dieser Eigenwert hat eine Multiplizität von 1.  
+Somit muss der Nullraum eine Dimension von 1 haben.
+\[\Rightarrow \text{Rg}(A) = \#\text{Spalten} - \dim\left|\: N(A)\: \right| = 2\]
 
 ### (b)
 Wir wisse: $\prod_{i = 1}^{n} \lambda_i = \det\left|\: A\:\right|$  

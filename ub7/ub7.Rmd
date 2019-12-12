@@ -99,7 +99,7 @@ siehe (b).
 ### (A)
 $$U = \left(\begin{array}{lllll}{\fbox{1}} & {2} & {2} & {4} & {6} \\ {0} & {0} & {\fbox{1}} & {2} & {3} \\ {0} & {0} & {0} & {0} & {0}\end{array}\right)$$
 
-- Pivo: $x_1 \& x_2$
+- Pivo: $x_1 \& x_3$
 - frei: rest
 
 Dementsprechend expliziete spezielle Lösungen berechnen wie in Aufgabe (1).
@@ -167,7 +167,7 @@ Durch Umformen und berechnen:
 \begin{align}
     \det\left|\: I - \mu \left( A+I \right)\:\right|&= 0\\
     \det\left|\: - \mu \left( A - \frac{1 - \mu}{\mu}I \right)\:\right|&= 0\\
-    \mu \det\left|\: A - \frac{1- \mu }{ \mu } I\:\right|&= 0\\
+    (-\mu)^3 \det\left|\: A - \frac{1- \mu }{ \mu } I\:\right|&= 0\\
     \det\left|\: A - \frac{1 - \mu }{ \mu } I\:\right|&= 0
 \end{align}
 

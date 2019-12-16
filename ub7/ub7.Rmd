@@ -129,7 +129,7 @@ Wir erinnern uns an die Berechnung von Eigenwerten und Vektoren:
     \,\left\{
     \begin{array}{l}
     {(\alpha_1-\lambda)(\alpha_4 - \lambda)- \alpha_2 \alpha_{3}=0} \\ 
-    {\lambda=\left\{\mu \in \mathbb{R}\, |\, \alpha_{1} \alpha_{4}+\lambda^{2}-\lambda\left(\alpha_{1}+\alpha_{4}\right)-\alpha_{2}, \alpha_{3}=0\right\}}
+    {\lambda=\left\{\lambda \in \mathbb{R}\, |\, \alpha_{1} \alpha_{4}+\lambda^{2}-\lambda\left(\alpha_{1}+\alpha_{4}\right)-\alpha_{2} \alpha_{3}=0\right\}}
     \end{array}
     \right.
 \end{align*}

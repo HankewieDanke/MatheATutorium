@@ -1,0 +1,56 @@
+---
+title: "UB8 -- Tutorium Mathe A WS19/20"
+author: "Anton Hanke"
+date: "Tutorium: 19/12/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Aufgabe 1
+
+Wir erinnern uns an das letzte Mathetutorium.
+\begin{align*}
+    A&=
+    \begin{pmatrix}
+    \alpha_{1} & \alpha_{2} \\
+    \alpha_{3} & \alpha_{4}
+    \end{pmatrix} \\
+    \det & |A-\lambda I|=0 \\
+    \Rightarrow&
+    \left|
+    \begin{array}{ll}
+    \alpha_{1}-\lambda & \alpha_{2} \\
+    \alpha_{3} & \alpha_{4}-\lambda\\
+    \end{array}\right|=0\\
+    \overset{\text{Lap. Entwicklungssatz}}{\longrightarrow}&
+    \,\left\{
+    \begin{array}{l}
+    {(\alpha_1-\lambda)(\alpha_4 - \lambda)- \alpha_2 \alpha_{3}=0} \\ 
+    {\lambda=\left\{\mu \in \mathbb{R}\, |\, \alpha_{1} \alpha_{4}+\lambda^{2}-\lambda\left(\alpha_{1}+\alpha_{4}\right)-\alpha_{2}, \alpha_{3}=0\right\}}
+    \end{array}
+    \right.
+\end{align*}
+
+Ebenso erinnern wir uns:
+$X:\Leftrightarrow\left\{x | \lambda_{i} \in\{\lambda\}:(A-\lambda_i I) x=0\right\}$
+
+### (a)
+Hier ergibt sich die Menge der Eigenwerte wie folgt:
+\begin{align*}
+\begin{pmatrix}
+    \frac{13}{8} & \frac{3\sqrt{3}}{8} \\
+    \frac{3\sqrt{3}}{8} & \frac{7}{8} \\
+\end{pmatrix}\,&\,
+    \left\{
+    \begin{array}{l}
+    {\left(\frac{13}{8}-\lambda\right)
+    \left(\frac{7}{8} - \lambda\right) - 
+    \left( \frac{3\sqrt{3}}{8} \right)^{2}=0} \\
+    {\lambda=\left\{\mu \in \mathbb{R}\, |\, \alpha_{1} \alpha_{4}+\lambda^{2}-\lambda\left(\alpha_{1}+\alpha_{4}\right)-\alpha_{2}, \alpha_{3}=0\right\}}
+    \end{array}
+    \right.\\
+\end{align*}
+

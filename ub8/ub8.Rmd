@@ -40,17 +40,99 @@ $X:\Leftrightarrow\left\{x | \lambda_{i} \in\{\lambda\}:(A-\lambda_i I) x=0\righ
 ### (a)
 Hier ergibt sich die Menge der Eigenwerte wie folgt:
 \begin{align*}
-\begin{pmatrix}
-    \frac{13}{8} & \frac{3\sqrt{3}}{8} \\
-    \frac{3\sqrt{3}}{8} & \frac{7}{8} \\
-\end{pmatrix}\,&\,
+    \det\left|\:
+        \begin{pmatrix}
+            \frac{13}{8} & \frac{3\sqrt{3}}{8} \\
+            \frac{3\sqrt{3}}{8} & \frac{7}{8} \\
+        \end{pmatrix} - 
+        \begin{pmatrix}
+            \lambda & 0\\
+            0 & \lambda\\
+        \end{pmatrix}
+    \: \right|\, \overset{!}{=}\,\,&\,
     \left\{
     \begin{array}{l}
     {\left(\frac{13}{8}-\lambda\right)
     \left(\frac{7}{8} - \lambda\right) - 
     \left( \frac{3\sqrt{3}}{8} \right)^{2}=0} \\
-    {\lambda=\left\{\mu \in \mathbb{R}\, |\, \alpha_{1} \alpha_{4}+\lambda^{2}-\lambda\left(\alpha_{1}+\alpha_{4}\right)-\alpha_{2}, \alpha_{3}=0\right\}}
+    {\lambda=\left\{\lambda \in \mathbb{R}\, \left|\,
+    \lambda^{2}-\frac{5}{2}\cdot\lambda + 
+    \underbrace{\frac{13\cdot 7}{8^2} - \left( \frac{3\sqrt{3}}{8} \right)^{2}}_{=1}=0\right\}\right.}
     \end{array}
     \right.\\
 \end{align*}
+Diese Gleichung folgt aus der oben erwähnten charakteristischen Gleichung.
+
+### (b)
+Für dir folgende Menge soll überprüft werden, ob die Werte Eigenwerte der Matrix sind:
+$$\lambda = \left\{ 0.5, 2 \right\}$$
+Hierfür müssen wir einfach nur in die in (a) bestimmte Gleichung einsetzen.
+```{r, echo = F}
+auf1a <- function(lambda){lambda^2 - lambda*(5/2) +1}
+```
+
+- $f(0.5) = `r round(auf1a(0.5),2)`$
+- $f(2) = `r round(auf1a(2),2)`$
+
+### (c)
+
+1) Für $u_1$:  
+   $$\left[ 
+   \begin{pmatrix}
+        \frac{13}{8} & \frac{3\sqrt{3}}{8} \\
+        \frac{3\sqrt{3}}{8} & \frac{7}{8} \\
+   \end{pmatrix} -
+   \begin{pmatrix}
+        \frac{1}{2} & 0\\
+        0 & \frac{1}{2}\\
+   \end{pmatrix}
+   \right]\, \times \left(\begin{array}{c}\frac{1}{2}\\-\frac{\sqrt{3}}{2}\end{array}\right) = \vec{0}$$
+2) Für $u_2$:  
+   $$\left[ 
+   \begin{pmatrix}
+        \frac{13}{8} & \frac{3\sqrt{3}}{8} \\
+        \frac{3\sqrt{3}}{8} & \frac{7}{8} \\
+   \end{pmatrix} -
+   \begin{pmatrix}
+        2 & 0\\
+        0 & 2\\
+   \end{pmatrix}
+   \right]\, \times \left(\begin{array}{c}\frac{\sqrt{3}}{2}\\ \frac{1}{2}\end{array}\right) = \vec{0}$$
+
+# Aufgabe 2)
+\[
+A_{t}=\left(\begin{array}{ccc}{1} & {t+2} & {-1} \\ {0} & {1} & {3} \\ {0} & {0} & {3}\end{array}\right)\quad t \in \mathbb{R}
+\]
+
+### (a)
+$$\det\left|\: A_t - \lambda I\: \right| = \left|\begin{array}{ccc}{1-\lambda} & {t+2} & {-1} \\ {0} & {1-\lambda} & {3} \\ {0} & {0} & {3-\lambda}\end{array}\right|$$
+Somit ergibt sich die Determinante als:
+$$\det\left|\: A_t - \lambda I\: \right| = (1-\lambda)(1-\lambda)(3-\lambda)$$
+Und dementsprechend nach Gleichsetzung und Auflösung mit 0:
+
+1) $\lambda_1 = 1$ (mult. 2)
+2) $\lambda_2 = 2$ (mult. 1)
+
+### (b)
+Hier müssen wir zunächst unsere Eigenvektoren bestimmen.  
+Für $\lambda =1$:  
+\[
+\left(\left.
+\begin{matrix}
+    0   &   t+2 &   -1\\
+    0   &   0   &   3 \\
+    0   &   0   &   2 \\
+\end{matrix}\right|
+\begin{array}{c}0\\0\\0\end{array}
+\right) \overset{3- \frac{2}{3} 2}{\longrightarrow} \left(\left.
+\begin{matrix}
+    0   &   \fbox{t+2} &   -1\\
+    0   &   0   &   \fbox{3} \\
+    0   &   0   &   0 \\
+\end{matrix}\right|
+\begin{array}{c}0\\0\\0\end{array}
+\right)
+\]
+
+### (c)
 

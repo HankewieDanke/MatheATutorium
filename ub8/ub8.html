@@ -396,19 +396,101 @@ summary {
 <div id="a" class="section level3">
 <h3>(a)</h3>
 <p>Hier ergibt sich die Menge der Eigenwerte wie folgt: <span class="math display">\[\begin{align*}
-\begin{pmatrix}
-    \frac{13}{8} &amp; \frac{3\sqrt{3}}{8} \\
-    \frac{3\sqrt{3}}{8} &amp; \frac{7}{8} \\
-\end{pmatrix}\,&amp;\,
+    \det\left|\:
+        \begin{pmatrix}
+            \frac{13}{8} &amp; \frac{3\sqrt{3}}{8} \\
+            \frac{3\sqrt{3}}{8} &amp; \frac{7}{8} \\
+        \end{pmatrix} - 
+        \begin{pmatrix}
+            \lambda &amp; 0\\
+            0 &amp; \lambda\\
+        \end{pmatrix}
+    \: \right|\, \overset{!}{=}\,\,&amp;\,
     \left\{
     \begin{array}{l}
     {\left(\frac{13}{8}-\lambda\right)
     \left(\frac{7}{8} - \lambda\right) - 
     \left( \frac{3\sqrt{3}}{8} \right)^{2}=0} \\
-    {\lambda=\left\{\mu \in \mathbb{R}\, |\, \alpha_{1} \alpha_{4}+\lambda^{2}-\lambda\left(\alpha_{1}+\alpha_{4}\right)-\alpha_{2}, \alpha_{3}=0\right\}}
+    {\lambda=\left\{\lambda \in \mathbb{R}\, \left|\,
+    \lambda^{2}-\frac{5}{2}\cdot\lambda + 
+    \underbrace{\frac{13\cdot 7}{8^2} - \left( \frac{3\sqrt{3}}{8} \right)^{2}}_{=1}=0\right\}\right.}
     \end{array}
     \right.\\
-\end{align*}\]</span></p>
+\end{align*}\]</span> Diese Gleichung folgt aus der oben erwähnten charakteristischen Gleichung.</p>
+</div>
+<div id="b" class="section level3">
+<h3>(b)</h3>
+<p>Für dir folgende Menge soll überprüft werden, ob die Werte Eigenwerte der Matrix sind: <span class="math display">\[\lambda = \left\{ 0.5, 2 \right\}\]</span> Hierfür müssen wir einfach nur in die in (a) bestimmte Gleichung einsetzen.</p>
+<ul>
+<li><span class="math inline">\(f(0.5) = 0\)</span></li>
+<li><span class="math inline">\(f(2) = 0\)</span></li>
+</ul>
+</div>
+<div id="c" class="section level3">
+<h3>(c)</h3>
+<ol style="list-style-type: decimal">
+<li>Für <span class="math inline">\(u_1\)</span>:<br />
+<span class="math display">\[\left[ 
+\begin{pmatrix}
+     \frac{13}{8} &amp; \frac{3\sqrt{3}}{8} \\
+     \frac{3\sqrt{3}}{8} &amp; \frac{7}{8} \\
+\end{pmatrix} -
+\begin{pmatrix}
+     \frac{1}{2} &amp; 0\\
+     0 &amp; \frac{1}{2}\\
+\end{pmatrix}
+\right]\, \times \left(\begin{array}{c}\frac{1}{2}\\-\frac{\sqrt{3}}{2}\end{array}\right) = \vec{0}\]</span></li>
+<li>Für <span class="math inline">\(u_2\)</span>:<br />
+<span class="math display">\[\left[ 
+\begin{pmatrix}
+     \frac{13}{8} &amp; \frac{3\sqrt{3}}{8} \\
+     \frac{3\sqrt{3}}{8} &amp; \frac{7}{8} \\
+\end{pmatrix} -
+\begin{pmatrix}
+     2 &amp; 0\\
+     0 &amp; 2\\
+\end{pmatrix}
+\right]\, \times \left(\begin{array}{c}\frac{\sqrt{3}}{2}\\ \frac{1}{2}\end{array}\right) = \vec{0}\]</span></li>
+</ol>
+</div>
+</div>
+<div id="aufgabe-2" class="section level1">
+<h1>Aufgabe 2)</h1>
+<p><span class="math display">\[
+A_{t}=\left(\begin{array}{ccc}{1} &amp; {t+2} &amp; {-1} \\ {0} &amp; {1} &amp; {3} \\ {0} &amp; {0} &amp; {3}\end{array}\right)\quad t \in \mathbb{R}
+\]</span></p>
+<div id="a-1" class="section level3">
+<h3>(a)</h3>
+<p><span class="math display">\[\det\left|\: A_t - \lambda I\: \right| = \left|\begin{array}{ccc}{1-\lambda} &amp; {t+2} &amp; {-1} \\ {0} &amp; {1-\lambda} &amp; {3} \\ {0} &amp; {0} &amp; {3-\lambda}\end{array}\right|\]</span> Somit ergibt sich die Determinante als: <span class="math display">\[\det\left|\: A_t - \lambda I\: \right| = (1-\lambda)(1-\lambda)(3-\lambda)\]</span> Und dementsprechend nach Gleichsetzung und Auflösung mit 0:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\lambda_1 = 1\)</span> (mult. 2)</li>
+<li><span class="math inline">\(\lambda_2 = 2\)</span> (mult. 1)</li>
+</ol>
+</div>
+<div id="b-1" class="section level3">
+<h3>(b)</h3>
+<p>Hier müssen wir zunächst unsere Eigenvektoren bestimmen.<br />
+Für <span class="math inline">\(\lambda =1\)</span>:<br />
+<span class="math display">\[
+\left(\left.
+\begin{matrix}
+    0   &amp;   t+2 &amp;   -1\\
+    0   &amp;   0   &amp;   3 \\
+    0   &amp;   0   &amp;   2 \\
+\end{matrix}\right|
+\begin{array}{c}0\\0\\0\end{array}
+\right) \overset{3- \frac{2}{3} 2}{\longrightarrow} \left(\left.
+\begin{matrix}
+    0   &amp;   \fbox{t+2} &amp;   -1\\
+    0   &amp;   0   &amp;   \fbox{3} \\
+    0   &amp;   0   &amp;   0 \\
+\end{matrix}\right|
+\begin{array}{c}0\\0\\0\end{array}
+\right)
+\]</span></p>
+</div>
+<div id="c-1" class="section level3">
+<h3>(c)</h3>
 </div>
 </div>
 

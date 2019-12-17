@@ -511,6 +511,92 @@ Für <span class="math inline">\(\lambda =1\)</span>:<br />
 <h3>(c)</h3>
 </div>
 </div>
+<div id="aufgabe-3" class="section level1">
+<h1>Aufgabe 3</h1>
+<div id="x2-matrix" class="section level3">
+<h3>2x2 Matrix</h3>
+<p>Eine allgemeine Matrix mit den Dimensionen hat die Form: <span class="math display">\[
+M=
+\begin{pmatrix}
+    a_{11} &amp; a_{12}\\
+    a_{21} &amp; a_{22}\\
+\end{pmatrix}
+\]</span></p>
+<p>Die Determinate der Folgenden Matrix ist: <span class="math display">\[
+det(M)= \begin{vmatrix}
+    a_{11} &amp; a_{12} \\
+    a_{21} &amp; a_{22} \\
+\end{vmatrix} = a_{11} \times a_{22} - a_{12} \times a_{21}
+\]</span></p>
+<p>Um die Eigenwerte zu bestimmen addieren wir <span class="math inline">\(\lambda I\)</span> zu der Matrix <span class="math display">\[
+det(M)= \begin{vmatrix}
+    a_{11}-\lambda &amp; a_{12} \\
+    a_{21} &amp; a_{22}-\lambda \\
+\end{vmatrix} = (a_{11}-\lambda) \times (a_{22}-\lambda) - a_{12} \times a_{21}=\mathbf{\color{red}{\lambda^2}}-(a_{11}+a_{22})\times \lambda + a_{11}\times a_{22}-a_{12} \times a_{21}
+\]</span> Somit ist der Koeffizient von <span class="math inline">\(\lambda ^2\)</span> gleich <span class="math inline">\(+1\)</span>.</p>
+</div>
+<div id="x3-matrix" class="section level3">
+<h3>3x3 Matrix</h3>
+<p>Eine allgemeine Matrix mit den Dimensionen hat die Form: <span class="math display">\[
+M=
+\begin{pmatrix}
+    a_{11} &amp; a_{12} &amp; a_{13} \\
+    a_{21} &amp; a_{22} &amp; a_{23} \\
+    a_{31} &amp; a_{32} &amp; a_{33} \\
+\end{pmatrix}
+\]</span> Um die Eigenwerte zu bestimmen addieren wir <span class="math inline">\(\lambda I\)</span> zu der Matrix und berechnen die Determinante. Mittels Laplace-Entwicklungssatz können wir die Determinate berechnen. <span class="math display">\[
+det(M)= \begin{vmatrix}
+    a_{11}-\lambda &amp; a_{12} &amp; a_{13}  \\
+    a_{21} &amp; a_{22}-\lambda &amp; a_{23} \\
+    a_{31} &amp; a_{32} &amp; a_{33}-\lambda \\
+\end{vmatrix}
+= (a_{11}-\lambda) \times
+\begin{vmatrix}
+    a_{22}-\lambda &amp; a_{23} \\
+    a_{32} &amp; a_{33}-\lambda \\
+\end{vmatrix}
++ a_{12} \times
+\begin{vmatrix}
+    a_{21} &amp; a_{23} \\
+    a_{31} &amp; a_{33}-\lambda \\
+\end{vmatrix}
++a_{13} \times
+\begin{vmatrix}
+    a_{21} &amp; a_{22}-\lambda  \\
+    a_{31} &amp; a_{32}\\
+\end{vmatrix}
+\]</span> Aus diesen Termen ist klar ersichtlich, dass der Term, von welchem das <span class="math inline">\(\lambda ^3\)</span> stammt, aus dem Ersten Term des Laplace´schen Entwicklungssatz stammt. Da wir in der 3.1 bereits gezeigt haben, dass der Koeffizient des <span class="math inline">\(\lambda ^2\)</span> Terms +1 ist, folgt aus der Multiplikation mit <span class="math inline">\(-\lambda\)</span> das der Koeffizient des <span class="math inline">\(\lambda ^3\)</span> Terms negativ sein muss.</p>
+</div>
+<div id="verallgemeinerung-für-matritzen-nxn" class="section level3">
+<h3>Verallgemeinerung für Matritzen nxn</h3>
+<p>Jegliche Matrix mit Dimension nxn kann mittles Laplacechen Entwicklungssatz in Summen von Matrix mit niederen Dimensionen Zerlegt werden.<br />
+Wie bereits in 3.2 gezeigt, resultiert der jeweilige Term immer nur aus einer einzelnen der Zerlegungen. Somit lässt sich verallgemeinert sagen, dass: <span class="math display">\[
+\det\left|\: a-\lambda I\: \right|= (a_{11}-\lambda) \times
+\underbrace{
+\begin{vmatrix}
+    a_{2,2}-\lambda &amp; \cdots &amp; a_{2,n} \\
+    \vdots  &amp; \ddots &amp; \vdots  \\
+    a_{n,2} &amp; \cdots &amp; a_{m,n}-\lambda \\
+\end{vmatrix}}_{Koeffizient \ \lambda^{n-1}=(-1)^{n-1}}
+\mathbf{+\dots}
+\]</span></p>
+<p>Somit ist der Koeffizient von <span class="math inline">\(\lambda ^n\)</span> mittels der allgemeinen Formel <span class="math inline">\((-1)^n\)</span> zu bestimmen.</p>
+</div>
+<div id="herleitung-des-zusammenhangs-zwischen-den-eigenwerten-und-der-determinante" class="section level3">
+<h3>Herleitung des Zusammenhangs zwischen den Eigenwerten und der Determinante</h3>
+<p><span class="math display">\[det(A-\lambda I) = (-1)^n \times \prod_{t=1}^{n} {(\lambda - \lambda_i)}\]</span></p>
+<p>Der Zusammenhang lässt sich anhand der charakteristischen Gleichung zeigen. Die charakteristische Gleichung erhalten wir einerseits durch verwenden der Bedingung, dass <span class="math inline">\(det(A-\lambda I) = 0\)</span>. Wird für <span class="math inline">\(\lambda\)</span> einer der Eigenwerte eingesetzt, so ist die Determinante Null. Für <span class="math inline">\(\lambda = 0\)</span> entspricht <span class="math inline">\(det(A-\lambda I) = det(A)\)</span> (Zeigen wir noch in der letzten Teilaufgabe). Die charakteristische Gleichung ist ein Polynom n-ten grades. Wie wir bereits gezeigt haben, hängt das Vorzeichen des <span class="math inline">\(\lambda ^n\)</span> Terms von den Dimensionen der Matrix ab. Somit müssen wir auch dies bei dem Produkt berücksichtigen. Dies begründet den <span class="math inline">\((-1)^n\)</span> Faktor.</p>
+</div>
+<div id="herleitung-deta-prod_t1n-lambda_i" class="section level3">
+<h3>Herleitung <span class="math inline">\(det(A) = \prod_{t=1}^{n} {\lambda_i}\)</span></h3>
+<p>Um dies zu zeigen verwenden wir die bereits bewiesen Gleichung von <span class="math inline">\(det(A-\lambda I) = (-1)^n \times \prod_{t=1}^{n} {(\lambda - \lambda_i)}\)</span>. Setzen wir nun <span class="math inline">\(\lambda =0\)</span> so vereinfacht sich die Gleichung zu: <span class="math display">\[det(A) = (-1)^n \times \prod_{t=1}^{n} {( - \lambda_i)}\]</span></p>
+<p><span class="math display">\[(-1)^n \times \prod_{t=1}^{n} {( - \lambda_i)}=(-1)^n \times \prod_{t=1}^{n} {(( -1) \times \lambda_i)}=(-1)^n \times \prod_{t=1}^{n} {(-1)} \times \prod_{t=1}^{n} {(\lambda_i)}=(-1)^n \times (-1)^n \prod_{t=1}^{n} {(\lambda_i)}= (-1)^{2n} \times \prod_{t=1}^{n} {(\lambda_i)}= \prod_{t=1}^{n} {(\lambda_i)}\]</span></p>
+<p>Somit ist <span class="math inline">\(det(A) = \prod_{t=1}^{n} {\lambda_i}\)</span> und die Aussage bewiesen.</p>
+<hr />
+<p><em><strong>Wir wünschen euch frohe Weihnachten und einen guten Start ins neue Jahr</strong></em></p>
+<p><em><strong>Eure Mathe-Tutoren</strong></em></p>
+</div>
+</div>
 
 
 

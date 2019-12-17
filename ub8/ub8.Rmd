@@ -159,3 +159,112 @@ Für $\lambda =1$:
 
 ### (c)
 
+# Aufgabe 3
+
+### 2x2 Matrix
+Eine allgemeine Matrix mit den Dimensionen hat die Form:
+\[
+M=
+\begin{pmatrix}
+    a_{11} & a_{12}\\
+    a_{21} & a_{22}\\
+\end{pmatrix}
+\]
+
+Die Determinate der Folgenden Matrix ist:
+\[
+det(M)= \begin{vmatrix}
+    a_{11} & a_{12} \\
+    a_{21} & a_{22} \\
+\end{vmatrix} = a_{11} \times a_{22} - a_{12} \times a_{21}
+\]
+
+Um die Eigenwerte zu bestimmen addieren wir $\lambda I$ zu der Matrix
+\[
+det(M)= \begin{vmatrix}
+    a_{11}-\lambda & a_{12} \\
+    a_{21} & a_{22}-\lambda \\
+\end{vmatrix} = (a_{11}-\lambda) \times (a_{22}-\lambda) - a_{12} \times a_{21}=\mathbf{\color{red}{\lambda^2}}-(a_{11}+a_{22})\times \lambda + a_{11}\times a_{22}-a_{12} \times a_{21}
+\]
+Somit ist der Koeffizient von $\lambda ^2$ gleich $+1$.
+
+### 3x3 Matrix
+
+Eine allgemeine Matrix mit den Dimensionen hat die Form:
+\[
+M=
+\begin{pmatrix}
+    a_{11} & a_{12} & a_{13} \\
+    a_{21} & a_{22} & a_{23} \\
+    a_{31} & a_{32} & a_{33} \\
+\end{pmatrix}
+\]
+Um die Eigenwerte zu bestimmen addieren wir $\lambda I$ zu der Matrix und berechnen die Determinante.
+Mittels Laplace-Entwicklungssatz können wir die Determinate berechnen.
+\[
+det(M)= \begin{vmatrix}
+    a_{11}-\lambda & a_{12} & a_{13}  \\
+    a_{21} & a_{22}-\lambda & a_{23} \\
+    a_{31} & a_{32} & a_{33}-\lambda \\
+\end{vmatrix}
+= (a_{11}-\lambda) \times
+\begin{vmatrix}
+    a_{22}-\lambda & a_{23} \\
+    a_{32} & a_{33}-\lambda \\
+\end{vmatrix}
++ a_{12} \times
+\begin{vmatrix}
+    a_{21} & a_{23} \\
+    a_{31} & a_{33}-\lambda \\
+\end{vmatrix}
++a_{13} \times
+\begin{vmatrix}
+    a_{21} & a_{22}-\lambda  \\
+    a_{31} & a_{32}\\
+\end{vmatrix}
+\]
+Aus diesen Termen ist klar ersichtlich, dass der Term, von welchem das $\lambda ^3$ stammt, aus dem Ersten Term des Laplace´schen Entwicklungssatz stammt. Da wir in der 3.1 bereits gezeigt haben, dass der Koeffizient des $\lambda ^2$ Terms +1 ist, folgt aus der Multiplikation mit $-\lambda$ das der Koeffizient des $\lambda ^3$ Terms negativ sein muss.
+
+### Verallgemeinerung für Matritzen nxn
+Jegliche Matrix mit Dimension nxn kann mittles Laplacechen
+Entwicklungssatz in Summen von Matrix mit niederen
+Dimensionen Zerlegt werden.  
+Wie bereits in 3.2 gezeigt, resultiert der jeweilige Term immer nur aus
+einer einzelnen der Zerlegungen.
+Somit lässt sich verallgemeinert sagen, dass:
+\[
+\det\left|\: a-\lambda I\: \right|= (a_{11}-\lambda) \times
+\underbrace{
+\begin{vmatrix}
+    a_{2,2}-\lambda & \cdots & a_{2,n} \\
+    \vdots  & \ddots & \vdots  \\
+    a_{n,2} & \cdots & a_{m,n}-\lambda \\
+\end{vmatrix}}_{Koeffizient \ \lambda^{n-1}=(-1)^{n-1}}
+\mathbf{+\dots}
+\]
+
+Somit ist der Koeffizient von $\lambda ^n$ mittels der allgemeinen Formel $(-1)^n$ zu bestimmen.
+
+### Herleitung des Zusammenhangs zwischen den Eigenwerten und der Determinante
+
+$$det(A-\lambda I) = (-1)^n \times \prod_{t=1}^{n} {(\lambda - \lambda_i)}$$
+
+Der Zusammenhang lässt sich anhand der charakteristischen Gleichung zeigen. Die charakteristische Gleichung erhalten wir einerseits durch verwenden der Bedingung, dass $det(A-\lambda I) = 0$. Wird für $\lambda$ einer der Eigenwerte eingesetzt, so ist die Determinante Null. Für $\lambda = 0$ entspricht $det(A-\lambda I) = det(A)$ (Zeigen wir noch in der letzten Teilaufgabe). Die charakteristische Gleichung ist ein Polynom n-ten grades. Wie wir bereits gezeigt haben, hängt das Vorzeichen des $\lambda ^n$ Terms von den Dimensionen der Matrix ab. Somit müssen wir auch dies bei dem Produkt berücksichtigen. Dies begründet den $(-1)^n$ Faktor.
+
+### Herleitung $det(A) = \prod_{t=1}^{n} {\lambda_i}$
+
+Um dies zu zeigen verwenden wir die bereits bewiesen Gleichung von $det(A-\lambda I) = (-1)^n \times \prod_{t=1}^{n} {(\lambda - \lambda_i)}$. Setzen wir nun $\lambda =0$ so vereinfacht sich die Gleichung zu:
+$$det(A) = (-1)^n \times \prod_{t=1}^{n} {( - \lambda_i)}$$
+
+$$(-1)^n \times \prod_{t=1}^{n} {( - \lambda_i)}=(-1)^n \times \prod_{t=1}^{n} {(( -1) \times \lambda_i)}=(-1)^n \times \prod_{t=1}^{n} {(-1)} \times \prod_{t=1}^{n} {(\lambda_i)}=(-1)^n \times (-1)^n \prod_{t=1}^{n} {(\lambda_i)}= (-1)^{2n} \times \prod_{t=1}^{n} {(\lambda_i)}= \prod_{t=1}^{n} {(\lambda_i)}$$
+
+Somit ist $det(A) = \prod_{t=1}^{n} {\lambda_i}$ und die Aussage bewiesen.
+
+------------------------------------------------
+
+_**Wir wünschen euch frohe Weihnachten und einen guten Start ins neue Jahr**_
+
+_**Eure Mathe-Tutoren**_
+
+
+

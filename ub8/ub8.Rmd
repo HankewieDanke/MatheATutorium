@@ -75,9 +75,31 @@ auf1a <- function(lambda){lambda^2 - lambda*(5/2) +1}
 - $f(2) = `r round(auf1a(2),2)`$
 
 ### (c)
+Wir erinnern uns das für Eigenvektoren gilt: $Au_i = \lambda u_i$.
 
 1) Für $u_1$:  
-   $$\left[ 
+   $$
+   \begin{pmatrix}
+        \frac{13}{8} & \frac{3\sqrt{3}}{8} \\
+        \frac{3\sqrt{3}}{8} & \frac{7}{8} \\
+   \end{pmatrix}\, \times \left(\begin{array}{c}\frac{1}{2}\\-\frac{\sqrt{3}}{2}\end{array}\right) = \lambda\left(\begin{array}{c}\frac{1}{2}\\-\frac{\sqrt{3}}{2}\end{array}\right)$$
+2) Für $u_2$:  
+   $$
+   \begin{pmatrix}
+        \frac{13}{8} & \frac{3\sqrt{3}}{8} \\
+        \frac{3\sqrt{3}}{8} & \frac{7}{8} \\
+   \end{pmatrix}
+   \, \times \left(\begin{array}{c}\frac{\sqrt{3}}{2}\\ \frac{1}{2}\end{array}\right) = 
+   \lambda\left(\begin{array}{c}\frac{\sqrt{3}}{2}\\ \frac{1}{2}\end{array}\right)$$
+
+Hier dann jeweils die linke Seite Auflösen.
+
+------------------------------------
+
+Alternativ folgender Ansatz:
+
+1) Für $u_1$:
+   $$\left[
    \begin{pmatrix}
         \frac{13}{8} & \frac{3\sqrt{3}}{8} \\
         \frac{3\sqrt{3}}{8} & \frac{7}{8} \\
@@ -87,8 +109,8 @@ auf1a <- function(lambda){lambda^2 - lambda*(5/2) +1}
         0 & \frac{1}{2}\\
    \end{pmatrix}
    \right]\, \times \left(\begin{array}{c}\frac{1}{2}\\-\frac{\sqrt{3}}{2}\end{array}\right) = \vec{0}$$
-2) Für $u_2$:  
-   $$\left[ 
+2) Für $u_2$:
+   $$\left[
    \begin{pmatrix}
         \frac{13}{8} & \frac{3\sqrt{3}}{8} \\
         \frac{3\sqrt{3}}{8} & \frac{7}{8} \\
@@ -98,6 +120,7 @@ auf1a <- function(lambda){lambda^2 - lambda*(5/2) +1}
         0 & 2\\
    \end{pmatrix}
    \right]\, \times \left(\begin{array}{c}\frac{\sqrt{3}}{2}\\ \frac{1}{2}\end{array}\right) = \vec{0}$$
+
 
 # Aufgabe 2)
 \[

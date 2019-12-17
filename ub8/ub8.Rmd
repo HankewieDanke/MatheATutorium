@@ -74,6 +74,8 @@ auf1a <- function(lambda){lambda^2 - lambda*(5/2) +1}
 - $f(0.5) = `r round(auf1a(0.5),2)`$
 - $f(2) = `r round(auf1a(2),2)`$
 
+Alternativ über die pq-Formel.
+
 ### (c)
 Wir erinnern uns das für Eigenvektoren gilt: $Au_i = \lambda u_i$.
 

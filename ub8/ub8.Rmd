@@ -29,7 +29,7 @@ Wir erinnern uns an das letzte Mathetutorium.
     \,\left\{
     \begin{array}{l}
     {(\alpha_1-\lambda)(\alpha_4 - \lambda)- \alpha_2 \alpha_{3}=0} \\ 
-    {\lambda=\left\{\mu \in \mathbb{R}\, |\, \alpha_{1} \alpha_{4}+\lambda^{2}-\lambda\left(\alpha_{1}+\alpha_{4}\right)-\alpha_{2}, \alpha_{3}=0\right\}}
+    {\lambda=\left\{\mu \in \mathbb{R}\, |\, \alpha_{1} \alpha_{4}+\lambda^{2}-\lambda\left(\alpha_{1}+\alpha_{4}\right)-\alpha_{2} \alpha_{3}=0\right\}}
     \end{array}
     \right.
 \end{align*}
@@ -402,7 +402,18 @@ Somit ist der Koeffizient von $\lambda ^n$ mittels der allgemeinen Formel $(-1)^
 
 $$det(A-\lambda I) = (-1)^n \times \prod_{t=1}^{n} {(\lambda - \lambda_i)}$$
 
-Der Zusammenhang lässt sich anhand der charakteristischen Gleichung zeigen. Die charakteristische Gleichung erhalten wir einerseits durch verwenden der Bedingung, dass $det(A-\lambda I) = 0$. Wird für $\lambda$ einer der Eigenwerte eingesetzt, so ist die Determinante Null. Für $\lambda = 0$ entspricht $det(A-\lambda I) = det(A)$ (Zeigen wir noch in der letzten Teilaufgabe). Die charakteristische Gleichung ist ein Polynom n-ten grades. Wie wir bereits gezeigt haben, hängt das Vorzeichen des $\lambda ^n$ Terms von den Dimensionen der Matrix ab. Somit müssen wir auch dies bei dem Produkt berücksichtigen. Dies begründet den $(-1)^n$ Faktor.
+Der Zusammenhang lässt sich anhand der charakteristischen Gleichung zeigen.
+Die charakteristische Gleichung erhalten wir einerseits durch verwenden der Bedingung, dass $det(A-\lambda I) = 0$.  
+Wird für $\lambda$ einer der Eigenwerte eingesetzt,
+so ist die Determinante Null.
+Die charakteristische Gleichung ist ein Polynom n-ten grades.
+Wie wir bereits gezeigt haben, hängt das Vorzeichen des $\lambda ^n$
+Terms von den Dimensionen der Matrix ab.  
+Somit müssen wir auch dies bei dem Produkt berücksichtigen.
+Dies begründet den $(-1)^n$ Faktor.  
+  
+Für $\lambda = 0$ entspricht $det(A-\lambda I) = det(A)$
+(Zeigen wir noch in der letzten Teilaufgabe).
 
 ### Herleitung $det(A) = \prod_{t=1}^{n} {\lambda_i}$
 

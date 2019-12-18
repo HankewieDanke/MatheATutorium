@@ -130,10 +130,14 @@ A_{t}=\left(\begin{array}{ccc}{1} & {t+2} & {-1} \\ {0} & {1} & {3} \\ {0} & {0}
 \]
 
 ### (a)
-$$\det\left|\: A_t - \lambda I\: \right| = \left|\begin{array}{ccc}{1-\lambda} & {t+2} & {-1} \\ {0} & {1-\lambda} & {3} \\ {0} & {0} & {3-\lambda}\end{array}\right|$$
-Somit ergibt sich die Determinante als:
-$$\det\left|\: A_t - \lambda I\: \right| = (1-\lambda)(1-\lambda)(3-\lambda)$$
-Und dementsprechend nach Gleichsetzung und Auflösung mit 0:
+Da hier die Matrix $A_{t}$ eine Diagonalmatrix ist, können die Eigenwerte einfach abgelesen werden (Eigenwerte = Pivotelemente).
+
+Man kann die Eigenwerte aber auch klassisch über die charakteristische Gleichung $\det\left|\: A_t - \lambda I\: \right| = 0$ berechnen.
+
+$$\det\left|\: A_t - \lambda I\: \right| = \left|\begin{array}{ccc}{1-\lambda} & {t+2} & {-1} \\ {0} & {1-\lambda} & {3} \\ {0} & {0} & {3-\lambda}\end{array}\right| = 0$$
+Somit ergibt sich:
+$$\det\left|\: A_t - \lambda I\: \right| = (1-\lambda)(1-\lambda)(3-\lambda) = 0$$
+Und dementsprechend erhalten wir die Eigenwerte:
 
 1) $\lambda_1 = 1$ (mult. 2)
 2) $\lambda_2 = 2$ (mult. 1)
@@ -159,7 +163,154 @@ Für $\lambda =1$:
 \right)
 \]
 
+$$\text{II.} \quad 3 x_{3} = 0 \quad \Longrightarrow  \quad x_{3}=0 $$
+In Gleichung $\text{I.}$ einsetzen ergibt:
+
+\[
+\begin{array}{lcl}
+    \text{II.} \quad (t+2)x_{2} + (-1)\cdot0 = 0  & \Longrightarrow & \text{wenn} \quad t=-2 \quad \text{dann} \quad x_{2} \quad \text{frei wählbar}\\
+    & \Longrightarrow & \text{wenn} \quad t\ne-2 \quad \text{dann} \quad x_{2}=0 \\
+\end{array}
+\]
+
+Nachdem $x_{1}$ frei wählbar ist, ergeben sich folgende Mengen an Eigenvektoren je nachdem, was t ist:
+
+\[
+\begin{array}{cc}
+    \text{Für} \quad t=-2: & \quad \text{Für} \quad t \ne-2: & \\
+    \\
+    x = \left\{ \left. \begin{pmatrix}
+        x_{1} \\
+        x_{2} \\
+        0 \\
+    \end{pmatrix} \right\vert x_{1}, x_{2}\in \mathbb{R} \right\} & \quad 
+    x = \left\{ \left. \begin{pmatrix}
+        x_{1} \\
+        0 \\
+        0 \\
+    \end{pmatrix} \right\vert x_{1} \in \mathbb{R} \right\}
+\end{array}
+\]
+
+Wir erkennen, dass für $t=-2$ die Menge der Eigenvektoren den Raum $\mathbb{R}^2$ aufspannen, während für $t\ne-2$ die Menge der Eigenvektoren nur den Raum $\mathbb{R}$ aufspannt.
+
+Für $\lambda =3$:
+
+\[
+\left(\left.
+\begin{matrix}
+    -2   &   t+2 &   -1\\
+    0   &   -2   &   3 \\
+    0   &   0   &   0 \\
+\end{matrix}\right|
+\begin{array}{c}0\\0\\0\end{array}
+\right) 
+\]
+
+$$\text{II.} \quad -2 x_{2} + 3x_{3} = 0 \quad \Longrightarrow  \quad x_{2}=\frac{3}{2}x_{3} $$
+
+In Gleichung $\text{I.}$ einsetzen ergibt:
+
+$$\text{I.} \quad -2 x_{1} + (t+2)\cdot\frac{3}{2}x_{3} - x_{3} = 0 \quad \Longrightarrow  \quad x_{1}= \left( \frac{3}{4}t+1 \right)x_{3} $$
+Nachdem $x_{3}$ frei wählbar ist, ergibt sich folgende Eigenvektormenge:
+
+$$x = \left\{ \left. 
+\begin{pmatrix}
+    \left( \frac{3}{4}t+1 \right)x_{3} \\
+    \frac{3}{2}x_{3} \\
+    x_{3} \\
+\end{pmatrix} \right\vert x_{3}\in \mathbb{R} \right\}$$
+
+Wir erkennen, dass die Menge dieser Eigenvektoren den Raum $\mathbb{R}$ aufspannt. Nachdem diese Mange der Eigenvektoren auch linear unabhängig von der Menge der Eigenvektoren für $\lambda = 1$ ist, spannt die Menge aller Eigenvektoren nur für den Fall $t=-2$ den Raum $\mathbb{R}^3$ auf, während für $t=2$ nur der Raum $\mathbb{R}^2$ aufgespannt wird.
+
+
 ### (c)
+
+Da die Matrix $B$ keine Diagonalmatrix ist, müssen wir die Eigenwerte über die charakteristische Gleichung bestimmen:
+
+$$\det\left|\: B - \lambda I\: \right| = \left|
+\begin{array}{ccc}
+{1-\lambda} & {t+2} \\ 
+2 & {3-\lambda} \\ 
+\end{array}\right| = 0$$ 
+
+$$
+\begin{array}{rclr}
+\Longrightarrow \quad (1-\lambda)\cdot(3-\lambda)-2\cdot(t+2) & = & 0 \\
+3-3\lambda-\lambda+\lambda^2-2(t+2) & = & 0 \\
+\lambda^2 - 4\lambda -1 -2t & = & 0 & |\text{pq-Formel} \\
+\end{array}
+$$
+
+$$
+\begin{array}{rcl}
+\lambda_{1,2} & = & -\frac{-4}{2} \pm \sqrt{\left(\frac{-4}{2}\right)^2-(-1-2t)} \\
+\lambda_{1,2} & = & 2 \pm \sqrt{4+1+2t} \\
+\lambda_{1,2} & = & 2 \pm \sqrt{5+2t} \\
+\end{array}
+$$
+
+$$
+\Longrightarrow \quad \quad \lambda_{1}=2 + \sqrt{5+2t} \quad \quad \text{und} \quad \quad \lambda_{2}=2 - \sqrt{5+2t} \quad \quad \text{mit} \quad t\geq -\frac{5}{2}
+$$
+
+### (d)
+
+Wie zuvor bestimmen wir auch hier die Eigenvektoren.
+
+*Kleiner Hinweis: Da die beiden Eigenwerte sich nur in einem Vorzeichen ändern, rechnen wir direkt mit* $\lambda_{1,2} = 2 \pm \sqrt{5+2t}$ *also achtet bei der nachfolgenden Rechnung auf den Unterschied zwischen* $\pm$ *und* $\mp$
+
+$$
+\left( \left.
+\begin{matrix}
+    1- (2 \pm \sqrt{5+2t})  &   t+2 \\
+    2   &   3 - (2 \pm \sqrt{5+2t}) \\
+\end{matrix} \right|
+\begin{matrix}0\\0\end{matrix} \right)
+$$
+
+$$\text{II.} \quad 2 x_{1} + 1 \mp \sqrt{5+2t} \ x_{2} = 0 \quad \Longrightarrow  \quad x_{1}=-\frac{1}{2}(1 \mp \sqrt{5+2t}) x_{2} $$
+
+In Gleichung $\text{I.}$ einsetzen ergibt.
+
+$$
+\begin{array}{rcl}
+ (-1 \mp \sqrt{5+2t}) \cdot (-\frac{1}{2}(1 \mp \sqrt{5+2t})  x_{2}) + (t+2)x_{2} & = & 0 \\
+ \left[ \frac{1}{2} \pm \frac{1}{2}\sqrt{5+2t} \ \mp \frac{1}{2}\sqrt{5+2t} - \frac{1}{2}(5+2t) \right]x_{2} + (t+2)x_{2} & = & 0 \\
+ \frac{1}{2}(1-(5+2t))x_{2} + (t+2)x_{2}  & = & 0 \\
+ \frac{1}{2}(-4-2t)x_{2} + (t+2)x_{2}  & = & 0 \\
+ (-2-t)x_{2} + (t+2)x_{2}  & = & 0 \\
+ (-2+2-t+t)x_{2} & = & 0 \\
+ 0x_{2} & = & 0 \quad \Longrightarrow x_{2} \quad \text{frei wählbar}
+\end{array}
+$$
+Es ergibt sich also folgende Eigenvektorenmenge:
+
+$$
+x = \left\{ \left. \begin{pmatrix}
+        -\frac{1}{2}(1 \mp \sqrt{5+2t}) x_{2} \\
+        x_{2} \\
+    \end{pmatrix} \right\vert x_{2}\in \mathbb{R}, \ t\geq-\frac{5}{2} \right\}
+$$
+
+Bzw. kann man das natürlich auch einzeln betrachten für jeden Eigenwert:
+
+$$
+\begin{array}{ccc}
+x_{\alpha} = \left\{ \left. \begin{pmatrix}
+        -\frac{1}{2}(1 + \sqrt{5+2t}) x_{2} \\
+        x_{2} \\
+    \end{pmatrix} \right\vert x_{2}\in \mathbb{R}, \ t\geq-\frac{5}{2} \right\} & \quad \text{und} \quad & 
+x_{\beta} = \left\{ \left. \begin{pmatrix}
+        -\frac{1}{2}(1 - \sqrt{5+2t}) x_{2} \\
+        x_{2} \\
+    \end{pmatrix} \right\vert x_{2}\in \mathbb{R}, \ t\geq-\frac{5}{2} \right\}
+\end{array}
+$$
+
+Die Bedingung für $t$ ist hier nochmal erwähnt, denn der Term unter der Wurzel darf nicht negativ sein. 
+
+Wenn wir uns nun die Eigenvektorenmengen $x_{\alpha}$ und $x_{\beta}$ anschauen, sehen wir, dass diese linear unabhängig sind außer wenn $t=-\frac{5}{2}$. In diesem Fall fällt nämlich der Wurzelterm weg und damit sind $x_{\alpha}$ und $x_{\beta}$ gleich. Das heißt für $t>-\frac{5}{2}$ spannen die Eigenvektoren den Raum $\mathbb{R}^2$ auf.
 
 # Aufgabe 3
 

@@ -177,7 +177,7 @@ Nachdem $x_{1}$ frei wählbar ist, ergeben sich folgende Mengen an Eigenvektoren
 
 \[
 \begin{array}{cc}
-    \text{Für} \quad t=-2: & \quad \text{Für} \quad t \ne-2: & \\
+    \text{Für} \quad t=-2: & \quad \text{Für} \quad t \ne-2: \\
     \\
     x = \left\{ \left. \begin{pmatrix}
         x_{1} \\
@@ -337,7 +337,7 @@ Um die Eigenwerte zu bestimmen addieren wir $\lambda I$ zu der Matrix
 det(M - \lambda I)= \begin{vmatrix}
     a_{11}-\lambda & a_{12} \\
     a_{21} & a_{22}-\lambda \\
-\end{vmatrix} = (a_{11}-\lambda) \times (a_{22}-\lambda) - a_{12} \times a_{21}=\mathbf{\color{red}{\lambda^2}}-(a_{11}+a_{22})\times \lambda + a_{11}\times a_{22}-a_{12} \times a_{21}
+\end{vmatrix} = (a_{11}-\lambda) \times (a_{22}-\lambda) - a_{12} \times a_{21}=\mathbf{\mathit{ \lambda^2 }}-(a_{11}+a_{22})\times \lambda + a_{11}\times a_{22}-a_{12} \times a_{21}
 \]
 Somit ist der Koeffizient von $\lambda ^2$ gleich $+1$.
 

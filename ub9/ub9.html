@@ -456,6 +456,139 @@ A^{-1} =
 </div>
 <div id="aufgabe-2" class="section level1">
 <h1>Aufgabe 2)</h1>
+<div id="a-1" class="section level3">
+<h3>(a)</h3>
+<p>Gegebenes System: <span class="math display">\[
+\left\{
+\begin{array}{lr}
+    G_{k+2}= \frac{1}{2} G_{k+1}+ \frac{1}{2} G_{k}&amp;\quad I\\
+    G_{k+1}=G_{k+1}&amp;\quad II\\
+\end{array}
+\right.
+\]</span> Sollen nun folgende Form aufstellen: <span class="math inline">\(g_{k+1} = A\, g_k\)</span>. Dabei ist <span class="math inline">\(g_{k} = \left( G_{k+1}, G_{k} \right)^T\)</span>. Da es sich um eine Reihe handeln soll können wir den Vektor <span class="math inline">\(g_{k+1}\)</span> wie folgt schreiben: <span class="math display">\[g_{k+1} = \left(\begin{array}{c}G_{k+2} \\ G_{k+1}\end{array}\right)\]</span> Nun lässt sich aufstellen: <span class="math display">\[
+\overbrace{\begin{pmatrix}
+    \frac{1}{2} &amp; \frac{1}{2} \\
+    1           &amp;       0     \\
+\end{pmatrix}}^{A}
+\left(\begin{array}{c} G_{k+1}\\G_k \end{array}\right) =
+\left(\begin{array}{c}\frac{1}{2} G_{k+1}+ \frac{1}{2} G_{k} \\ G_{k+1}\end{array}\right)
+\]</span></p>
+</div>
+<div id="b-1" class="section level3">
+<h3>(b)</h3>
+<ul>
+<li>Eigenwerte: <span class="math inline">\(0 = \lambda^2 - \frac{\lambda^2}{2} - \frac{1}{2}\)</span> <span class="math display">\[\lambda_1 = 1 \quad \lambda_2 = \frac{-1}{2}\]</span></li>
+<li>Somit ist A diagonalisierbar (voller spaltenrang)</li>
+<li>Eigenvektoren:
+<ul>
+<li><span class="math inline">\(\lambda = 1\)</span>:<br />
+<span class="math display">\[\left(\left.
+\begin{matrix}
+    -\frac{1}{2} &amp; \frac{1}{2} \\
+    1            &amp;      -1     \\
+\end{matrix}\right| \begin{array}{c}0\\0\end{array}
+\right)
+~\Rightarrow ~ u_1 = \left(\begin{array}{c}1\\1\end{array}\right)
+\]</span></li>
+<li><span class="math inline">\(\lambda = -\frac{1}{2}\)</span>:<br />
+<span class="math display">\[\left(\left.
+\begin{matrix}
+    1 &amp; \frac{1}{2} \\
+    1 &amp; \frac{1}{2} \\
+\end{matrix}\right| \begin{array}{c}0\\0\end{array}
+\right)
+~\Rightarrow ~ u_2 = \left(\begin{array}{c}1\\-2\end{array}\right)
+\]</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="c" class="section level3">
+<h3>(c)</h3>
+<p>Aus dem Vorlesungsbeispiel erinnern wir uns: <span class="math display">\[
+A^2 = (S \Lambda S^{-1})\cdot(S \Lambda S^{-1}) = S \Lambda^2 S^{-1}
+\]</span> Somit gilt: <span class="math display">\[
+A^{n} = S \Lambda^{n} S^{-1}
+\]</span> Aus (b): <span class="math display">\[
+\begin{array}{cc}
+{\Lambda =
+\begin{pmatrix}
+    1   &amp;   0\\
+    0   &amp;   -\frac{1}{2}\\
+\end{pmatrix}
+}&amp;{S =
+\begin{pmatrix}
+    1   &amp;   1\\
+    1   &amp;   -2\\
+\end{pmatrix}
+}\\
+\end{array}
+\]</span> Nun berechnen wir <span class="math inline">\(S^{-1}\)</span> mit drei Umformungsschritten (nur operation gelistet):</p>
+<ol style="list-style-type: decimal">
+<li>II: II - 1</li>
+<li>I: I <span class="math inline">\(+ \frac{1}{3}\)</span> II</li>
+<li>II: <span class="math inline">\(-\frac{1}{3}\)</span> II</li>
+</ol>
+<p>Somit: <span class="math inline">\(S^{-1} =\frac{1}{3} \begin{pmatrix}  2 &amp; 1\\  1 &amp; -1\\ \end{pmatrix}\)</span><br />
+Somit lässt sich nun <span class="math inline">\(A^{n} = S\Lambda^{n} S^{-1}\)</span> wie folgt ausformulieren: <span class="math display">\[
+A^{n} =\frac{1}{3}
+\begin{pmatrix}
+    1   &amp;   1\\
+    1   &amp;   -2\\
+\end{pmatrix}
+\begin{pmatrix}
+    1   &amp;   0\\
+    0   &amp;   -\frac{1}{2}\\
+\end{pmatrix}^{n}
+\begin{pmatrix}
+    2   &amp;   1\\
+    1   &amp;  -1\\
+\end{pmatrix}
+\]</span> Da <span class="math inline">\(\Lambda\)</span> eine Diagonalmatrix ist lässt sich die Potenz <em>quasi</em> in die Matrix ziehen und es ergibt sich: <span class="math display">\[
+A^{n} =\frac{1}{3}
+\begin{pmatrix}
+    1   &amp;   1\\
+    1   &amp;   -2\\
+\end{pmatrix}
+\begin{pmatrix}
+    1   &amp;   0\\
+    0   &amp;   -\frac{1}{2}^{n}\\
+\end{pmatrix}
+\begin{pmatrix}
+    2   &amp;   1\\
+    1   &amp;  -1\\
+\end{pmatrix}
+\]</span> Mit <span class="math inline">\(n\rightarrow \infty\)</span> läuft <span class="math inline">\(\Lambda\)</span> somit gegen: <span class="math display">\[\Lambda^{\infty} =
+\begin{pmatrix}
+    1   &amp;   0\\
+    0   &amp;   0\\
+\end{pmatrix}
+\]</span> Durch einsetzen und auflössen berechnen wir wogegen A läuft: <span class="math display">\[
+\begin{aligned}
+    A^{\infty} &amp;=\frac{1}{3}
+    \begin{pmatrix}
+        1   &amp;   1\\
+        1   &amp;   -2\\
+    \end{pmatrix}
+    \begin{pmatrix}
+        1   &amp;   0\\
+        0   &amp;   0\\
+    \end{pmatrix}
+    \begin{pmatrix}
+        2   &amp;   1\\
+        1   &amp;  -1\\
+    \end{pmatrix}\\
+    &amp;=
+    \frac{1}{3}\left(\begin{array}{cc}{1} &amp; {0} \\ {1} &amp; {0}\end{array}\right)\left(\begin{array}{cc}{2} &amp; {1} \\ {1} &amp; {-1}\end{array}\right)\\
+    &amp;=
+    \frac{1}{3}\left(\begin{array}{cc}{2} &amp; {1} \\ {2} &amp; {1}\end{array}\right)
+\end{aligned}
+\]</span></p>
+</div>
+<div id="d" class="section level3">
+<h3>(d)</h3>
+<p>Wir wollen unsere Reihe nun mit <span class="math inline">\(k\rightarrow \infty\)</span> berechnen.<br />
+Da wir wissen wie sich die Grenzwerte von A verhalten macht es Sinn, <span class="math inline">\(g_0\)</span> zunächst als linearkombination der Eigenvektoren von A darzustellen.</p>
+</div>
 </div>
 
 

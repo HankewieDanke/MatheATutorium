@@ -101,4 +101,158 @@ $$det|A| = -4$$
 Da A invertierbar ist hat sie vollen spaltenrang.
 
 # Aufgabe 2)
+### (a)
+Gegebenes System:
+\[
+\left\{
+\begin{array}{lr}
+    G_{k+2}= \frac{1}{2} G_{k+1}+ \frac{1}{2} G_{k}&\quad I\\
+    G_{k+1}=G_{k+1}&\quad II\\
+\end{array}
+\right.
+\]
+Sollen nun folgende Form aufstellen: $g_{k+1} = A\, g_k$.
+Dabei ist $g_{k} = \left( G_{k+1}, G_{k} \right)^T$.
+Da es sich um eine Reihe handeln soll können wir den Vektor $g_{k+1}$
+wie folgt schreiben:
+\[g_{k+1} = \left(\begin{array}{c}G_{k+2} \\ G_{k+1}\end{array}\right)\]
+Nun lässt sich aufstellen:
+\[
+\overbrace{\begin{pmatrix}
+    \frac{1}{2} & \frac{1}{2} \\
+    1           &       0     \\
+\end{pmatrix}}^{A}
+\left(\begin{array}{c} G_{k+1}\\G_k \end{array}\right) =
+\left(\begin{array}{c}\frac{1}{2} G_{k+1}+ \frac{1}{2} G_{k} \\ G_{k+1}\end{array}\right)
+\]
+
+### (b)
+
+- Eigenwerte: $0 = \lambda^2 - \frac{\lambda^2}{2} - \frac{1}{2}$
+  $$\lambda_1 = 1 \quad \lambda_2 = \frac{-1}{2}$$
+- Somit ist A diagonalisierbar (voller spaltenrang)
+- Eigenvektoren:
+  - $\lambda = 1$:  
+    $$\left(\left.
+    \begin{matrix}
+        -\frac{1}{2} & \frac{1}{2} \\
+        1            &      -1     \\
+    \end{matrix}\right| \begin{array}{c}0\\0\end{array}
+    \right)
+    ~\Rightarrow ~ u_1 = \left(\begin{array}{c}1\\1\end{array}\right)
+    $$
+  - $\lambda = -\frac{1}{2}$:  
+    $$\left(\left.
+    \begin{matrix}
+        1 & \frac{1}{2} \\
+        1 & \frac{1}{2} \\
+    \end{matrix}\right| \begin{array}{c}0\\0\end{array}
+    \right)
+    ~\Rightarrow ~ u_2 = \left(\begin{array}{c}1\\-2\end{array}\right)
+    $$
+
+### (c)
+Aus dem Vorlesungsbeispiel erinnern wir uns:
+\[
+A^2 = (S \Lambda S^{-1})\cdot(S \Lambda S^{-1}) = S \Lambda^2 S^{-1}
+\]
+Somit gilt:
+\[
+A^{n} = S \Lambda^{n} S^{-1}
+\]
+Aus (b):
+\[
+\begin{array}{cc}
+{\Lambda =
+\begin{pmatrix}
+    1   &   0\\
+    0   &   -\frac{1}{2}\\
+\end{pmatrix}
+}&{S =
+\begin{pmatrix}
+    1   &   1\\
+    1   &   -2\\
+\end{pmatrix}
+}\\
+\end{array}
+\]
+Nun berechnen wir $S^{-1}$ mit drei Umformungsschritten (nur operation gelistet):
+
+1. II: II - 1
+2. I: I $+ \frac{1}{3}$ II
+3. II: $-\frac{1}{3}$ II
+
+Somit: $S^{-1} =\frac{1}{3}
+\begin{pmatrix}
+    2   &   1\\
+    1   &  -1\\
+\end{pmatrix}$  
+Somit lässt sich nun $A^{n} = S\Lambda^{n} S^{-1}$ wie folgt
+ausformulieren:
+\[
+A^{n} =\frac{1}{3}
+\begin{pmatrix}
+    1   &   1\\
+    1   &   -2\\
+\end{pmatrix}
+\begin{pmatrix}
+    1   &   0\\
+    0   &   -\frac{1}{2}\\
+\end{pmatrix}^{n}
+\begin{pmatrix}
+    2   &   1\\
+    1   &  -1\\
+\end{pmatrix}
+\]
+Da $\Lambda$ eine Diagonalmatrix ist lässt sich die Potenz _quasi_
+in die Matrix ziehen und es ergibt sich:
+\[
+A^{n} =\frac{1}{3}
+\begin{pmatrix}
+    1   &   1\\
+    1   &   -2\\
+\end{pmatrix}
+\begin{pmatrix}
+    1   &   0\\
+    0   &   -\frac{1}{2}^{n}\\
+\end{pmatrix}
+\begin{pmatrix}
+    2   &   1\\
+    1   &  -1\\
+\end{pmatrix}
+\]
+Mit $n\rightarrow \infty$ läuft $\Lambda$ somit gegen:
+\[\Lambda^{\infty} =
+\begin{pmatrix}
+    1   &   0\\
+    0   &   0\\
+\end{pmatrix}
+\]
+Durch einsetzen und auflössen berechnen wir wogegen A läuft:
+\[
+\begin{aligned}
+    A^{\infty} &=\frac{1}{3}
+    \begin{pmatrix}
+        1   &   1\\
+        1   &   -2\\
+    \end{pmatrix}
+    \begin{pmatrix}
+        1   &   0\\
+        0   &   0\\
+    \end{pmatrix}
+    \begin{pmatrix}
+        2   &   1\\
+        1   &  -1\\
+    \end{pmatrix}\\
+    &=
+    \frac{1}{3}\left(\begin{array}{cc}{1} & {0} \\ {1} & {0}\end{array}\right)\left(\begin{array}{cc}{2} & {1} \\ {1} & {-1}\end{array}\right)\\
+    &=
+    \frac{1}{3}\left(\begin{array}{cc}{2} & {1} \\ {2} & {1}\end{array}\right)
+\end{aligned}
+\]
+
+### (d)
+Wir wollen unsere Reihe nun mit $k\rightarrow \infty$ berechnen.  
+Da wir wissen wie sich die Grenzwerte von A verhalten macht es Sinn,
+$g_0$ zunächst als linearkombination der Eigenvektoren von A darzustellen.  
 

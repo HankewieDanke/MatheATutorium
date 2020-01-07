@@ -1,0 +1,104 @@
+---
+title: "UB9 -- Tutorium Mathe A WS19/20"
+author: "A. Hanke"
+date: "Tutorium: 19/12/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Aufgabe 1
+### (a)
+Aus der Vorlesung wissen wir: $A = S \Lambda S^{-1}$.
+Aus der Aufgabe wissen wir:
+\[
+\begin{array}{cc}
+{\Lambda = 
+\begin{pmatrix}
+    1   &   0   &   0\\
+    0   &   -2  &   0\\
+    0   &   0   &   2\\
+\end{pmatrix}
+}&{S = 
+\begin{pmatrix}
+    1   &   1   &   -1\\
+    0   &   1   &   2\\
+    -1  &   1   &   -1\\
+\end{pmatrix}
+}\\
+\end{array}
+\]
+Zunächst brauchen wir nun das inverse von S (wir wissen das S invertierbar
+*sein muss*):
+
+- A ist _symmetrisch_ $\Rightarrow ~ A = A^T$ somit gilt: alle Eigenvektoren orthogonal zueinander.
+- S somit _orthogonal matrix_ $\Rightarrow ~ S^{-1} = S^T$
+
+\[
+\begin{align}
+A =&
+\begin{pmatrix}
+    1   &   1   &   -1\\
+    0   &   1   &   2\\
+    -1  &   1   &   -1\\
+\end{pmatrix}
+\begin{pmatrix}
+    1   &   0   &   0\\
+    0   &   -2  &   0\\
+    0   &   0   &   2\\
+\end{pmatrix}
+\begin{pmatrix}
+    1   &   0   &   -1\\
+    1   &   1   &   1\\
+    -1  &   2   &   -1\\
+\end{pmatrix}\\
+=&
+\begin{pmatrix}
+    1   &   -2  &   -2  \\
+    0   &   -2  &   4   \\
+    -1  &   -2  &   -2  \\
+\end{pmatrix}
+\begin{pmatrix}
+    1   &   0   &   -1\\
+    1   &   1   &   1\\
+    -1  &   2   &   -1\\
+\end{pmatrix}\\
+=&
+\begin{pmatrix}
+    1   &   -6  &   -1  \\
+    -6  &   6   &   -6  \\
+    -1  &   -6  &   1   \\
+\end{pmatrix}
+\end{align}
+\]
+
+### (b)
+Es gilt: $A = S\Lambda S^{-1}$; somit: $A^{-1} = \left( S\Lambda S^{-1} \right)^{-1}$.  
+Erinnerung: $AA^{-1} = I$.  
+Somit ist $A^{-1} = S \Lambda^{-1} S^{-1}$.
+\[
+\Lambda^{-1} =
+\begin{pmatrix}
+    1   &   0   &   0   \\
+    0   &   \frac{-1}{2} &  0   \\
+    0   &   0   &   \frac{1}{2} \\
+\end{pmatrix}
+\]
+Mit $S^{-1}$ und $S$ von oben ergibt sich:
+\[
+A^{-1} =
+\begin{pmatrix}
+    1   &   -\frac{3}{2}    &   -1  \\
+    -\frac{3}{2}    &   \frac{5}{2} &   -\frac{3}{2}    \\
+    -1  &   -\frac{3}{2}    &   1   \\
+\end{pmatrix}
+\]
+
+Die determinante der Matrix A ist das Produkt der Eigenwerte.
+$$det|A| = -4$$
+Da A invertierbar ist hat sie vollen spaltenrang.
+
+# Aufgabe 2)
+

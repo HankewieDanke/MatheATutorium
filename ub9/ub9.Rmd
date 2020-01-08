@@ -1,0 +1,298 @@
+---
+title: "UB9 -- Tutorium Mathe A WS19/20"
+author: "A. Hanke"
+date: "Tutorium: 19/12/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Aufgabe 1
+### (a)
+Aus der Vorlesung wissen wir: $A = S \Lambda S^{-1}$.
+Aus der Aufgabe wissen wir:
+\[
+\begin{array}{cc}
+{\Lambda = 
+\begin{pmatrix}
+    1   &   0   &   0\\
+    0   &   -2  &   0\\
+    0   &   0   &   2\\
+\end{pmatrix}
+}&{S = 
+\begin{pmatrix}
+    1   &   1   &   -1\\
+    0   &   1   &   2\\
+    -1  &   1   &   -1\\
+\end{pmatrix}
+}\\
+\end{array}
+\]
+Zunächst brauchen wir nun das inverse von S (wir wissen das S invertierbar
+*sein muss*):
+
+- A ist _symmetrisch_ $\Rightarrow ~ A = A^T$ somit gilt: alle Eigenvektoren orthogonal zueinander.
+- S somit _orthogonal matrix_ $\Rightarrow ~ S^{-1} = S^T$
+
+\[
+\begin{align}
+A =&
+\begin{pmatrix}
+    1   &   1   &   -1\\
+    0   &   1   &   2\\
+    -1  &   1   &   -1\\
+\end{pmatrix}
+\begin{pmatrix}
+    1   &   0   &   0\\
+    0   &   -2  &   0\\
+    0   &   0   &   2\\
+\end{pmatrix}
+\begin{pmatrix}
+    1   &   0   &   -1\\
+    1   &   1   &   1\\
+    -1  &   2   &   -1\\
+\end{pmatrix}\\
+=&
+\begin{pmatrix}
+    1   &   -2  &   -2  \\
+    0   &   -2  &   4   \\
+    -1  &   -2  &   -2  \\
+\end{pmatrix}
+\begin{pmatrix}
+    1   &   0   &   -1\\
+    1   &   1   &   1\\
+    -1  &   2   &   -1\\
+\end{pmatrix}\\
+=&
+\begin{pmatrix}
+    1   &   -6  &   -1  \\
+    -6  &   6   &   -6  \\
+    -1  &   -6  &   1   \\
+\end{pmatrix}
+\end{align}
+\]
+
+### (b)
+Es gilt: $A = S\Lambda S^{-1}$; somit: $A^{-1} = \left( S\Lambda S^{-1} \right)^{-1}$.  
+Erinnerung: $AA^{-1} = I$.  
+Somit ist $A^{-1} = S \Lambda^{-1} S^{-1}$.
+\[
+\Lambda^{-1} =
+\begin{pmatrix}
+    1   &   0   &   0   \\
+    0   &   \frac{-1}{2} &  0   \\
+    0   &   0   &   \frac{1}{2} \\
+\end{pmatrix}
+\]
+Mit $S^{-1}$ und $S$ von oben ergibt sich:
+\[
+A^{-1} =
+\begin{pmatrix}
+    1   &   -\frac{3}{2}    &   -1  \\
+    -\frac{3}{2}    &   \frac{5}{2} &   -\frac{3}{2}    \\
+    -1  &   -\frac{3}{2}    &   1   \\
+\end{pmatrix}
+\]
+
+Die determinante der Matrix A ist das Produkt der Eigenwerte.
+$$det|A| = -4$$
+Da A invertierbar ist hat sie vollen spaltenrang.
+
+# Aufgabe 2)
+### (a)
+Gegebenes System:
+\[
+\left\{
+\begin{array}{lr}
+    G_{k+2}= \frac{1}{2} G_{k+1}+ \frac{1}{2} G_{k}&\quad I\\
+    G_{k+1}=G_{k+1}&\quad II\\
+\end{array}
+\right.
+\]
+Sollen nun folgende Form aufstellen: $g_{k+1} = A\, g_k$.
+Dabei ist $g_{k} = \left( G_{k+1}, G_{k} \right)^T$.
+Da es sich um eine Reihe handeln soll können wir den Vektor $g_{k+1}$
+wie folgt schreiben:
+\[g_{k+1} = \left(\begin{array}{c}G_{k+2} \\ G_{k+1}\end{array}\right)\]
+Nun lässt sich aufstellen:
+\[
+\overbrace{\begin{pmatrix}
+    \frac{1}{2} & \frac{1}{2} \\
+    1           &       0     \\
+\end{pmatrix}}^{A}
+\left(\begin{array}{c} G_{k+1}\\G_k \end{array}\right) =
+\left(\begin{array}{c}\frac{1}{2} G_{k+1}+ \frac{1}{2} G_{k} \\ G_{k+1}\end{array}\right)
+\]
+
+### (b)
+
+- Eigenwerte: $0 = \lambda^2 - \frac{\lambda^2}{2} - \frac{1}{2}$
+  $$\lambda_1 = 1 \quad \lambda_2 = \frac{-1}{2}$$
+- Somit ist A diagonalisierbar (voller spaltenrang)
+- Eigenvektoren:
+  - $\lambda = 1$:  
+    $$\left(\left.
+    \begin{matrix}
+        -\frac{1}{2} & \frac{1}{2} \\
+        1            &      -1     \\
+    \end{matrix}\right| \begin{array}{c}0\\0\end{array}
+    \right)
+    ~\Rightarrow ~ u_1 = \left(\begin{array}{c}1\\1\end{array}\right)
+    $$
+  - $\lambda = -\frac{1}{2}$:  
+    $$\left(\left.
+    \begin{matrix}
+        1 & \frac{1}{2} \\
+        1 & \frac{1}{2} \\
+    \end{matrix}\right| \begin{array}{c}0\\0\end{array}
+    \right)
+    ~\Rightarrow ~ u_2 = \left(\begin{array}{c}1\\-2\end{array}\right)
+    $$
+    Hierbei ist $u_2$ skaliert mit 2.
+
+### (c)
+Aus dem Vorlesungsbeispiel erinnern wir uns:
+\[
+A^2 = (S \Lambda S^{-1})\cdot(S \Lambda S^{-1}) = S \Lambda^2 S^{-1}
+\]
+Somit gilt:
+\[
+A^{n} = S \Lambda^{n} S^{-1}
+\]
+Aus (b):
+\[
+\begin{array}{cc}
+{\Lambda =
+\begin{pmatrix}
+    1   &   0\\
+    0   &   -\frac{1}{2}\\
+\end{pmatrix}
+}&{S =
+\begin{pmatrix}
+    1   &   1\\
+    1   &   -2\\
+\end{pmatrix}
+}\\
+\end{array}
+\]
+Nun berechnen wir $S^{-1}$ mit drei Umformungsschritten (nur operation gelistet):
+
+1. II: II - 1
+2. I: I $+ \frac{1}{3}$ II
+3. II: $-\frac{1}{3}$ II
+
+Somit: $S^{-1} =\frac{1}{3}
+\begin{pmatrix}
+    2   &   1\\
+    1   &  -1\\
+\end{pmatrix}$  
+Somit lässt sich nun $A^{n} = S\Lambda^{n} S^{-1}$ wie folgt
+ausformulieren:
+\[
+A^{n} =\frac{1}{3}
+\begin{pmatrix}
+    1   &   1\\
+    1   &   -2\\
+\end{pmatrix}
+\begin{pmatrix}
+    1   &   0\\
+    0   &   -\frac{1}{2}\\
+\end{pmatrix}^{n}
+\begin{pmatrix}
+    2   &   1\\
+    1   &  -1\\
+\end{pmatrix}
+\]
+Da $\Lambda$ eine Diagonalmatrix ist lässt sich die Potenz _quasi_
+in die Matrix ziehen und es ergibt sich:
+\[
+A^{n} =\frac{1}{3}
+\begin{pmatrix}
+    1   &   1\\
+    1   &   -2\\
+\end{pmatrix}
+\begin{pmatrix}
+    1   &   0\\
+    0   &   -\frac{1}{2}^{n}\\
+\end{pmatrix}
+\begin{pmatrix}
+    2   &   1\\
+    1   &  -1\\
+\end{pmatrix}
+\]
+Mit $n\rightarrow \infty$ läuft $\Lambda$ somit gegen:
+\[\Lambda^{\infty} =
+\begin{pmatrix}
+    1   &   0\\
+    0   &   0\\
+\end{pmatrix}
+\]
+Durch einsetzen und auflössen berechnen wir wogegen A läuft:
+\[
+\begin{aligned}
+    A^{\infty} &=\frac{1}{3}
+    \begin{pmatrix}
+        1   &   1\\
+        1   &   -2\\
+    \end{pmatrix}
+    \begin{pmatrix}
+        1   &   0\\
+        0   &   0\\
+    \end{pmatrix}
+    \begin{pmatrix}
+        2   &   1\\
+        1   &  -1\\
+    \end{pmatrix}\\
+    &=
+    \frac{1}{3}\left(\begin{array}{cc}{1} & {0} \\ {1} & {0}\end{array}\right)\left(\begin{array}{cc}{2} & {1} \\ {1} & {-1}\end{array}\right)\\
+    &=
+    \frac{1}{3}\left(\begin{array}{cc}{2} & {1} \\ {2} & {1}\end{array}\right)
+\end{aligned}
+\]
+
+### (d)
+Hier muss erkannt werden, das wir ein _Dynamisches System_ entwickeln.
+(Vorlesung: eintwicklung dynamischer systeme & Fibonachi reihe)
+Wir wollen unsere Reihe nun mit $k\rightarrow \infty$ berechnen.  
+Da wir wissen wie sich die Grenzwerte von A verhalten macht es Sinn,
+$g_0$ zunächst als linearkombination der Eigenvektoren von A darzustellen.  
+Somit lässt sich unsere Anfangsbedingung wie folgt darstellen:
+\[
+g_0 = \left(\begin{array}{c}1\\0\end{array}\right) =
+\frac{1}{3} \left[ 2u_1 + u_2 \right]
+\]
+
+Unser Gleichungssystem sieht somit für $g_1$ wie folgt aus:
+\[
+\begin{align}
+    g_{1} &= A \times \frac{1}{3} \left[ 2u_1 + u_2 \right]\\
+    &= \frac{1}{3} \left[ 2Au_1 + Au_2 \right]\\
+    &= \frac{1}{3} \left[ 2\lambda_1u_1 + \lambda_2u_2 \right]\\
+    &= \frac{1}{3}
+    \left[ 2\lambda_1\left(\begin{array}{c}1\\1\end{array}\right) +
+    \lambda_2\left(\begin{array}{c}1\\-2\end{array}\right) \right]
+\end{align}
+\]
+
+Dauraus lässt sich erkennen, dass bei $k \rightarrow \infty$:
+\[
+\begin{align}
+    g_{\infty}&= \frac{1}{3}
+    \left[ 2
+    \underbrace{\lambda_1^{\infty}}_{\rightarrow 1}
+    \left(\begin{array}{c}1\\1\end{array}\right) +
+    \underbrace{\lambda_2^{\infty}}_{\rightarrow 0}
+    \left(\begin{array}{c}1\\-2\end{array}\right) \right]\\
+    g_{\infty} &\rightarrow \frac{2}{3} u_1
+\end{align}
+\]
+Dies zeigt:
+\[
+\begin{align}
+    \left(\begin{array}{c}G_{\infty +1}\\G_{\infty}\end{array}\right)
+    &= \frac{2}{3} \left(\begin{array}{c}1\\1\end{array}\right)\\
+    G_n &\rightarrow \frac{2}{3}
+\end{align}
+\]

@@ -142,7 +142,7 @@ $$\det\left|\: A_t - \lambda I\: \right| = (1-\lambda)(1-\lambda)(3-\lambda) = 0
 Und dementsprechend erhalten wir die Eigenwerte:
 
 1) $\lambda_1 = 1$ (mult. 2)
-2) $\lambda_2 = 2$ (mult. 1)
+2) $\lambda_2 = 3$ (mult. 1)
 
 ### (b)
 Hier müssen wir zunächst unsere Eigenvektoren bestimmen.  
@@ -179,7 +179,7 @@ Nachdem $x_{1}$ frei wählbar ist, ergeben sich folgende Mengen an Eigenvektoren
 
 \[
 \begin{array}{cc}
-    \text{Für} \quad t=-2: & \quad \text{Für} \quad t \ne-2: & \\
+    \text{Für} \quad t=-2: & \quad \text{Für} \quad t \ne-2: \\
     \\
     x = \left\{ \left. \begin{pmatrix}
         x_{1} \\
@@ -312,7 +312,7 @@ $$
 
 Die Bedingung für $t$ ist hier nochmal erwähnt, denn der Term unter der Wurzel darf nicht negativ sein. 
 
-Wenn wir uns nun die Eigenvektorenmengen $x_{\alpha}$ und $x_{\beta}$ anschauen, sehen wir, dass diese linear unabhängig sind außer wenn $t=-\frac{5}{2}$. In diesem Fall fällt nämlich der Wurzelterm weg und damit sind $x_{\alpha}$ und $x_{\beta}$ gleich. Das heißt für $t>-\frac{5}{2}$ spannen die Eigenvektoren den Raum $\mathbb{R}^2$ auf.
+Wenn wir uns nun die Eigenvektorenmengen $x_{\alpha}$ und $x_{\beta}$ anschauen, sehen wir, dass diese linear unabhängig sind außer wenn $t=-\frac{5}{2}$. In diesem Fall fällt nämlich der Wurzelterm weg und damit sind $x_{\alpha}$ und $x_{\beta}$ gleich. Das heißt für $t\geq-\frac{5}{2}$ spannen die Eigenvektoren den Raum $\mathbb{R}^2$ auf.
 
 # Aufgabe 3
 
@@ -336,10 +336,10 @@ det(M)= \begin{vmatrix}
 
 Um die Eigenwerte zu bestimmen addieren wir $\lambda I$ zu der Matrix
 \[
-det(M)= \begin{vmatrix}
+det(M - \lambda I)= \begin{vmatrix}
     a_{11}-\lambda & a_{12} \\
     a_{21} & a_{22}-\lambda \\
-\end{vmatrix} = (a_{11}-\lambda) \times (a_{22}-\lambda) - a_{12} \times a_{21}=\mathbf{\color{red}{\lambda^2}}-(a_{11}+a_{22})\times \lambda + a_{11}\times a_{22}-a_{12} \times a_{21}
+\end{vmatrix} = (a_{11}-\lambda) \times (a_{22}-\lambda) - a_{12} \times a_{21}=\mathbf{\mathit{ \lambda^2 }}-(a_{11}+a_{22})\times \lambda + a_{11}\times a_{22}-a_{12} \times a_{21}
 \]
 Somit ist der Koeffizient von $\lambda ^2$ gleich $+1$.
 
@@ -357,7 +357,7 @@ M=
 Um die Eigenwerte zu bestimmen addieren wir $\lambda I$ zu der Matrix und berechnen die Determinante.
 Mittels Laplace-Entwicklungssatz können wir die Determinate berechnen.
 \[
-det(M)= \begin{vmatrix}
+det(M - \lambda I)= \begin{vmatrix}
     a_{11}-\lambda & a_{12} & a_{13}  \\
     a_{21} & a_{22}-\lambda & a_{23} \\
     a_{31} & a_{32} & a_{33}-\lambda \\
@@ -367,7 +367,7 @@ det(M)= \begin{vmatrix}
     a_{22}-\lambda & a_{23} \\
     a_{32} & a_{33}-\lambda \\
 \end{vmatrix}
-+ a_{12} \times
+- a_{12} \times
 \begin{vmatrix}
     a_{21} & a_{23} \\
     a_{31} & a_{33}-\lambda \\

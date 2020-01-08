@@ -391,45 +391,178 @@ summary {
 \end{array}
 \]</span> Zunächst brauchen wir nun das inverse von S (wir wissen das S invertierbar <em>sein muss</em>):</p>
 <ul>
-<li>A ist <em>symmetrisch</em> <span class="math inline">\(\Rightarrow ~ A = A^T\)</span> somit gilt: alle Eigenvektoren orthogonal zueinander.</li>
-<li>S somit <em>orthogonal matrix</em> <span class="math inline">\(\Rightarrow ~ S^{-1} = S^T\)</span></li>
+<li><span class="math inline">\(A\)</span> ist <em>symmetrisch</em> <span class="math inline">\(\Rightarrow ~ A = A^T\)</span> somit gilt: alle Eigenvektoren orthogonal zueinander.</li>
+<li>Wenn die Eigenvektoren nun noch normiert werden, dann ist <span class="math inline">\(S\)</span> somit eine <em>orthogonal matrix</em> <span class="math inline">\(\Rightarrow ~ S^{-1} = S^T\)</span></li>
+<li>Falls Eigenvektoren ohne Normierung als Spaltenvektoren für <span class="math inline">\(S\)</span> verwendet werden, dann muss das <span class="math inline">\(S^{-1}\)</span> berechnet werden.</li>
 </ul>
 <p><span class="math display">\[
-\begin{align}
+\left(\begin{array}{cc}
+    \left. 
+    \begin{matrix}
+    1   &amp;   1   &amp;   -1 \\
+    0   &amp;   1   &amp;   2 \\
+    -1  &amp;   1   &amp;   -1 \\
+    \end{matrix}
+    \right|
+    \begin{array}{ccc}
+    1   &amp;   0   &amp;   0\\
+    0   &amp;   1   &amp;   0\\
+    0   &amp;   0   &amp;   1\\
+    \end{array}
+\end{array}\right) \overset{\text{III: III+I}}{\longrightarrow}
+\left(\begin{array}{cc}
+    \left. 
+    \begin{matrix}
+    1   &amp;   1   &amp;   -1 \\
+    0   &amp;   1   &amp;   2 \\
+    0   &amp;   2   &amp;   -2 \\
+    \end{matrix}
+    \right|
+    \begin{array}{ccc}
+    1   &amp;   0   &amp;   0\\
+    0   &amp;   1   &amp;   0\\
+    1   &amp;   0   &amp;   1\\
+    \end{array}
+\end{array}\right) \overset{\text{III: III-2II}}{\longrightarrow}
+\left(\begin{array}{cc}
+    \left. 
+    \begin{matrix}
+    1   &amp;   1   &amp;   -1 \\
+    0   &amp;   1   &amp;   2 \\
+    0   &amp;   0   &amp;   -6 \\
+    \end{matrix}
+    \right|
+    \begin{array}{ccc}
+    1   &amp;   0   &amp;   0\\
+    0   &amp;   1   &amp;   0\\
+    1   &amp;   -2  &amp;   1\\
+    \end{array}
+\end{array}\right)
+\]</span></p>
+<p><span class="math display">\[
+\left(\begin{array}{cc}
+    \left. 
+    \begin{matrix}
+    1   &amp;   1   &amp;   -1 \\
+    0   &amp;   1   &amp;   2 \\
+    0   &amp;   0   &amp;   -6 \\
+    \end{matrix}
+    \right|
+    \begin{array}{ccc}
+    1   &amp;   0   &amp;   0\\
+    0   &amp;   1   &amp;   0\\
+    1   &amp;   -2  &amp;   1\\
+    \end{array}
+\end{array}\right) \overset{\text{I: I-II}}{\longrightarrow}
+\left(\begin{array}{cc}
+    \left. 
+    \begin{matrix}
+    1   &amp;   0   &amp;   -3 \\
+    0   &amp;   1   &amp;   2 \\
+    0   &amp;   0   &amp;   -6 \\
+    \end{matrix}
+    \right|
+    \begin{array}{ccc}
+    1   &amp;   -1  &amp;   0\\
+    0   &amp;   1   &amp;   0\\
+    1   &amp;   -2  &amp;   1\\
+    \end{array}
+\end{array}\right) \overset{\text{I: I-} \frac{1}{2} \text{III}}{\longrightarrow}
+\left(\begin{array}{cc}
+    \left. 
+    \begin{matrix}
+    1   &amp;   0   &amp;   0 \\
+    0   &amp;   1   &amp;   2 \\
+    0   &amp;   0   &amp;   -6 \\
+    \end{matrix}
+    \right|
+    \begin{array}{ccc}
+    \frac{1}{2}   &amp;   0  &amp;   -\frac{1}{2} \\
+    0   &amp;   1   &amp;   0\\
+    1   &amp;   -2  &amp;   1\\
+    \end{array}
+\end{array}\right)
+\]</span></p>
+<p><span class="math display">\[
+\left(\begin{array}{cc}
+    \left. 
+    \begin{matrix}
+    1   &amp;   0   &amp;   0 \\
+    0   &amp;   1   &amp;   2 \\
+    0   &amp;   0   &amp;   -6 \\
+    \end{matrix}
+    \right|
+    \begin{array}{ccc}
+    \frac{1}{2}   &amp;   0  &amp;   -\frac{1}{2} \\
+    0   &amp;   1   &amp;   0\\
+    1   &amp;   -2  &amp;   1\\
+    \end{array}
+\end{array}\right) \overset{\text{II: II+} \frac{1}{3} \text{III}}{\longrightarrow}
+\left(\begin{array}{cc}
+    \left. 
+    \begin{matrix}
+    1   &amp;   0   &amp;   0 \\
+    0   &amp;   1   &amp;   0 \\
+    0   &amp;   0   &amp;   -6 \\
+    \end{matrix}
+    \right|
+    \begin{array}{ccc}
+    \frac{1}{2}   &amp;   0  &amp;   -\frac{1}{2} \\
+    \frac{1}{3}   &amp;   \frac{1}{3}   &amp;   \frac{1}{3}\\
+    1   &amp;   -2  &amp;   1\\
+    \end{array}
+\end{array}\right) \overset{\text{III: -}\frac{1}{6} \text{III}}{\longrightarrow}
+\left(\begin{array}{cc}
+    \left. 
+    \begin{matrix}
+    1   &amp;   0   &amp;   0 \\
+    0   &amp;   1   &amp;   0 \\
+    0   &amp;   0   &amp;   1 \\
+    \end{matrix}
+    \right|
+    \begin{array}{ccc}
+    \frac{1}{2}   &amp;   0  &amp;   -\frac{1}{2} \\
+    \frac{1}{3}   &amp;   \frac{1}{3}   &amp;   \frac{1}{3}\\
+    -\frac{1}{6}   &amp;   \frac{1}{3}   &amp;   -\frac{1}{6}\\
+    \end{array}
+\end{array}\right)
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
 A =&amp;
 \begin{pmatrix}
     1   &amp;   1   &amp;   -1\\
     0   &amp;   1   &amp;   2\\
     -1  &amp;   1   &amp;   -1\\
-\end{pmatrix}
+\end{pmatrix} \cdot
 \begin{pmatrix}
     1   &amp;   0   &amp;   0\\
     0   &amp;   -2  &amp;   0\\
     0   &amp;   0   &amp;   2\\
-\end{pmatrix}
+\end{pmatrix} \cdot
 \begin{pmatrix}
-    1   &amp;   0   &amp;   -1\\
-    1   &amp;   1   &amp;   1\\
-    -1  &amp;   2   &amp;   -1\\
+    \frac{1}{2}   &amp;   0  &amp;   -\frac{1}{2} \\
+    \frac{1}{3}   &amp;   \frac{1}{3}   &amp;   \frac{1}{3}\\
+    -\frac{1}{6}   &amp;   \frac{1}{3}   &amp;   -\frac{1}{6}\\
 \end{pmatrix}\\
 =&amp;
 \begin{pmatrix}
     1   &amp;   -2  &amp;   -2  \\
     0   &amp;   -2  &amp;   4   \\
     -1  &amp;   -2  &amp;   -2  \\
-\end{pmatrix}
+\end{pmatrix} \cdot
 \begin{pmatrix}
-    1   &amp;   0   &amp;   -1\\
-    1   &amp;   1   &amp;   1\\
-    -1  &amp;   2   &amp;   -1\\
+    \frac{1}{2}   &amp;   0  &amp;   -\frac{1}{2} \\
+    \frac{1}{3}   &amp;   \frac{1}{3}   &amp;   \frac{1}{3}\\
+    -\frac{1}{6}   &amp;   \frac{1}{3}   &amp;   -\frac{1}{6}\\
 \end{pmatrix}\\
 =&amp;
 \begin{pmatrix}
-    1   &amp;   -6  &amp;   -1  \\
-    -6  &amp;   6   &amp;   -6  \\
-    -1  &amp;   -6  &amp;   1   \\
+    \frac{1}{6}   &amp;   -\frac{4}{3}  &amp;   -\frac{5}{6} \\
+    -\frac{4}{3}   &amp;   \frac{2}{3}   &amp;   -\frac{4}{3}\\
+    -\frac{5}{6}   &amp;   -\frac{4}{3}   &amp;   \frac{1}{6}\\
 \end{pmatrix}
-\end{align}
+\end{aligned}
 \]</span></p>
 </div>
 <div id="b" class="section level3">
@@ -440,18 +573,43 @@ Somit ist <span class="math inline">\(A^{-1} = S \Lambda^{-1} S^{-1}\)</span>. <
 \Lambda^{-1} =
 \begin{pmatrix}
     1   &amp;   0   &amp;   0   \\
-    0   &amp;   \frac{-1}{2} &amp;  0   \\
+    0   &amp;   -\frac{1}{2} &amp;  0   \\
     0   &amp;   0   &amp;   \frac{1}{2} \\
 \end{pmatrix}
 \]</span> Mit <span class="math inline">\(S^{-1}\)</span> und <span class="math inline">\(S\)</span> von oben ergibt sich: <span class="math display">\[
 A^{-1} =
 \begin{pmatrix}
-    1   &amp;   -\frac{3}{2}    &amp;   -1  \\
-    -\frac{3}{2}    &amp;   \frac{5}{2} &amp;   -\frac{3}{2}    \\
-    -1  &amp;   -\frac{3}{2}    &amp;   1   \\
+    1   &amp;   1   &amp;   -1\\
+    0   &amp;   1   &amp;   2\\
+    -1  &amp;   1   &amp;   -1\\
+\end{pmatrix} \cdot
+\begin{pmatrix}
+    1   &amp;   0   &amp;   0   \\
+    0   &amp;   -\frac{1}{2} &amp;  0   \\
+    0   &amp;   0   &amp;   \frac{1}{2} \\
+\end{pmatrix} \cdot
+\begin{pmatrix}
+    \frac{1}{2}   &amp;   0  &amp;   -\frac{1}{2} \\
+    \frac{1}{3}   &amp;   \frac{1}{3}   &amp;   \frac{1}{3}\\
+    -\frac{1}{6}   &amp;   \frac{1}{3}   &amp;   -\frac{1}{6}\\
+\end{pmatrix}=
+\begin{pmatrix}
+    1   &amp;   -\frac{1}{2}  &amp;   -\frac{1}{2}  \\
+    0   &amp;   -\frac{1}{2}  &amp;   1   \\
+    -1  &amp;   -\frac{1}{2}  &amp;   -\frac{1}{2}  \\
+\end{pmatrix} \cdot
+\begin{pmatrix}
+    \frac{1}{2}   &amp;   0  &amp;   -\frac{1}{2} \\
+    \frac{1}{3}   &amp;   \frac{1}{3}   &amp;   \frac{1}{3}\\
+    -\frac{1}{6}   &amp;   \frac{1}{3}   &amp;   -\frac{1}{6}\\
+\end{pmatrix} =
+\begin{pmatrix}
+    \frac{5}{12}   &amp;   -\frac{1}{3}  &amp;   -\frac{7}{12} \\
+    -\frac{1}{3}   &amp;   \frac{1}{6}   &amp;   -\frac{1}{3}\\
+    -\frac{7}{12}   &amp;   -\frac{1}{3}   &amp;   \frac{5}{12}\\
 \end{pmatrix}
 \]</span></p>
-<p>Die determinante der Matrix A ist das Produkt der Eigenwerte. <span class="math display">\[det|A| = -4\]</span> Da A invertierbar ist hat sie vollen spaltenrang.</p>
+<p>Die determinante der Matrix A ist das Produkt der Eigenwerte. <span class="math display">\[det|A| = -4\]</span> Da A invertierbar ist hat sie vollen Spaltenrang.</p>
 </div>
 </div>
 <div id="aufgabe-2" class="section level1">
@@ -593,17 +751,17 @@ g_0 = \left(\begin{array}{c}1\\0\end{array}\right) =
 \frac{1}{3} \left[ 2u_1 + u_2 \right]
 \]</span></p>
 <p>Unser Gleichungssystem sieht somit für <span class="math inline">\(g_1\)</span> wie folgt aus: <span class="math display">\[
-\begin{align}
+\begin{aligned}
     g_{1} &amp;= A \times \frac{1}{3} \left[ 2u_1 + u_2 \right]\\
     &amp;= \frac{1}{3} \left[ 2Au_1 + Au_2 \right]\\
     &amp;= \frac{1}{3} \left[ 2\lambda_1u_1 + \lambda_2u_2 \right]\\
     &amp;= \frac{1}{3}
     \left[ 2\lambda_1\left(\begin{array}{c}1\\1\end{array}\right) +
     \lambda_2\left(\begin{array}{c}1\\-2\end{array}\right) \right]
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>Dauraus lässt sich erkennen, dass bei <span class="math inline">\(k \rightarrow \infty\)</span>: <span class="math display">\[
-\begin{align}
+\begin{aligned}
     g_{\infty}&amp;= \frac{1}{3}
     \left[ 2
     \underbrace{\lambda_1^{\infty}}_{\rightarrow 1}
@@ -611,15 +769,29 @@ g_0 = \left(\begin{array}{c}1\\0\end{array}\right) =
     \underbrace{\lambda_2^{\infty}}_{\rightarrow 0}
     \left(\begin{array}{c}1\\-2\end{array}\right) \right]\\
     g_{\infty} &amp;\rightarrow \frac{2}{3} u_1
-\end{align}
+\end{aligned}
 \]</span> Dies zeigt: <span class="math display">\[
-\begin{align}
+\begin{aligned}
     \left(\begin{array}{c}G_{\infty +1}\\G_{\infty}\end{array}\right)
     &amp;= \frac{2}{3} \left(\begin{array}{c}1\\1\end{array}\right)\\
     G_n &amp;\rightarrow \frac{2}{3}
-\end{align}
+\end{aligned}
 \]</span></p>
 </div>
+</div>
+<div id="aufgabe-3" class="section level1">
+<h1>Aufgabe 3)</h1>
+<p>Wie oben gilt: <span class="math inline">\(A^{n} = S \Lambda^{n}S^{-1}\)</span>.<br />
+Es soll nun gelten: <span class="math inline">\(A^{n \rightarrow \infty} = 0\)</span>.<br />
+Somit: <span class="math inline">\(\Lambda^{n \rightarrow \infty} = 0\)</span>.<br />
+<span class="math display">\[
+\lim_{n\rightarrow \infty} \Lambda^n = 
+\lim_{n\rightarrow \infty} \begin{pmatrix}
+    \lambda_1^n &amp;   &amp;   0\\
+                &amp;\ddots&amp; \\
+    0           &amp;   &amp;\lambda_i^n\\
+\end{pmatrix} = 0 \quad \quad iff~ |\lambda_i|&lt;1~~ \forall i
+\]</span></p>
 </div>
 
 

@@ -33,72 +33,236 @@ Aus der Aufgabe wissen wir:
 Zunächst brauchen wir nun das inverse von S (wir wissen das S invertierbar
 *sein muss*):
 
-- A ist _symmetrisch_ $\Rightarrow ~ A = A^T$ somit gilt: alle Eigenvektoren orthogonal zueinander.
-- S somit _orthogonal matrix_ $\Rightarrow ~ S^{-1} = S^T$
+- $A$ ist _symmetrisch_ $\Rightarrow ~ A = A^T$ somit gilt: alle Eigenvektoren orthogonal zueinander.
+- Wenn die Eigenvektoren nun noch normiert werden, dann ist $S$ somit eine _orthogonal matrix_ $\Rightarrow ~ S^{-1} = S^T$
+- Falls Eigenvektoren ohne Normierung als Spaltenvektoren für $S$ verwendet werden, dann muss das $S^{-1}$ berechnet werden.
 
-\[
+$$
+\left(\begin{array}{cc}
+    \left. 
+    \begin{matrix}
+    1   &   1   &   -1 \\
+    0   &   1   &   2 \\
+    -1  &   1   &   -1 \\
+    \end{matrix}
+    \right|
+    \begin{array}{c}
+    1   &   0   &   0\\
+    0   &   1   &   0\\
+    0   &   0   &   1\\
+    \end{array}
+\end{array}\right) \overset{\text{III: III+I}}{\longrightarrow}
+
+\left(\begin{array}{cc}
+    \left. 
+    \begin{matrix}
+    1   &   1   &   -1 \\
+    0   &   1   &   2 \\
+    0   &   2   &   -2 \\
+    \end{matrix}
+    \right|
+    \begin{array}{c}
+    1   &   0   &   0\\
+    0   &   1   &   0\\
+    1   &   0   &   1\\
+    \end{array}
+\end{array}\right) \overset{\text{III: III-2II}}{\longrightarrow}
+\left(\begin{array}{cc}
+    \left. 
+    \begin{matrix}
+    1   &   1   &   -1 \\
+    0   &   1   &   2 \\
+    0   &   0   &   -6 \\
+    \end{matrix}
+    \right|
+    \begin{array}{c}
+    1   &   0   &   0\\
+    0   &   1   &   0\\
+    1   &   -2  &   1\\
+    \end{array}
+\end{array}\right)
+$$
+
+$$
+\left(\begin{array}{cc}
+    \left. 
+    \begin{matrix}
+    1   &   1   &   -1 \\
+    0   &   1   &   2 \\
+    0   &   0   &   -6 \\
+    \end{matrix}
+    \right|
+    \begin{array}{c}
+    1   &   0   &   0\\
+    0   &   1   &   0\\
+    1   &   -2  &   1\\
+    \end{array}
+\end{array}\right) \overset{\text{I: I-II}}{\longrightarrow}
+\left(\begin{array}{cc}
+    \left. 
+    \begin{matrix}
+    1   &   0   &   -3 \\
+    0   &   1   &   2 \\
+    0   &   0   &   -6 \\
+    \end{matrix}
+    \right|
+    \begin{array}{c}
+    1   &   -1  &   0\\
+    0   &   1   &   0\\
+    1   &   -2  &   1\\
+    \end{array}
+\end{array}\right) \overset{\text{I: I-} \frac{1}{2} \text{III}}{\longrightarrow}
+\left(\begin{array}{cc}
+    \left. 
+    \begin{matrix}
+    1   &   0   &   0 \\
+    0   &   1   &   2 \\
+    0   &   0   &   -6 \\
+    \end{matrix}
+    \right|
+    \begin{array}{c}
+    \frac{1}{2}   &   0  &   -\frac{1}{2} \\
+    0   &   1   &   0\\
+    1   &   -2  &   1\\
+    \end{array}
+\end{array}\right)
+$$
+
+$$
+\left(\begin{array}{cc}
+    \left. 
+    \begin{matrix}
+    1   &   0   &   0 \\
+    0   &   1   &   2 \\
+    0   &   0   &   -6 \\
+    \end{matrix}
+    \right|
+    \begin{array}{c}
+    \frac{1}{2}   &   0  &   -\frac{1}{2} \\
+    0   &   1   &   0\\
+    1   &   -2  &   1\\
+    \end{array}
+\end{array}\right) \overset{\text{II: II+} \frac{1}{3} \text{III}}{\longrightarrow}
+
+\left(\begin{array}{cc}
+    \left. 
+    \begin{matrix}
+    1   &   0   &   0 \\
+    0   &   1   &   0 \\
+    0   &   0   &   -6 \\
+    \end{matrix}
+    \right|
+    \begin{array}{c}
+    \frac{1}{2}   &   0  &   -\frac{1}{2} \\
+    \frac{1}{3}   &   \frac{1}{3}   &   \frac{1}{3}\\
+    1   &   -2  &   1\\
+    \end{array}
+\end{array}\right) \overset{\text{III: -}\frac{1}{6} \text{III}}{\longrightarrow}
+
+\left(\begin{array}{cc}
+    \left. 
+    \begin{matrix}
+    1   &   0   &   0 \\
+    0   &   1   &   0 \\
+    0   &   0   &   -6 \\
+    \end{matrix}
+    \right|
+    \begin{array}{c}
+    \frac{1}{2}   &   0  &   -\frac{1}{2} \\
+    \frac{1}{3}   &   \frac{1}{3}   &   \frac{1}{3}\\
+    -\frac{1}{6}   &   \frac{1}{3}   &   -\frac{1}{6}\\
+    \end{array}
+\end{array}\right)
+$$
+
+$$
 \begin{align}
 A =&
 \begin{pmatrix}
     1   &   1   &   -1\\
     0   &   1   &   2\\
     -1  &   1   &   -1\\
-\end{pmatrix}
+\end{pmatrix} \cdot
 \begin{pmatrix}
     1   &   0   &   0\\
     0   &   -2  &   0\\
     0   &   0   &   2\\
-\end{pmatrix}
+\end{pmatrix} \cdot
 \begin{pmatrix}
-    1   &   0   &   -1\\
-    1   &   1   &   1\\
-    -1  &   2   &   -1\\
+    \frac{1}{2}   &   0  &   -\frac{1}{2} \\
+    \frac{1}{3}   &   \frac{1}{3}   &   \frac{1}{3}\\
+    -\frac{1}{6}   &   \frac{1}{3}   &   -\frac{1}{6}\\
 \end{pmatrix}\\
 =&
 \begin{pmatrix}
     1   &   -2  &   -2  \\
     0   &   -2  &   4   \\
     -1  &   -2  &   -2  \\
-\end{pmatrix}
+\end{pmatrix} \cdot
 \begin{pmatrix}
-    1   &   0   &   -1\\
-    1   &   1   &   1\\
-    -1  &   2   &   -1\\
+    \frac{1}{2}   &   0  &   -\frac{1}{2} \\
+    \frac{1}{3}   &   \frac{1}{3}   &   \frac{1}{3}\\
+    -\frac{1}{6}   &   \frac{1}{3}   &   -\frac{1}{6}\\
 \end{pmatrix}\\
 =&
 \begin{pmatrix}
-    1   &   -6  &   -1  \\
-    -6  &   6   &   -6  \\
-    -1  &   -6  &   1   \\
+    \frac{1}{6}   &   -\frac{4}{3}  &   -\frac{5}{6} \\
+    -\frac{4}{3}   &   \frac{2}{3}   &   -\frac{4}{3}\\
+    -\frac{5}{6}   &   -\frac{4}{3}   &   \frac{1}{6}\\
 \end{pmatrix}
 \end{align}
-\]
+$$
 
 ### (b)
 Es gilt: $A = S\Lambda S^{-1}$; somit: $A^{-1} = \left( S\Lambda S^{-1} \right)^{-1}$.  
 Erinnerung: $AA^{-1} = I$.  
 Somit ist $A^{-1} = S \Lambda^{-1} S^{-1}$.
-\[
+$$
 \Lambda^{-1} =
 \begin{pmatrix}
     1   &   0   &   0   \\
-    0   &   \frac{-1}{2} &  0   \\
+    0   &   -\frac{1}{2} &  0   \\
     0   &   0   &   \frac{1}{2} \\
 \end{pmatrix}
-\]
+$$
 Mit $S^{-1}$ und $S$ von oben ergibt sich:
-\[
+$$
 A^{-1} =
 \begin{pmatrix}
-    1   &   -\frac{3}{2}    &   -1  \\
-    -\frac{3}{2}    &   \frac{5}{2} &   -\frac{3}{2}    \\
-    -1  &   -\frac{3}{2}    &   1   \\
+    1   &   1   &   -1\\
+    0   &   1   &   2\\
+    -1  &   1   &   -1\\
+\end{pmatrix} \cdot
+\begin{pmatrix}
+    1   &   0   &   0   \\
+    0   &   -\frac{1}{2} &  0   \\
+    0   &   0   &   \frac{1}{2} \\
+\end{pmatrix} \cdot
+\begin{pmatrix}
+    \frac{1}{2}   &   0  &   -\frac{1}{2} \\
+    \frac{1}{3}   &   \frac{1}{3}   &   \frac{1}{3}\\
+    -\frac{1}{6}   &   \frac{1}{3}   &   -\frac{1}{6}\\
+\end{pmatrix}=
+\begin{pmatrix}
+    1   &   -\frac{1}{2}  &   -\frac{1}{2}  \\
+    0   &   -\frac{1}{2}  &   1   \\
+    -1  &   -\frac{1}{2}  &   -\frac{1}{2}  \\
+\end{pmatrix} \cdot
+\begin{pmatrix}
+    \frac{1}{2}   &   0  &   -\frac{1}{2} \\
+    \frac{1}{3}   &   \frac{1}{3}   &   \frac{1}{3}\\
+    -\frac{1}{6}   &   \frac{1}{3}   &   -\frac{1}{6}\\
+\end{pmatrix} =
+\begin{pmatrix}
+    \frac{5}{12}   &   -\frac{1}{3}  &   -\frac{7}{12} \\
+    -\frac{1}{3}   &   \frac{1}{6}   &   -\frac{1}{3}\\
+    -\frac{7}{12}   &   -\frac{1}{3}   &   \frac{5}{12}\\
 \end{pmatrix}
-\]
+$$
 
 Die determinante der Matrix A ist das Produkt der Eigenwerte.
 $$det|A| = -4$$
-Da A invertierbar ist hat sie vollen spaltenrang.
+Da A invertierbar ist hat sie vollen Spaltenrang.
 
 # Aufgabe 2)
 ### (a)

@@ -1,8 +1,10 @@
 ---
 title: "UB8 -- Tutorium Mathe A WS19/20"
 author: "M. Kohnen, F. Schnabel, A. Hanke"
-date: "Tutorium: 19/12/2019"
-output: pdf_document
+date: 'Tutorium: 19/12/2019'
+output:
+  html_document:
+    df_print: paged
 ---
 
 ```{r setup, include=FALSE}

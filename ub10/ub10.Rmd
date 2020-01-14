@@ -1,0 +1,65 @@
+---
+title: "UB10 -- Tutorium Mathe A WS19/20"
+author: "A. Hanke"
+date: "Tutorium: 19/12/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Aufgabe 1
+Wollen Grenzwerte der Folgen bestimmen:
+\[\begin{array}{l}{\text { (1) } a_{n}=\frac{n^{2}}{(n+1)(n+2)} ; \quad(2) a_{n}=\frac{n^{2}}{n+1}-\frac{n^{3}}{(n+1)(n+2)} ; \quad(3) a_{n}=n-5-\frac{n^{3}}{n^{2}+5}} \\ {\qquad(4) a_{n}=\cos n \pi ; \quad(5) a_{n}=\cos n(n+1) \pi}\end{array}\]
+
+
+### (1)
+\[
+a_n = \frac{n^2}{n^2 + 3n + 2} = \frac{n^2}{n^2(1+\frac{3n}{n^2}+\frac{2}{n^2}} = \frac{1}{1+\frac{3}{n}+\frac{2}{n^2}} \quad \lim_{n \rightarrow \infty} a_n = 1
+\]
+
+### (2)
+$\lim_{n \rightarrow \infty} = 2$
+
+### (3)
+$\lim_{n \rightarrow \infty} = -5$
+
+### (4)
+$a_{n}=\cos n \pi$ hat folgende Werte zu begin:
+
+- $a_0 = 1$
+- $a_1 = -1$
+- $a_2 = 1$
+
+Entspricht der Folge: $(-1)^n$. Diese Konvergiert nicht.
+
+### (5)
+Hier von interesse ist die enthaltene Reihe:
+\[
+a'_n = n(n+1)
+\]
+Diese Reihe beinhaltet nur ungerade Zahlen.
+Daher ist die Folge $a_n$:
+\[
+a_n = \cos(n(n+1)\pi) = -1 \qquad \forall n
+\]
+
+# Aufgabe 2
+\[
+a_{n+1}=\frac{\left|a_{n}\right|}{2 a_{n}-1}
+\qquad a_1 = b \quad b = \left\{-\frac{1}{4},\: \frac{1}{4}\right\}
+\]
+
+### (a)
+Annahme: $a_n \rightarrow a$  
+Bedingung an $a$ nach rekursionsformel:
+\[
+\lim_{n \rightarrow \infty} \frac{\left|a_{n}\right|}{2 a_{n}-1} =
+\frac{\left|a\right|}{2 a-1}
+\]
+Nun gilt das $a_n$ gegen $a$ läuft, also: $\lim a_n = a$.
+\[
+a = \frac{|a|}{2a-1} \Leftrightarrow 2a^2-a = a
+\]
+

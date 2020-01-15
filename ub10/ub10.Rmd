@@ -68,7 +68,7 @@ a = \frac{|a|}{2a-1} \Leftrightarrow
 \]
 Nun können wir zwei Fälle betrachten:
 
-1) Näherung aus dem Positiven $a \geq 0:\quad a = |a|$
+1) Die Folge strebt einen Positiven Wert an $a \geq 0:\quad a = |a|$
    \[
    \left.
    \begin{array}{rl}
@@ -77,7 +77,7 @@ Nun können wir zwei Fälle betrachten:
    \end{array}
    \right\}\, a = \{0,\: 1\}
    \]
-2) Näherung aus dem Negativen $a < 0:\quad a = -|a| \Leftrightarrow -a = |a|$
+2) Die Folge strebt einen negativen Wert an $a < 0:\quad a = -|a| \Leftrightarrow -a = |a|$
    \[
    \left.
    \begin{array}{rl}

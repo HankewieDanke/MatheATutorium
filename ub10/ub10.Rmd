@@ -113,12 +113,12 @@ Also zeigen, dass $a_n < 0$
 Nun zeigen, dass Folge monoton steigt.
 Dies ist der Fall, wenn $a_{n+1} - a_n > 0$
      \[
-     \begin{align}
+     \begin{aligned}
         a_{n+1} - a_n &= \frac{-a_n}{2a_n -1} -a_n\\
         &= \frac{-a_n - 2a_n^2 -a_n}{2a_n-1}\\
         &= \frac{\overbrace{-2a_n^2}^{<0}\,\overbrace{-2a_n}^{>0}}{\underbrace{2a_n-1}_{<0}}\\
         &>0
-     \end{align}
+     \end{aligned}
      \]
 
 ### (c)
@@ -148,11 +148,11 @@ folge <- function(n){(-1)^n*(1/n)}
 x <- 1:10
 plot(x, y = sapply(x,folge), pty = 21, ylim = c(-1,1), ylab = "y")
 abline(h = 0, col = "red")
-text(label="grenzwert", col = "red", y = 0, x = 2)
+text(label="grenzwert", y = 0, x = 2)
 abline(h=e, col = "red", lty = 2)
-text(label="epsilon", col = "red", y = e, x = 8)
+text(label="epsilon", y = e, x = 8)
 abline(h=-e, col = "red", lty = 2)
-text(label="epsilon", col = "red", y = -e, x = 8)
+text(label="epsilon", y = -e, x = 8)
 ```
 Diese folge ist nicht monoton und nicht beschränkt aber
 konvergiert.

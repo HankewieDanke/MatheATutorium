@@ -3,7 +3,16 @@
 ------- Aufgabe 1 (5P)
 á einen punkt
 
-------- Aufgabe 2 (10P)
+------- Aufgabe 2 (9P)
+1) 3P (1 je Lösung)
+2) 2P 1P monotonie, 1P beschränktheit
+3) 2P erkennen zusammenhang + richtige angabe
+4) 2P
 
-------- Aufgabe 3 (3P)
-
+------- Aufgabe 3 (6P)
+1) 3P:
+    0.5P pro Therm (also a1 bis a3),
+    0.5P für Vermutung,
+    1P für Induktion
+2) 1P
+3) 1P  je Beweis

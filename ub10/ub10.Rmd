@@ -60,6 +60,88 @@ Bedingung an $a$ nach rekursionsformel:
 \]
 Nun gilt das $a_n$ gegen $a$ läuft, also: $\lim a_n = a$.
 \[
-a = \frac{|a|}{2a-1} \Leftrightarrow 2a^2-a = a
+a = \frac{|a|}{2a-1} \Leftrightarrow 
+\left\{\begin{array}{c}
+    2a^2-a = |a|\\
+    2a^2-a - |a| = 0\\
+\end{array}\right.
 \]
+Nun können wir zwei Fälle betrachten:
+
+1) $a \geq 0:\quad a = |a|$
+   \[
+   \left.
+   \begin{array}{rl}
+       0 &= 2a^2 - 2a\\
+         &= a(a-1)\\
+   \end{array}
+   \right\}\, a = \{0,\: 1\}
+   \]
+2) $a < 0:\quad a = -|a| \Leftrightarrow -a = |a|$
+   \[
+   \left.
+   \begin{array}{rl}
+       0 &= 2a^2 - a - (-a)\\
+         &= 2a^2\\
+   \end{array}
+   \right\}\, a = \{0\}
+   \]
+
+### (b)
+
+Wir zeigen die Monotonie durch berechnung der ersten drei weiteren $a_n$:
+```{r, echo = F, message = T}
+folge <- function(a){(sqrt(a^2))/(2*a-1)}
+an <- -(1/4)
+n <- 1
+message(paste('n =',n,'->',an))
+while(n < 4){
+    message(paste('n =',n+1,'->',folge(an)))
+    an <- folge(an)
+    n <- n+1
+}
+```
+Die Definition oberer Beschränktheit: $\forall n \in \mathbb{N}:\, a_n \leq a$.  
+Hier nun zwei schritte:
+
+a) zeigen, dass $a_n < 0$
+   - $a_1 <0$
+   - Annahme: $a_n < 0$
+     \[a_{n+1} = \frac{|a_n|}{2a_n-1} = \frac{\overbrace{-a_n}^{>0} }{\underbrace{2a_n-1}_{<0}} < 0.\]
+b) zeigen, dass Folge steigt. Dies ist der Fall, wenn $a_{n+1} - a_n > 0$ ist.
+     \[
+     \begin{align}
+        a_{n+1} - a_n &= \frac{-a_n}{2a_n -1} -a_n\\
+        &= \frac{-a_n - 2a_n^2 -a_n}{2a_n-1}\\
+        &= \frac{\overbrace{-2a_n^2}^{<0}\,\overbrace{-2a_n}^{>0}}{\underbrace{2a_n-1}_{<0}}\\
+        &>0
+     \end{align}
+     \]
+
+### (c)
+Wir beachten den Hinweis:
+```{r, echo = F, message = T}
+folge <- function(a){(sqrt(a^2))/(2*a-1)}
+an <- (1/4)
+n <- 1
+message(paste('n =',n,'->',an))
+while(n < 4){
+    message(paste('n =',n+1,'->',folge(an)))
+    an <- folge(an)
+    n <- n+1
+}
+```
+Und sehen das die Reihe nicht Monoton ist.
+Auffällig ist, das ab $n=2$ die Folge negativ ist und das:
+$$a_3^{b = \frac{1}{4}} = a_1^{b = -\frac{1}{2}}$$
+Somit gilt: $$a_{n+2}^{b = \frac{1}{4}} = a_n^{b = -\frac{1}{2}}$$
+
+
+### (d)
+Für $a=-\frac{1}{4}$ konvergiert die Folge.
+Aus (a) Fall 2 wissen wir, das diese Reihe den Grenzwert 0 hat.
+Da die Reihe für beide $b$ gleiches verhalten zeigt gilt dies
+auch für das andere b.
+
+# Aufgabe 3
 

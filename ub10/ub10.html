@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -331,6 +330,7 @@ summary {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -425,15 +425,15 @@ a = \frac{|a|}{2a-1} \Leftrightarrow
 \end{array}\right.
 \]</span> Nun können wir zwei Fälle betrachten:</p>
 <ol style="list-style-type: decimal">
-<li>Die Folge strebt einen Positiven Wert an <span class="math inline">\(a \geq 0:\quad a = |a|\)</span> <span class="math display">\[
+<li>Die Folge strebt einen Positiven Wert an <span class="math inline">\(a &gt; 0:\quad a = |a|\)</span> <span class="math display">\[
 \left.
 \begin{array}{rl}
     0 &amp;= 2a^2 - 2a\\
       &amp;= a(a-1)\\
 \end{array}
-\right\}\, a = \{0,\: 1\}
+\right\}\, a = \{1\}
 \]</span></li>
-<li>Die Folge strebt einen negativen Wert an <span class="math inline">\(a &lt; 0:\quad a = -|a| \Leftrightarrow -a = |a|\)</span> <span class="math display">\[
+<li>Die Folge strebt einen negativen Wert an <span class="math inline">\(a \leq 0:\quad a = -|a| \Leftrightarrow -a = |a|\)</span> <span class="math display">\[
 \left.
 \begin{array}{rl}
     0 &amp;= 2a^2 - a - (-a)\\
@@ -461,8 +461,8 @@ Also zeigen, dass <span class="math inline">\(a_n &lt; 0\)</span></p>
 <p>Nun zeigen, dass Folge monoton steigt. Dies ist der Fall, wenn <span class="math inline">\(a_{n+1} - a_n &gt; 0\)</span> <span class="math display">\[
      \begin{aligned}
         a_{n+1} - a_n &amp;= \frac{-a_n}{2a_n -1} -a_n\\
-        &amp;= \frac{-a_n - 2a_n^2 -a_n}{2a_n-1}\\
-        &amp;= \frac{\overbrace{-2a_n^2}^{&lt;0}\,\overbrace{-2a_n}^{&gt;0}}{\underbrace{2a_n-1}_{&lt;0}}\\
+        &amp;= \frac{-a_n - 2a_n^2 +a_n}{2a_n-1}\\
+        &amp;= \frac{\overbrace{-2a_n^2}^{&lt;0}}{\underbrace{2a_n-1}_{&lt;0}}\\
         &amp;&gt;0
      \end{aligned}
      \]</span></p>
@@ -489,6 +489,63 @@ Also zeigen, dass <span class="math inline">\(a_n &lt; 0\)</span></p>
 </div>
 <div id="aufgabe-3" class="section level1">
 <h1>Aufgabe 3</h1>
+<div id="a-1" class="section level3">
+<h3>(a)</h3>
+<p>Mit <span class="math inline">\(c=-2\)</span> ergeben sich folgende Werte für die ersten Therme der Folge <span class="math inline">\(a_{n+1}=\frac{n^2\cdot a_n^2+c}{n+1}\)</span>:</p>
+<p><span class="math display">\[ a_1=\frac{0^2\cdot0^2-2}{0+1}=-2 \]</span></p>
+<p><span class="math display">\[ a_2=\frac{1^2\cdot (-2)^2-2}{1+1}=\frac{2}{2} = 1 \]</span></p>
+<p><span class="math display">\[ a_3=\frac{2^2\cdot 1^2-2}{2+1}=\frac{2}{3} \]</span></p>
+<p><span class="math display">\[ a_4=\frac{3^2\cdot (\frac{2}{3})^2-2}{3+1}=\frac{2}{4} \]</span></p>
+<p><span class="math display">\[ a_5=\frac{4^2\cdot (\frac{2}{4})^2-2}{4+1}=\frac{2}{5} \]</span></p>
+<p>Dies lässt vermuten, dass es sich für <span class="math inline">\(c=-2\)</span> bei dieser Folge um eine explizite Folge handelt mit der Form: <span class="math inline">\(a_n=\frac{2}{n} \quad \text{für} \quad n\geq2\)</span></p>
+<p>Dies wollen wir nun durch vollständige Induktion beweisen:</p>
+<p><strong>Induktionsanfang:</strong><br />
+<span class="math inline">\(n= 2 \quad \Rightarrow \quad a_2=\frac{2}{2}\)</span></p>
+<p><strong>Induktionsannahme:</strong><br />
+<span class="math inline">\(a_n = \frac{2}{n} \quad \text{gilt für alle} \quad n\in\mathbb{N}\)</span></p>
+<p><strong>Induktionsbehauptung:</strong><br />
+<span class="math inline">\(a_{n+1}=\frac{2}{n+1}\)</span></p>
+<p><strong>Induktionsschritt:</strong><br />
+<span class="math inline">\(a_{n+1}= \frac{n^2\cdot a_n^2-2}{n+1}=\frac{n^2\cdot (\frac{2}{n})^2-2}{n+1}=\frac{4-2}{n+1}=\frac{2}{n+1} \quad \text{q.e.d.}\)</span></p>
+</div>
+<div id="b-1" class="section level3">
+<h3>(b)</h3>
+<p>Die Reihe konvergiert gegen einen Wert <span class="math inline">\(a\)</span>, da: <span class="math inline">\(\forall \epsilon &gt; 0, \exists n_0 : \forall n \geq n_0 |a_n| \leq \epsilon\)</span></p>
+<p>Grenzwertbestimmung:<br />
+<span class="math inline">\(\lim_{n \rightarrow \infty}a_n=\lim_{n \rightarrow \infty}\frac{2}{n}=0\)</span></p>
+<p>Somit konvergiert die Folge gegen Null, d.h. <span class="math inline">\(a_n\)</span> ist eine Nullfolge und somit gilt: <span class="math inline">\(\forall \epsilon&lt;0, \exists n_0 \in \mathbb{N}: \forall n\geq n_0 \ \ |a_n|\leq \epsilon\)</span></p>
+</div>
+<div id="c-1" class="section level3">
+<h3>(c)</h3>
+<p>Für <span class="math inline">\(c=1\)</span> sollen zwei Eigenschaften mittels vollständiger Induktion gezeigt werden.<br />
+<br />
+</p>
+<p>Zuerst zeigen wir, dass <span class="math inline">\(\forall n \geq 2: a_n \geq 1\)</span>:<br />
+<br />
+</p>
+<p><strong>Induktionsanfang:</strong><br />
+<span class="math inline">\(n=2 \quad \Rightarrow \quad a_2=\frac{1^2\cdot a_n^2+1}{1+1}=\frac{1\cdot 1^2+1}{2}=1\)</span></p>
+<p><strong>Induktionsannahme:</strong><br />
+<span class="math inline">\(a_n \geq 1 \quad \text{gilt für alle} \quad n\in\mathbb{N}\)</span></p>
+<p><strong>Induktionsbehauptung:</strong><br />
+<span class="math inline">\(a_{n+1} \geq 1\)</span></p>
+<p><strong>Induktionsschritt:</strong><br />
+<span class="math inline">\(a_{n+1}=\frac{n^2\cdot a_n^2+1}{n+1} \geq \frac{n^2\cdot 1^2+1}{n+1} (\text{da} \ a_n \geq 1)=\frac{n^2+1}{n+1}&gt;\frac{n+1}{n+1}=1 \quad \text{q.e.d.}\)</span><br />
+<br />
+<br />
+</p>
+<p>Nun zeigen wir, dass <span class="math inline">\(\forall n \geq 2: \frac{a_{n+1}}{a_n} \geq 1\)</span>:<br />
+<br />
+</p>
+<p><strong>Induktionsanfang:</strong><br />
+<span class="math inline">\(n=2 \quad \Rightarrow \quad \frac{a_3}{a_2}=\frac{a_3}{1}=a_3= \frac{2^2\cdot a_2^2+1}{2+1}=\frac{4\cdot 1^2+1}{3}=\frac{5}{3} &gt; 1\)</span></p>
+<p><strong>Induktionsannahme:</strong><br />
+<span class="math inline">\(\frac{a_{n+1}}{a_n} \geq 1 \quad \text{gilt für alle} \quad n\in\mathbb{N}\)</span></p>
+<p><strong>Induktionsbehauptung:</strong><br />
+<span class="math inline">\(\frac{a_{n+2}}{a_{n+1}} \geq 1\)</span></p>
+<p><strong>Induktionsschritt:</strong><br />
+<span class="math inline">\(\frac{a_{n+2}}{a_{n+1}}=\frac{\frac{(n+1)^2\cdot a_{n+1}^2+1}{(n+1)+1}}{a_{n+1}}=\frac{(n+1)^2\cdot a_{n+1}+\frac{1}{a_{n+1}}}{(n+1)+1}&gt; \frac{(n+1)^2\cdot 1+\frac{1}{1}}{(n+1)+1} (\text{schon bewiesen, dass} \ a_n \geq 1) =\frac{(n+1)^2+1}{(n+1)+1}&gt;\frac{(n+1)+1}{(n+1)+1}=1 \quad \text{q.e.d.}\)</span></p>
+</div>
 </div>
 
 

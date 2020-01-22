@@ -1,0 +1,135 @@
+---
+title: "UB11 -- Tutorium Mathe A WS19/20"
+author: "M. Kohnen"
+date: 'Tutorium: 23/01/2020'
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Aufgabe 1
+Wir wollen die Grenzwerte der gegeben Funtkionen bestimmen, sofern diese existieren. \
+Da wir keine Aussage über die Grenzwerte treffen können, wenn wir sie uns so in dieser Form anschauen, müssen wir sie entsprechend umstellen.
+
+### (1)
+$$
+\begin{array}{lcl}
+\lim_{x \rightarrow 2} \left( \frac{1}{2-x}-\frac{12}{8-x^3} \right) &=  & \lim_{n \rightarrow 2} \left( \frac{1}{2-x}-\frac{12}{(2-x)\cdot(x^2+2x+4)} \right) \\
+&=& \lim_{x \rightarrow 2} \left( \frac{x^2+2x+4-12}{(2-x)\cdot(x^2+2x+4)} \right) \\
+&=& \lim_{x \rightarrow 2} \left( \frac{x^2+2x-8}{(2-x)\cdot(x^2+2x+4)} \right) \\
+&=& \lim_{x \rightarrow 2} \left( \frac{(x+4)(x-2)}{-(x-2)\cdot(x^2+2x+4)} \right) \\
+&=& \lim_{x \rightarrow 2} \left( -\frac{x+4}{x^2+2x+4} \right) \\
+&=& \frac{\lim_{x \rightarrow 2} (x+4)}{\lim_{x \rightarrow 2}(x^2+2x+4)}\\
+&=& -\frac{6}{12}=-\frac{1}{2}
+\end{array}
+$$
+
+### (2)
+$$
+\begin{array}{lcl}
+\lim_{x \rightarrow \frac{\pi}{2}} \frac{\sin{2x}}{\tan{x}} &=  & \lim_{n \rightarrow \frac{\pi}{2}} \frac{2 \sin{x} \cos{x}}{\frac{\sin{x}}{\cos{x}}} \\
+&=& \lim_{x \rightarrow \frac{\pi}{2}} (2\sin{x} \cos{x} \cdot \frac{\cos{x}}{\sin{x}}) \\
+&=& \lim_{x \rightarrow \frac{\pi}{2}} 2\cos^2{x} \\
+&=& 0
+\end{array}
+$$
+
+### (3)
+$$
+\begin{array}{lcl}
+\lim_{x \rightarrow \infty} \frac{\sqrt{x+1}-\sqrt{3x+2}}{\sqrt{x}} &=  & \lim_{n \rightarrow \infty} \frac{\sqrt{x+1}}{\sqrt{x}}-\frac{\sqrt{3x+2}}{\sqrt{x}} \\
+&=& \lim_{x \rightarrow \infty} \sqrt{\frac{x+1}{x}}-\sqrt{\frac{3x+2}{x}} \\
+&=& \lim_{x \rightarrow \infty} \sqrt{1+\frac{1}{x}}-\sqrt{3+\frac{2}{x}} \\
+&=& \lim_{x \rightarrow \infty} \sqrt{1+\frac{1}{x}}-\lim_{x \rightarrow \infty} \sqrt{3+\frac{2}{x}} \\
+&=& 1-\sqrt{3} \\
+\end{array}
+$$
+
+# Aufgabe 2
+
+Hier sollten wir bei den ersten 3 Funktionen schauen, ob die Funktionen stetig sind für ihren Definitionsbereich. Hierfür müssen wir auch die Definitionsmenge der Funktionen wissen.
+
+Bei der letzten Funktion sollen wir den Definitionsbereich untersuchen und bestimmen, ob die Funktion stetig fortsetzbar ist.
+
+### (1)
+
+$$f(x)=\frac{x-4}{x^2-16}$$
+
+Da wir für $x=4$ und $x=-4$ Null im Nenner erhalten, ist unsere Funktion für diese beiden $x$-Werte nicht definiert. Das heißt unsere Definitionsmenge lautet:
+
+$$\mathbb{D}= \mathbb{R} \backslash \{-4;4\}$$
+
+Für alle Punkte dieser Definitionsmenge ist die Funktion stetig, da die einzelnen Funktionen im Zähler und Nenner jeweils stetig für diesen Definitionsbereich ist.
+
+
+
+### (2)
+
+$$f(x)=\left\{ \begin{matrix} x^2 & x>1 \\ x+2 & x \leq -1 \end{matrix} \right.$$
+
+Hier ist die Funktion für alle reellen Zahlen definiert, das heißt:
+
+$$\mathbb{D}= \mathbb{R} \backslash \{-4;4\}$$
+
+Die Funktionen $x^2$ und $x+2$ sind für sich alleine stetig für den Definitionsbereich. In Kombination jedoch für unsere gegebenen Funktionen $f(x)$ mit der Bedingung für $x>1$ gilt $x^2$ bzw. für $x\leq-1$ gilt $x+2$ müssen wir schauen, wie sich die Funktion verhält, wenn sie von oben bzw. von unten gegen $-1$ läuft:
+
+$$\lim_{x \rightarrow -1+} x^2=1 \quad  \text{und} \quad \lim_{x \rightarrow -1-} x+2=1$$
+
+$$\Rightarrow \lim_{x \rightarrow -1+}f(x)=\lim_{x \rightarrow -1-}f(x)=f(-1)=1$$
+
+Das bedeutet, dass unsere Funktion $f(x)$ stetig ist.
+
+
+### (3)
+
+$$f(x)= \frac{|x+3|}{x+3}$$
+
+Da wir für $x=-3$ Null im Nenner erhalten, ist unsere Funktion für diesen $x$-Wert nicht definiert. Das heißt unsere Definitionsmenge lautet:
+
+$$\mathbb{D}= \mathbb{R} \backslash \{-3\}$$
+
+Für alle Punkte dieser Definitionsmenge ist die Funktion stetig, da die einzelnen Funktionen im Zähler und Nenner jeweils stetig für diesen Definitionsbereich ist.
+
+
+
+### (4)
+
+$$f(x)=\frac{x^2-x}{x^2-3x+2}$$
+
+Die Funktion ist nicht definiert, wenn der Nenner gleich Null ist. D.h. wir müssen die $x$-Werte bestimmen für die gilt:
+
+$$x^2-3x+2=0$$
+
+Unter Verwendung der pq-Formel oder der abc-Formel erhält man dann:
+
+$$x_1=1 \quad \text{und} \quad x_2=2$$
+
+Für unseren Definitionsbereich bedeutet dies also:
+
+$$\mathbb{D}= \mathbb{R} \backslash \{1;2\}$$
+
+Nun müssen wir noch schauen, ob die Funktion stetig fortsetzbar ist. Hierfür stellen wir zuerst die Funktion etwas um:
+
+$$f(x)=\frac{x^2-x}{x^2-3x+2} = \frac{x(x-1)}{(x-2)(x-1)}=\frac{x}{(x-2)}$$
+
+Nach dem Kürzen erkennen wir, fällt der Term $(x-1)$ im Nenner weg, was bedeutet, dass es sich bei $x=1$ um eine hebbare Definitionslücke handelt, das heißt an dieser Stelle ist die Funktione stetig erweiterbar.
+
+Allerdings bleibt weiterhin der im Nenner der Term $(x-2)$ erhalten, was bedeutet, dass an dieser Stelle die Funktion nicht stetig erweiterbar ist, da es sich um eine Polstelle handelt.
+
+*Nähere Infomationen zu Definitionslücken und gebrochen rationalen Funktionen findet ihr unter:*
+
+https://www.abiturma.de/mathe-lernen/analysis/funktionen/gebrochenrationale-funktionen
+
+
+
+# Aufgabe 3
+
+### 1
+
+
+### 2
+

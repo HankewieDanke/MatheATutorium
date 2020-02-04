@@ -1,0 +1,31 @@
+---
+title: "UB13 -- Tutorium Mathe A WS19/20"
+author: "A. Hanke"
+date: "Tutorium: 03.02.2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Aufgabe 1
+- a: $a_nx^n = \sum_{n=0}^{\infty} x^{2n+1}$ mit $a_n = 1$.  
+Konvergenzradius:$$ r = lim_{n \rightarrow \infty}\left| \frac{x^{2n + 2} }{x^{2n+1}} \right| = 1$$
+Konvergenz radius $=1$
+- b: $a_nx^n = \sum_{n = 0}^{\infty} (-1)^{n} 2^n x^n$  
+  Konvergenzradius:$$ r = lim_{n \rightarrow \infty}
+  \left| \frac{2^{n+1}x^{n+1}}{2^n x^n} \right| = |2x|$$
+  Also gilt konvergenz bei: $|x|< 0.5$ und $r = 0.5$.
+- c: $P(x) = \sum_{n =1}^{\infty} n x^n$  
+  Konvergenzradius:$$r = \lim_{n \rightarrow \infty} \left| \frac{(n+1)x^{n+1}}{nx^n} \right| = \frac{n+1}{n} |x| <1 \Rightarrow r = 1$$
+- d: $P(x) = \sum_{n = 1}^\infty \frac{x^n}{n^2}$  
+  Konvergenzradius:$$r = \lim_{n\rightarrow \infty}
+  \left| \frac{\frac{x^{n+1}}{(n+1)^2}}{\frac{x^n}{n^2}} \right| =
+  \left|\frac{n^2 x^{n+1}}{(n+1)^2 x^n}\right|=
+  \lim \left| \frac{n^2}{(n+1)^2} \right| |x| <1\rightarrow r = 1$$
+
+# Aufgabe 2
+### (a)
+Reihe:
+$$\frac{2}{3} + \frac{2}{3^2} + \frac{2}{3^3} + \dots = \sum_{n = 1}^\infty \frac{2}{3^n}$$

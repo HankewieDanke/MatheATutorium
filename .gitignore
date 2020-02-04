@@ -4,3 +4,4 @@ patrick/
 *.out
 *[L,l]oesung*
 .R*
+.*.sw[p,o]

@@ -390,7 +390,46 @@ Konvergenzradius:<span class="math display">\[r = \lim_{n\rightarrow \infty}
 <h1>Aufgabe 2</h1>
 <div id="a" class="section level3">
 <h3>(a)</h3>
-<p>Reihe: <span class="math display">\[\frac{2}{3} + \frac{2}{3^2} + \frac{2}{3^3} + \dots = \sum_{n = 1}^\infty \frac{2}{3^n}\]</span></p>
+<p>Reihe: <span class="math display">\[\frac{2}{3} + \frac{2}{3^2} + \frac{2}{3^3} + \dots = \sum_{n = 1}^\infty \frac{2}{3^n} = 2 \sum_{n = 1}^\infty \frac{1}{3^n}\]</span></p>
+<p>Grenzwert: <span class="math display">\[
+\begin{aligned}
+    2 \sum_{n=1}^\infty \frac{1}{3^n} =&amp; 2\underbrace{\sum_{n=0}^\infty \left( \frac{1}{3} \right)^n}_{
+    |x|&lt;1 \Rightarrow \sum_{n=0}^\infty x^n = \frac{1}{1-x}
+    }- \left( \frac{1}{3} \right)^{n=0}\\
+    =&amp;2\frac{1}{1- \frac{1}{3}} -1\\
+    =&amp; 1
+\end{aligned}
+\]</span></p>
+</div>
+<div id="b" class="section level3">
+<h3>(b)</h3>
+<p><span class="math display">\[
+0.1+\frac{1}{2 !}(0.01)+\frac{1}{3 !}(0.001)+\ldots= \sum_{n=1}^\infty \frac{1}{n!} 0.1^n
+\]</span> Erkennen, das es sich um eine Taylor/Mac-Laurin Entwickluong handelt. <span class="math display">\[
+f(x) = \sum_{n=0}^\infty \frac{f^n(0)}{n!} x^n
+\]</span> Daraus folgt: <span class="math display">\[
+\sum_{n=1}^\infty \frac{1}{n!} 0.1^n = \sum_{n=0}^\infty \frac{1}{n!} 0.1^n - 1 = e^{0.1} -1
+\]</span></p>
+</div>
+</div>
+<div id="aufgabe-3" class="section level1">
+<h1>Aufgabe 3</h1>
+<div id="a-1" class="section level3">
+<h3>(a)</h3>
+<p><span class="math display">\[f(x) = \frac{1}{\sqrt{x+1}} = \left( x+1 \right)^{\frac{-1}{2}}\quad \quad x = 0\]</span> Zunächst ableitungen bestimmen: <span class="math display">\[
+\begin{array}{ccc}
+    f'(x) =&amp; - \frac{1}{2} (x+1)^{-\frac{3}{2}} &amp; f'(0) = -\frac{1}{2}\\
+    f''(x) =&amp; - \frac{1}{2} \cdot -\frac{3}{2}(x+1)^{-\frac{5}{2}} &amp; f''(0) = \frac{3}{4}\\
+    f'''(x) =&amp; - \frac{1}{2} \cdot -\frac{3}{2} \cdot -\frac{5}{2}(x+1)^{-\frac{7}{2}} &amp; f'''(0) = -\frac{15}{8}
+\end{array}
+\]</span> Da <span class="math inline">\(x_0 = 0\)</span> gilt nun für die Taylor Näherung: <span class="math display">\[
+f(x) = \sum_{k=0}^3 \frac{f^k(0)}{k!} x^k
+\]</span> Und somit hier: <span class="math display">\[
+f(x) = 1 - \frac{1}{2}x + \frac{3}{8} x^2 - \frac{5}{16} x^3
+\]</span></p>
+</div>
+<div id="b-1" class="section level3">
+<h3>(b)</h3>
 </div>
 </div>
 

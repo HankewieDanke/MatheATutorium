@@ -80,23 +80,24 @@ Und somit hier:
 Bestimmen zunächst ableitungen um Reihe zu erkennen:
 \[
 \begin{array}{rl}
-    f(x)&=(1-4 x)^{-1} \\ f^{\prime}(x)&=-4(1-4 x)^{-2} \\
-    f^{\prime \prime}(x)&=-4 \cdot  -4 \cdot 2(1-4 x)^{-3} \\
+    f(x)&=(1-4 x)^{-1} \\ f^{\prime}(x)&=-4 \cdot -1(1-4 x)^{-2} \\
+    f^{\prime \prime}(x)&=4 \cdot  -4 \cdot -2(1-4 x)^{-3} \\
     \Rightarrow f^{n}(x)&=(-1)^n(-4)^{n} n!(1-4 x)^{-n-1}=4^{n} n! (1-4 x)^{-n-1}\\
     \Rightarrow f^{n}(0) &= 4^n n!
 \end{array}
 \]
 
 Konvergenzradius bestimmen (erinnere:
-    $f(x)=\sum_{n=0}^{\infty} a_{n}\left(x-x_{0}\right)^{n}$):
+    $f(x)=\left(\sum_{n=0}^{\infty} \frac{f^{(n)}\left(x_{0}\right)}{n !}\left(x-x_{0}\right)^{n}\right)$):
 \[
 \begin{align}
     x_0 = 0
-    \Rightarrow f(x) &= \sum_{n=0}^\infty 4^n n! x^n\\
-    \text{Quotienten:}& \lim_{n\rightarrow \infty} \left| \frac{4^{n+1} (n+1)! x^{n+1} }{4^n n! x^n} \right|\\
-    &= \lim_{n\rightarrow \infty} \left| 4(n+1)x \right|\\
-    &= \lim_{n\rightarrow \infty} 4(n+1)|x| = \infty\\
-    \Rightarrow & r=0
+    \Rightarrow f(x) &= \sum_{n=0}^\infty 4^n x^n\\
+    \text{Wurzelkriterium:}& \lim_{n\rightarrow \infty} 
+    \sqrt[n]{|4^nx^n|}\\
+    &= \left| 4x \right| < 1\\
+    &\Rightarrow \text{Konvergenz für: } |x| < \frac{1}{4}\\
+    \Rightarrow & r=\frac{1}{4}
 \end{align}
 \]
 

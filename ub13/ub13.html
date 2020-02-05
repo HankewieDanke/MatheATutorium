@@ -432,20 +432,21 @@ Konvergenzradius:<span class="math display">\[r = \lim_{n\rightarrow \infty}
 <h3>(b)</h3>
 <p>Bestimmen zunächst ableitungen um Reihe zu erkennen: <span class="math display">\[
 \begin{array}{rl}
-    f(x)&amp;=(1-4 x)^{-1} \\ f^{\prime}(x)&amp;=-4(1-4 x)^{-2} \\
-    f^{\prime \prime}(x)&amp;=-4 \cdot  -4 \cdot 2(1-4 x)^{-3} \\
+    f(x)&amp;=(1-4 x)^{-1} \\ f^{\prime}(x)&amp;=-4 \cdot -1(1-4 x)^{-2} \\
+    f^{\prime \prime}(x)&amp;=4 \cdot  -4 \cdot -2(1-4 x)^{-3} \\
     \Rightarrow f^{n}(x)&amp;=(-1)^n(-4)^{n} n!(1-4 x)^{-n-1}=4^{n} n! (1-4 x)^{-n-1}\\
     \Rightarrow f^{n}(0) &amp;= 4^n n!
 \end{array}
 \]</span></p>
-<p>Konvergenzradius bestimmen (erinnere: <span class="math inline">\(f(x)=\sum_{n=0}^{\infty} a_{n}\left(x-x_{0}\right)^{n}\)</span>): <span class="math display">\[
+<p>Konvergenzradius bestimmen (erinnere: <span class="math inline">\(f(x)=\left(\sum_{n=0}^{\infty} \frac{f^{(n)}\left(x_{0}\right)}{n !}\left(x-x_{0}\right)^{n}\right)\)</span>): <span class="math display">\[
 \begin{align}
     x_0 = 0
-    \Rightarrow f(x) &amp;= \sum_{n=0}^\infty 4^n n! x^n\\
-    \text{Quotienten:}&amp; \lim_{n\rightarrow \infty} \left| \frac{4^{n+1} (n+1)! x^{n+1} }{4^n n! x^n} \right|\\
-    &amp;= \lim_{n\rightarrow \infty} \left| 4(n+1)x \right|\\
-    &amp;= \lim_{n\rightarrow \infty} 4(n+1)|x| = \infty\\
-    \Rightarrow &amp; r=0
+    \Rightarrow f(x) &amp;= \sum_{n=0}^\infty 4^n x^n\\
+    \text{Wurzelkriterium:}&amp; \lim_{n\rightarrow \infty} 
+    \sqrt[n]{|4^nx^n|}\\
+    &amp;= \left| 4x \right| &lt; 1\\
+    &amp;\Rightarrow \text{Konvergenz für: } |x| &lt; \frac{1}{4}\\
+    \Rightarrow &amp; r=\frac{1}{4}
 \end{align}
 \]</span></p>
 </div>

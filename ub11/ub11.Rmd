@@ -5,6 +5,7 @@ date: 'Tutorium: 23/01/2020'
 output:
   html_document:
     df_print: paged
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -73,7 +74,7 @@ $$f(x)=\left\{ \begin{matrix} x^2 & x>1 \\ x+2 & x \leq -1 \end{matrix} \right.$
 
 Hier ist die Funktion für alle reellen Zahlen definiert, das heißt:
 
-$$\mathbb{D}= \mathbb{R} \backslash \{-4;4\}$$
+$$\mathbb{D}= \mathbb{R}$$
 
 Die Funktionen $x^2$ und $x+2$ sind für sich alleine stetig für den Definitionsbereich. In Kombination jedoch für unsere gegebenen Funktionen $f(x)$ mit der Bedingung für $x>1$ gilt $x^2$ bzw. für $x\leq-1$ gilt $x+2$ müssen wir schauen, wie sich die Funktion verhält, wenn sie von oben bzw. von unten gegen $-1$ läuft:
 

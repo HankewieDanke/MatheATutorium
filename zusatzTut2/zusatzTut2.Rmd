@@ -1,0 +1,345 @@
+---
+title: "2. Zusatztutorium Mathe A WS19/20"
+author: "Anton Hanke, Maximillian Kohnen, Felix Schnabel"
+date: "Fragestunde: 10/02/20"
+header-includes:
+   - \usepackage{stmaryrd}
+output:
+  html_document:
+    toc: TRUE
+    toc_depth: 3
+    toc_float: FALSE
+  pdf_document:
+    toc: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Disclaimer:** *Wir geben keine Garantie auf die Richtigkeit und Vollständigkeit dieses Dokuments. Diese Zusammenfassung soll lediglich einen Überblick über die Inhalte der Vorlesung geben. Klausurrevelant ist theoretisch alles, was in der Vorlesung oder in den Übungsblättern durchgenommen wurde*
+
+
+# Eigenvektoren, Eigenwerte und Diagonalisierung
+
+## Definitionen
+
+**Eigenvektoren:**
+
+- Der Eigenvektor der Matrix $A$ beschreibt einen Vektor, dessen Richtung durch die Multiplikation mit $A$ nicht verändert, sondern lediglich skaliert wird (ein Vielfaches von sich selbst ergibt). Für den Eigenvektor $x$ bedeutet das: $$Ax=\lambda x$$
+
+**Eigenwert:**
+
+- Der Eigenwert $\lambda$ ist der Skalierungsfaktor eines Eigenvektors $x$.
+
+**Diagonalmatrix:**
+
+- Als Diagonalmatrix bezeichnet man eine Matrix, in der die Elemente außerhalb der Hauptdiagonalen $0$ sind. Man spricht auch dann davon, dass die Matrix eine Diagonalform besitzt.
+
+\
+
+## Bestimmung der Eigenwerte
+
+Die charakteristische Gleichung zur Bestimmung der Eigenwerte einer Matrix $A$ lautet: $$\text{det}(A-\lambda I_n)=0$$
+
+*Beispiel:* 
+$$ 
+A =
+\begin{pmatrix}
+1 & 2 \\
+4 & -1
+\end{pmatrix} 
+$$
+\
+
+$$
+\det\left|\: A - \lambda I\: \right| = \left|
+\begin{array}{ccc}
+{1-\lambda} & 2 \\ 
+4 & {-1-\lambda} \\ 
+\end{array}\right| = 0
+$$ 
+\
+
+$$
+\begin{array}{rclr}
+\Longrightarrow \quad (1-\lambda)\cdot(-1-\lambda)-4\cdot 2 & = & 0 \\
+-1 + \lambda^2 -8 & = & 0\\
+\lambda^2 & = & 9 \\
+\\
+\Rightarrow \lambda_1 & = & 3  \\
+\
+\lambda_2 & = & -3 \\
+\end{array}
+$$
+
+\
+
+## Bestimmung der Eigenvektoren
+
+Sind die Eigenwerte $\lambda$ bestimmt können die dazugehörigen Eingenvektoren bestimmt werden. Hierfür löst man für jeden Eigenwert $\lambda$ das lGS $$(A-\lambda I)u = 0$$
+
+*Beispiel:* 
+
+Für $A$ aus unserem vorherigen Beispiel ergeben sich folgende Eigenvektoren:
+\
+Für Eigenwert $\lambda_1$:
+$$
+\left[
+\begin{pmatrix}
+    1 & 2 \\
+    4 & -1 \\
+\end{pmatrix} -
+\begin{pmatrix}
+    3 & 0\\
+    0 & 3\\
+\end{pmatrix}
+\right]\, \times \left(
+\begin{array}{c}
+  u_{1x} \\
+  u_{1y}
+\end{array}\right) = \vec{0}
+$$
+\
+
+$$
+\left(
+\begin{matrix}
+  -2 & 2 \\
+  4 & -4 \\
+\end{matrix} \left| \
+\begin{matrix}
+  0\\
+  0\\
+\end{matrix} \right.
+\right)
+\underset{\text{II+2} \cdot\text{I}}{\Longrightarrow} 
+\left(
+\begin{matrix}
+  -2 & 2 \\
+  0 & 0 \\
+\end{matrix} \left| \
+\begin{matrix}
+  0\\
+  0\\
+\end{matrix} \right.
+\right) \\
+$$
+
+Für Eigenwert $\lambda_2$:
+$$
+\left[
+\begin{pmatrix}
+    1 & 2 \\
+    4 & -1 \\
+\end{pmatrix} -
+\begin{pmatrix}
+    -3 & 0\\
+    0 & -3\\
+\end{pmatrix}
+\right]\, \times \left(
+\begin{array}{c}
+  u_{2x} \\
+  u_{2y}
+\end{array}\right) = \vec{0}
+$$
+\
+
+$$
+\left(
+\begin{matrix}
+  4 & 2 \\
+  4 & 2 \\
+\end{matrix} \left| \
+\begin{matrix}
+  0\\
+  0\\
+\end{matrix} \right.
+\right)
+\underset{\text{II-I}}{\Longrightarrow} 
+\left(
+\begin{matrix}
+  4 & 2 \\
+  0 & 0 \\
+\end{matrix} \left| \
+\begin{matrix}
+  0\\
+  0\\
+\end{matrix} \right.
+\right) \\
+$$
+\
+
+$$
+\begin{array}
+\Longrightarrow4u_{2x} + 2u_{2y} = 0  & \Rightarrow & \text{möglicher Eigenvektor:} & u_2= \begin{pmatrix} 2\\ 4\\ \end{pmatrix} \\
+& \Rightarrow & \text{allgemeiner Eigenvektor:} & u_2= \begin{pmatrix} \beta\\ 2\beta\\ \end{pmatrix}
+\end{array}
+$$
+\
+
+## Diagonalisierung
+
+Wenn $A$ eine quadratische $n \times n$ Matrix ist gilt:
+
+Wenn $A$ $n$ linear unabhängige Eigenvektoren besitzt, kann $A$ in eine Diagonalform gebracht werden. Umgekehrt bedeutet dies, dass $A$ nicht diagonlisiert werden kann, wenn die Eigenwerte mit $k>1$ Multiplizität, $p<k$ unabhängige Eigenvektoren haben.
+
+$$
+S^{-1}AS=\Lambda = \begin{pmatrix} \lambda_1 & & 0 \\ & \ddots & \\ 0 & & \lambda_n \end{pmatrix}
+$$
+
+mit $S$ als Spaltenmatrix der Eigenvektoren und $\lambda_i$ als Eigenwerte von $A$.
+
+Daraus folgt auch:
+
+$$
+AS=S \Lambda \quad \quad \text{und} \quad \quad A=S \Lambda S^{-1}
+$$
+
+Das bedeutet, man kann auch die Matrix $A$ berechnen, wenn man ihre Eigenvektoren und Eigenwerte kennt, sofern die Bedingung für Diagonalisierung erfüllt ist.
+
+*Beispiel:* 
+
+Für $A$ aus unserem vorherigen Beispiel:
+
+$$
+S= \begin{pmatrix} 1 & 2 \\ 1 & 4\end{pmatrix} \quad \quad \text{und} \quad \quad \Lambda= \begin{pmatrix} 3 & 0 \\ 0 & -3 \end{pmatrix}
+$$
+
+\
+
+Das Potenzieren von $A$ kann vereinfacht werden, wenn $A$ diagonalisierbar ist, denn es dann gilt:
+
+$$
+A^k = S\Lambda^k S^{-1}
+$$
+\
+
+Für den Fall einer symmetrischen Matrix ($A^T=A$) gilt (sofern sie diagonalisierbar ist):
+
+- $S$ ist eine orthogonale Matrix und agiert geomatrisch als eine Rotationsmatrix im Raum $\mathbb{R}^n$.
+
+- Wenn die Spaltenvektoren von $S$ normiert sind, dann gilt außerdem $S^TS=I$, woraus folgt $S^T=S^{-1}$.
+
+Geometrisch lässt sich die Wirkung einer symmetrischen Matrix $A=S \Lambda S^{-1}$ auf einen Vektore daher in 3 unabhängige geomatrische Transformationen zerlgen:
+
+1. $S^{-1}$: Rotation der Basis ($u_1, \dots , u_n$) auf die kanonische Basis ($e_1, \dots, e_n$) von $\mathbb{R}^n$.
+
+2. $\Lambda$: Skalierung der kanonischen Axen um $\lambda_1, \dots, \lambda_n$
+
+3. $S$: Rotation zurück in die Basis ($u_1, \dots, u_n$)
+
+\
+
+*Mehr zu Eigenvektoren und Eigenwerten sowie anderen Begriffen in diesem Zusammenhang (z.B. Multiplizität), findet ihr auf dem Begriffeblatt*
+  
+
+# Folgen, Funktionen und Reihen
+
+## Folgen
+
+*Definition:* Eine Folge ist eine Abbildung der natürlichen Zahlen in eine Zahlenmenge $M$ (z.B. $\mathbb{R}$):
+
+$$
+a: \quad 
+\begin{matrix}
+\mathbb{N} \rightarrow M \\
+n \rightarrow a_n
+\end{matrix}
+$$
+\
+
+### Explizite und rekursive Folgen
+
+**Explizite Folgen:**
+
+Bei expliziten Folgen können die Folgenglieder unabhängig von den anderen Gleidern bestimmt werden, z.B.:
+
+$$ a_n = \left( 1+ \frac{1}{n} \right)^n$$
+
+\
+
+**Rekursive Folgen:**
+
+Bei rekursiven Folgen werden Folgenglieder anhand anderer Folgenglieder bestimmt, z.B. Fibonacci-Folge:
+
+$$f_{n+1}=f_n +f_{n-1} $$
+Bei rekursiven Folgen müssten die Anfangswerte definiert werden (also $f_0$ und $f_1$ bei der Fibonacci-Folge)
+
+Achtung: unterschiedliche Anfangswerte führen zu unterschiedlichen Folgen!
+
+\
+
+### Beschränktheit und Monotonie
+
+**Beschränkheit:**
+
+Eine Folge $a_n$ heißt beschränkt, falls es eine Zahl $k$ gibt, sodass gilt:
+
+$$ \forall n \in \mathbb{N}: |a_n| \leq k $$
+Hierbei kann genau definiert werden, ob $a_n$ nach **unten/oben beschränkt** ist:
+
+$$ \forall n \in \mathbb{N}: a_n \geq k \quad \quad (\text{untere Beschränkheit})$$
+$$ \forall n \in \mathbb{N}: a_n \leq k \quad \quad (\text{obere Beschränkheit})$$
+
+*Beispiel:*
+
+Für $a_n = 1 - \frac{1}{n+1}$ gilt:
+
+- $a_n$ ist nach oben beschränkt, da $\forall n \in \mathbb{N}: a_n \leq 1$
+- $a_n$ ist nach unten beschränkt, da $\forall n \in \mathbb{N}: a_n \geq 0$
+
+\
+
+**Monotonie:**
+
+
+\
+
+
+### Konvergenz, Divergenz und Grenzwerte
+
+**Konvergenz:**
+
+\
+
+**Divergenz:**
+
+\
+
+**Grenzwerte:**
+
+
+
+## Funktionen
+
+
+### Allgemeine Konzepte zu reellen Funktionen
+
+
+### Stetigkeit und Grenzwerte
+
+
+### Differenzierbarkeit und Kurvendiskussion
+
+
+## Reihen
+
+
+### Kovnergenzkriterien
+
+
+### Potenzreihen
+
+
+### Taylorreihen
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

@@ -5,12 +5,12 @@ date: "Fragestunde: 10/02/20"
 header-includes:
    - \usepackage{stmaryrd}
 output:
-  pdf_document:
-    toc: TRUE
   html_document:
     toc: TRUE
     toc_depth: 3
     toc_float: FALSE
+  pdf_document:
+    toc: TRUE
 ---
 
 ```{r setup, include=FALSE}
@@ -329,10 +329,10 @@ $$\forall \epsilon > 0, \exists n_0 \in \mathbb{N}: \quad \forall n \geq n_0 \qu
 
 Vereinfacht bedeutet Konvergenz bei Folgen, das Annähern einen einen bestimmten Wert für $n \rightarrow \infty$. Man spricht in diesem Fall auch von einem Grenzwert:
 
-$$\underset{n \rightarrow \infty}{lim} a_n = a$$
+$$\underset{n \rightarrow \infty}{\lim} a_n = a$$
 ![](Konvergenzverhalten.png){width=600px height=400px}
 
-Wenn die Folge $a_n$ gegen 0 konvergiert ($\underset{n \rightarrow \infty}{lim} a_n = 0$), spricht man auch von einer **Nullfolge**.
+Wenn die Folge $a_n$ gegen 0 konvergiert ($\underset{n \rightarrow \infty}{\lim} a_n = 0$), spricht man auch von einer **Nullfolge**.
 
 Konvergenz kann auch mit Monotonie und Beschränktheit zusammenhängen. Eine Folge ist **auf jedenfall konvergent, wenn:**
 
@@ -352,7 +352,7 @@ Eine Folge, wird dann als divergent bezeichnet, wenn sie nicht konvergent ist. D
 
 - eine Folge kann aber **auch divergieren, obwohl sie beschränkt ist** z.B. bei $a_n = (-1)^n$
 
-![](Divergenz.png){width=800px height=200px}
+![](Divergenz.png){width=600px height=200px}
 
 
 
@@ -366,15 +366,15 @@ $\frac{0}{0}; \quad \frac{\infty}{\infty}; \quad 0\cdot \infty; \quad 0^\infty ;
 
 In diesen Fällen, kann man bestimmte Rechenregeln anwenden, um die Grenzwerte zu bestimmen. Folgende Rechenregeln gelten für zwei konvergente Folgen ($a_n$ und $b_n$) mit den Grenzwerten ($a$ und $b$):
 
-- $\underset{n \rightarrow \infty}{lim} \lambda a_n = \lambda a$
+- $\underset{n \rightarrow \infty}{\lim} \lambda a_n = \lambda a$
 
-- $\underset{n \rightarrow \infty}{lim} a_n^{p/q} = a^{p/q}$ für $p, q \in \mathbb{N}$
+- $\underset{n \rightarrow \infty}{\lim} a_n^{p/q} = a^{p/q}$ für $p, q \in \mathbb{N}$
 
-- $\underset{n \rightarrow \infty}{lim} a_n \pm b_n = a \pm b$
+- $\underset{n \rightarrow \infty}{\lim} a_n \pm b_n = a \pm b$
 
-- $\underset{n \rightarrow \infty}{lim} a_n b_n= ab$
+- $\underset{n \rightarrow \infty}{\lim} a_n b_n= ab$
 
-- $\underset{n \rightarrow \infty}{lim} \frac{a_n}{b_n}= \frac{a}{b}$ wenn $b \neq 0$
+- $\underset{n \rightarrow \infty}{\lim} \frac{a_n}{b_n}= \frac{a}{b}$ wenn $b \neq 0$
 
 Der Grund, warum wir uns auch Rechenregeln mit zwei konvergenten Folgen anschauen, ist, dass man oft in der Lage ist, eine Folge, die bei der Grenzwertbestimmung einen undefinierbaren Ausdruck liefert (siehe oben), in zwei Folgen umzuschreiben.
 
@@ -385,7 +385,7 @@ $$a_n = \frac{2n^3+n-3}{n^3-4n+5}$$
 
 würden wir bei der Grenzwertbestimmung folgendes herauskommen:
 
-$$\underset{n \rightarrow \infty}{lim} a_n =  \frac{\infty}{\infty}$$
+$$\underset{n \rightarrow \infty}{\lim} a_n =  \frac{\infty}{\infty}$$
 
 Daher macht es Sinn hier den Zähler und Nenner als zwei eigene Folgen zu betrachten, welche jeweils einen definierten Grenzwert ergeben. Hierzu teilen wird zuerst Nenner und Zähler durch $n^3$ (dadurch wird $a_n$ nicht verändert). Wir können nun $a_n$ nun betrachten als:
 
@@ -395,15 +395,18 @@ $b_n$ und $c_n$ sind konvergente Reihen und daher:
 
 $$
 \begin{aligned}
-\underset{n \rightarrow \infty}{lim} a_n =  \underset{n \rightarrow \infty}{lim} \frac{b_n}{c_n} & =  \frac{\underset{n \rightarrow \infty}{lim}\left(2+\frac{1}{n^2}-\frac{3}{n^3}\right)}{\underset{n \rightarrow \infty}{lim} \left(1-\frac{4}{n^2}+\frac{5}{n^3}\right)} \\
-& = \frac{\underset{n \rightarrow \infty}{lim}(2)+\underset{n \rightarrow \infty}{lim}\left(\frac{1}{n^2}\right)-\underset{n \rightarrow \infty}{lim}\left(\frac{3}{n^3}\right)}{\underset{n \rightarrow \infty}{lim} (1)-\underset{n \rightarrow \infty}{lim}\left(\frac{4}{n^2}\right)+\underset{n \rightarrow \infty}{lim} \left(\frac{5}{n^3}\right)} \\
+\underset{n \rightarrow \infty}{\lim} a_n =  \underset{n \rightarrow \infty}{\lim} \frac{b_n}{c_n} & =  \frac{\underset{n \rightarrow \infty}{\lim}\left(2+\frac{1}{n^2}-\frac{3}{n^3}\right)}{\underset{n \rightarrow \infty}{\lim} \left(1-\frac{4}{n^2}+\frac{5}{n^3}\right)} \\
+& = \frac{\underset{n \rightarrow \infty}{\lim}(2)+\underset{n \rightarrow \infty}{\lim}\left(\frac{1}{n^2}\right)-\underset{n \rightarrow \infty}{\lim}\left(\frac{3}{n^3}\right)}{\underset{n \rightarrow \infty}{\lim} (1)-\underset{n \rightarrow \infty}{\lim}\left(\frac{4}{n^2}\right)+\underset{n \rightarrow \infty}{\lim} \left(\frac{5}{n^3}\right)} \\
 & = \frac{2+0+0}{1+0+0}=2
 \end{aligned}
 $$
 
+*Mehr zum Thema Konvergenz und Grenzwerte von Folgen findet ihr unter:*
+
+*http://matheistkeinarschloch.de/folgen-und-grenzwerte/*
+
 
 ## Funktionen
-
 
 ### Allgemeine Konzepte zu reellen Funktionen
 
@@ -429,9 +432,56 @@ Reelle Funktionen sind sehr vergleichbar mit reellen Folgen, da beides Abbildung
 - Bei Funktionen muss man beachten, dass man zwischen Ziel-($\mathbb{Z}$) und Bildmenge ($\mathbb{B}$) unterscheiden kann. Die Zielmenge kann beliebig gewählt werden, während die Bilmenge klar definiert ist. $\mathbb{B}$ entspricht der Menge, auf die $x \in \mathbb{D}$ mithilfe der Abbildungsvorschrift/Funktion ($f(x)$) abgebildet wird (also $\mathbb{B} = f(\mathbb{D})$).
 
 
+### Grenzwerte und Stetigkeit
 
+Da das Prinzip hinter einem **Grenzwert** und die Grenzwertberechnung bereits aus dem Kapitel "Folgen" bekannt sein sollte, gehen wir hier nur auf Besonderheiten von Grenzwerten bei Funktionen ein:
 
-### Stetigkeit und Grenzwerte
+- Anders als bei Folgen, können bei Funktionen auch für einzelne Punkte der Grenzwert bestimmt werden. 
+$$\underset{x \rightarrow a}{\lim} f(x) = L$$ 
+\
+
+- Es gibt Funktionen, für die der Grenzwert bei einem Punkt $a$ variieren kann, je nachdem ob man sich von oben oder von unten dem Punkt $a$ annähert. 
+$$\underset{x \rightarrow a-}{\lim} f(x) = L^- \quad \text{(Grenzw. von unten)} \quad \quad \underset{x \rightarrow a+}{\lim} f(x) = L^+ \quad \text{(Grenzw. von oben)}\quad \Rightarrow \quad L^- \neq L^+$$
+\
+
+- Bei nicht stetigen Funktionen, gibt es auch Fälle, wo der gleiche Grenzwert beidseitig für den Punkt $a$ bestimmt wird, die Funktion jedoch an dieser Stelle eine Definitionslücke aufweist, oder der Wert für $f(a)$ vom Grenzwert abweicht
+$$\underset{x \rightarrow a}{\lim} f(x) \neq f(a) \quad \quad \text{oder} \quad \quad  \underset{x \rightarrow a}{\lim} f(x) = L \quad \text{mit} \quad \mathbb{D}=\mathbb{R} \backslash \{ a \}$$
+
+Der Begriff der **Stetigkeit** ist eng mit dem der Grenzewerte verknüpft. Eine Funktion $f(x)$ ist am Punkt $a \in \mathbb{D}$ stetig, wenn:
+
+$$\underset{x \rightarrow a}{\lim} f(x) = f(a)$$
+
+Um ein besseres Verständnis davon zu bekommen, macht es Sinn, sich **nicht-stetige Funktionen** anzuschauen:
+
+- es gibt verschiedene Arten von Nicht-Stetigkeit. Einige merken es sich es dadruch, dass man den Stift min. einmal abheben müsste, um die komplette Funktion zu zeichnen.
+
+- zu den klassischen nicht-stetigen Funktionen gehören die gebrochen-rationalen Funktionen (z.B. $f(x) = \frac{x+4}{2-x^2}$). Dadurch dass ein Term mit $0$ im Nenner nicht definiert ist, befindet sich an allen Stellen $x$, für die der Nenner in $f(x)$ gleich $0$ wird eine Definitionslücke $\rightarrow$ die Funktion ist dort nicht stetig.
+
+- zu den zwei gängigsten Definitionslücken gehören die **hebbare Lücke**, und die **Polstelle**. *Achtung: Nicht-stetige Funktionen haben nicht zwangsweise eine Definitionslücke!.*
+
+- Für die hebbare Lücke gilt: $$\underset{x \rightarrow a-}{\lim} f(x) = \underset{x \rightarrow a+}{\lim} f(x) \quad \text{mit} \quad \mathbb{D}=\mathbb{R}\backslash \{ a\}$$
+
+- Für die Polstelle gilt: $$\underset{x \rightarrow a\pm}{\lim} f(x) = \pm \infty$$
+
+- Hier sind visuelle Beispiele nicht-stetiger Funktionen:
+
+| | | | |
+|:----------:|:---------:|:--------:|:--------:|
+| | | | |
+|$f(x)= \left\{  \begin{matrix} x^2 \ \text{für} \ x \geq 0 \\ x^2 - 1 \ \text{für} \ x<0 \end{matrix} \right.$ | $f(x)= \left\{  \begin{matrix} x^2 \ \text{für} \ x \in \mathbb{R}^*\\ 2 \ \text{für} \ x=0 \end{matrix} \right.$ | $f(x)= \frac{e^{-1/x^2}}{x}$ | $f(x)=\frac{1}{x}$ |
+| | | | |
+| $\mathbb{D}=\mathbb{R}$ | $\mathbb{D}=\mathbb{R}$ | $\mathbb{D}=\mathbb{R} \backslash \{ 0\}$ | $\mathbb{D}=\mathbb{R} \backslash \{ 0\}$ |
+| | | | |
+| $-1 = \underset{x \rightarrow 0-}{\lim} \neq \underset{x \rightarrow 0+}{\lim}=0$ | $0 =\underset{x \rightarrow 0}{\lim}\neq f(0)=2$ | $\underset{x \rightarrow 0-}{\lim}=\underset{x \rightarrow 0+}{\lim}=0$ | $\underset{x \rightarrow 0\pm}{\lim}=\pm\infty$ |
+| | | | |
+| keine $\mathbb{D}$-Lücke | keine $\mathbb{D}$-Lücke | hebbare $\mathbb{D}$-Lücke | Polstelle |
+| | | | |
+
+![](Nicht-Stetigkeit.png){width=1000px, height=150px}
+
+*Mehr zum Thema Stetigkeit findet ihr unter:*
+
+*https://www.studyhelp.de/online-lernen/mathe/stetigkeit/*
 
 
 ### Differenzierbarkeit und Kurvendiskussion

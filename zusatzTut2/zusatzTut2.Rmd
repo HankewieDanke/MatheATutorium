@@ -5,12 +5,12 @@ date: "Fragestunde: 10/02/20"
 header-includes:
    - \usepackage{stmaryrd}
 output:
-  pdf_document:
-    toc: TRUE
   html_document:
     toc: TRUE
     toc_depth: 3
     toc_float: FALSE
+  pdf_document:
+    toc: TRUE
 ---
 
 ```{r setup, include=FALSE}
@@ -352,7 +352,7 @@ Eine Folge, wird dann als divergent bezeichnet, wenn sie nicht konvergent ist. D
 
 - eine Folge kann aber **auch divergieren, obwohl sie beschränkt ist** z.B. bei $a_n = (-1)^n$
 
-![](Divergenz.png){width=800px height=200px}
+![](Divergenz.png){width=600px height=200px}
 
 
 
@@ -477,7 +477,7 @@ Um ein besseres Verständnis davon zu bekommen, macht es Sinn, sich **nicht-stet
 | keine $\mathbb{D}$-Lücke | keine $\mathbb{D}$-Lücke | hebbare $\mathbb{D}$-Lücke | Polstelle |
 | | | | |
 
-![](Nicht-Stetigkeit.png){width=1000px, height=400px}
+![](Nicht-Stetigkeit.png){width=1000px, height=150px}
 
 *Mehr zum Thema Stetigkeit findet ihr unter:*
 

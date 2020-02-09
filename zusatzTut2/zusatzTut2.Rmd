@@ -5,12 +5,12 @@ date: "Fragestunde: 10/02/20"
 header-includes:
    - \usepackage{stmaryrd}
 output:
+  pdf_document:
+    toc: TRUE
   html_document:
     toc: TRUE
     toc_depth: 3
     toc_float: FALSE
-  pdf_document:
-    toc: TRUE
 ---
 
 ```{r setup, include=FALSE}
@@ -171,10 +171,10 @@ $$
 \
 
 $$
-\begin{array}
+\begin{aligned}
 \Longrightarrow4u_{2x} + 2u_{2y} = 0  & \Rightarrow & \text{möglicher Eigenvektor:} & u_2= \begin{pmatrix} 2\\ 4\\ \end{pmatrix} \\
 & \Rightarrow & \text{allgemeiner Eigenvektor:} & u_2= \begin{pmatrix} \beta\\ 2\beta\\ \end{pmatrix}
-\end{array}
+\end{aligned}
 $$
 \
 
@@ -293,6 +293,28 @@ Für $a_n = 1 - \frac{1}{n+1}$ gilt:
 
 **Monotonie:**
 
+Eine reelle Folge ($a_n$) ist **monoton wachsend** wenn: 
+$$\forall n \in \mathbb{N}: a_{n+1} \geq a_n$$
+
+bzw. **strikt monoton wachsend** wenn:
+
+$$\forall n \in \mathbb{N}: a_{n+1} > a_n$$
+\
+
+Eine reelle Folge ($a_n$) ist **monoton fallend** wenn: 
+$$\forall n \in \mathbb{N}: a_{n+1} \leq a_n$$
+bzw. **strikt monoton fallend** wenn:
+
+$$\forall n \in \mathbb{N}: a_{n+1} < a_n$$
+\
+
+Monotonie kann über zwei Varianten bewiesen / untersucht werden:
+
+1. das Vorzeichen von $a_{n+1} - a_n$ untersuchen und zeigen, dass es stets positiv/negativ ist
+
+2. wenn gilt $\forall n \in \mathbb{N}: a_n >0$, untersuchen, ob $\frac{a_{n+1}}{a_n}$ größer oder kleiner als $1$ ist.
+
+*Hinweis:* Der Beweis über Variante 2 setzt voraus, dass man mittels vollständiger Induktion zeigt, dass $\forall n: a_n >0$ gilt.
 
 \
 
@@ -301,14 +323,83 @@ Für $a_n = 1 - \frac{1}{n+1}$ gilt:
 
 **Konvergenz:**
 
+Der Grenzwert einer Folge ist über den Abstand der Folge zum Grenzwert definiert: Eine Folge $a_n$ hat einen Grenzwert a wenn für alle $\epsilon >0$ ab einem gewissen $n_0 \in \mathbb{N}$ für alle $n \geq n_0$ gilt, dass $|a_n - a| < \epsilon$. Das bedeutet anschaulich: Für jeden noch so kleinen Abstand $\epsilon$ sind alle Folgeglieder ab einem gewissen Glied näher an diesem Grenzwert als der Abstand:
+
+$$\forall \epsilon > 0, \exists n_0 \in \mathbb{N}: \quad \forall n \geq n_0 \quad |a_n - a| \leq \epsilon$$
+
+Vereinfacht bedeutet Konvergenz bei Folgen, das Annähern einen einen bestimmten Wert für $n \rightarrow \infty$. Man spricht in diesem Fall auch von einem Grenzwert:
+
+$$\underset{n \rightarrow \infty}{lim} a_n = a$$
+![](Konvergenzverhalten.png){width=600px height=400px}
+
+Wenn die Folge $a_n$ gegen 0 konvergiert ($\underset{n \rightarrow \infty}{lim} a_n = 0$), spricht man auch von einer **Nullfolge**.
+
+Konvergenz kann auch mit Monotonie und Beschränktheit zusammenhängen. Eine Folge ist **auf jedenfall konvergent, wenn:**
+
+1. sie **monoton steigend und nach oben beschränkt** ist.
+
+2. sie **monoton fallen und nach unten beschränkt** ist.
+
+Es gibt auch andere Fälle in denen eine Folge konvergent ist, z.B. ist in der oberen Abbildung eine Folge dargestellt, die nach oben und unten Beschränkt ist, aber keine Monotonie aufweist. Dennoch konvergiert diese Folge.
+
 \
 
 **Divergenz:**
 
+Eine Folge, wird dann als divergent bezeichnet, wenn sie nicht konvergent ist. Dabei gibt es zwei Arten von Divergenz:
+
+- eine Folge ist **auf jeden Fall divergent, wenn sie nicht beschränkt** ist.
+
+- eine Folge kann aber **auch divergieren, obwohl sie beschränkt ist** z.B. bei $a_n = (-1)^n$
+
+![](Divergenz.png){width=800px height=200px}
+
+
+
 \
 
-**Grenzwerte:**
+**Rechenregel zur Grenzwertbestimmung:**
 
+Bei Folgen kann es manchmal sein, dass es bei der Grenzwertbestimmung zu einen der folgenden Ausdrücke kommt: 
+
+$\frac{0}{0}; \quad \frac{\infty}{\infty}; \quad 0\cdot \infty; \quad 0^\infty ; \quad 0^0; \quad \infty - \infty$
+
+In diesen Fällen, kann man bestimmte Rechenregeln anwenden, um die Grenzwerte zu bestimmen. Folgende Rechenregeln gelten für zwei konvergente Folgen ($a_n$ und $b_n$) mit den Grenzwerten ($a$ und $b$):
+
+- $\underset{n \rightarrow \infty}{lim} \lambda a_n = \lambda a$
+
+- $\underset{n \rightarrow \infty}{lim} a_n^{p/q} = a^{p/q}$ für $p, q \in \mathbb{N}$
+
+- $\underset{n \rightarrow \infty}{lim} a_n \pm b_n = a \pm b$
+
+- $\underset{n \rightarrow \infty}{lim} a_n b_n= ab$
+
+- $\underset{n \rightarrow \infty}{lim} \frac{a_n}{b_n}= \frac{a}{b}$ wenn $b \neq 0$
+
+Der Grund, warum wir uns auch Rechenregeln mit zwei konvergenten Folgen anschauen, ist, dass man oft in der Lage ist, eine Folge, die bei der Grenzwertbestimmung einen undefinierbaren Ausdruck liefert (siehe oben), in zwei Folgen umzuschreiben.
+
+*Beispiel:*
+
+Für 
+$$a_n = \frac{2n^3+n-3}{n^3-4n+5}$$
+
+würden wir bei der Grenzwertbestimmung folgendes herauskommen:
+
+$$\underset{n \rightarrow \infty}{lim} a_n =  \frac{\infty}{\infty}$$
+
+Daher macht es Sinn hier den Zähler und Nenner als zwei eigene Folgen zu betrachten, welche jeweils einen definierten Grenzwert ergeben. Hierzu teilen wird zuerst Nenner und Zähler durch $n^3$ (dadurch wird $a_n$ nicht verändert). Wir können nun $a_n$ nun betrachten als:
+
+$$a_n = \frac{b_n}{c_n} = \frac{2+\frac{1}{n^2}-\frac{3}{n^3}}{1-\frac{4}{n^2}+\frac{5}{n^3}}$$
+
+$b_n$ und $c_n$ sind konvergente Reihen und daher:
+
+$$
+\begin{aligned}
+\underset{n \rightarrow \infty}{lim} a_n =  \underset{n \rightarrow \infty}{lim} \frac{b_n}{c_n} & =  \frac{\underset{n \rightarrow \infty}{lim}\left(2+\frac{1}{n^2}-\frac{3}{n^3}\right)}{\underset{n \rightarrow \infty}{lim} \left(1-\frac{4}{n^2}+\frac{5}{n^3}\right)} \\
+& = \frac{\underset{n \rightarrow \infty}{lim}(2)+\underset{n \rightarrow \infty}{lim}\left(\frac{1}{n^2}\right)-\underset{n \rightarrow \infty}{lim}\left(\frac{3}{n^3}\right)}{\underset{n \rightarrow \infty}{lim} (1)-\underset{n \rightarrow \infty}{lim}\left(\frac{4}{n^2}\right)+\underset{n \rightarrow \infty}{lim} \left(\frac{5}{n^3}\right)} \\
+& = \frac{2+0+0}{1+0+0}=2
+\end{aligned}
+$$
 
 
 ## Funktionen

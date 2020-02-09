@@ -1,6 +1,6 @@
 ---
 title: "2. Zusatztutorium Mathe A WS19/20"
-author: "Anton Hanke, Maximillian Kohnen, Felix Schnabel"
+author: "Maximillian Kohnen, Felix Schnabel, Anton Hanke"
 date: "Fragestunde: 10/02/20"
 header-includes:
    - \usepackage{stmaryrd}
@@ -435,7 +435,63 @@ Reelle Funktionen sind sehr vergleichbar mit reellen Folgen, da beides Abbildung
 
 
 ### Differenzierbarkeit und Kurvendiskussion
+Eine Funktion ist nur an Punkten differenzierbar,
+an dennen sie definiert ist $\Rightarrow$
+nur differenzierbar wenn folgender Grenzwert existiert:
+\[
+    \lim_{\Delta x \to 0} \frac{\Delta f(x)}{\Delta x} =
+    \lim_{\Delta x \to 0} \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x }
+\]
+Unter beidseitiger Betrachtung des Grenzwertes müssen diese
+übereinstimmen.
 
+--------------------------
+
+Nicht differenzierbar wenn:
+
+- nicht definiert
+- Seitige Grenzwerte stimmen nicht überein
+
+--------------------------
+
+Ist eine Funktion differenzierbar so ist sie stetig.
+Dies ist nur eine Implikation! von stetigkeit kann nicht
+auf differenzierbarkeit geschlossen werden.
+
+Ableitungsregeln:
+
+- Faktorregel:
+  $$y = c \cdot f(x) \Rightarrow y' = Cf^\prime (x) \quad C \in \mathbb{R}$$
+- Summenregel:  
+  Endliche Summen werden gliedweise differenziert
+- Produktregel:
+  $$f(x) = u(x) \times v(x) \Rightarrow f^\prime(x) = u(x) \cdot v^\prime(x) + u^\prime(x)\cdot v(x)$$
+- Quotientenregel:
+  $$f(x) = \frac{u(x)}{v(x)} \Rightarrow f^\prime(x) = \frac{u^\prime(x)v(x) - v^\prime(x)u(x)}{v^2(x)} \quad v(x) \neq 0$$
+- Kettenregel:
+  *Innere mal äußere Ableitung*  
+  $$ f(x) = u(v(x)) \Rightarrow f^\prime = u^\prime(v) \cdot u^\prime(x)$$
+
+Kurvendiskussion:
+
+1. Definitionsmenge?  
+   Meist in Aufgabe gegeben.
+   Ansonsten über Grenzwert bestimmung bestimmen.  
+   Gibt es Definitionslücken? Hebbar oder nicht?
+2. Stetigkeit?
+3. Nullstellen?  
+   $$f(x) = 0$$
+4. Extrema? Wendepunkte?
+   - Extrema: $f^\prime(x) = 0$  
+     Sind diese lokal oder global?
+   - Wendepunkte:  
+     Hochpunkt: $f^{\prime\prime} < 0$  
+     Tiefpunkt: $f^{\prime\prime} > 0$  
+     Wendepunkt: $f^{\prime\prime} = 0$  
+     Sattelpunkg: $f^{\prime\prime} = 0 \wedge f^\prime = 0 \wedge f''' (x) \neq 0$  
+5. Grenzwerte? Asymptotisches Verhalten?
+
+Optimirungsprobleme:
 
 ## Reihen
 

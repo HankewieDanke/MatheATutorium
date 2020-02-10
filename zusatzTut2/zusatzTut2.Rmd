@@ -538,21 +538,67 @@ Kurvendiskussion:
      Hochpunkt: $f^{\prime\prime} < 0$  
      Tiefpunkt: $f^{\prime\prime} > 0$  
      Wendepunkt: $f^{\prime\prime} = 0$  
-     Sattelpunkg: $f^{\prime\prime} = 0 \wedge f^\prime = 0 \wedge f''' (x) \neq 0$  
+     Sattelpunkg: $f^{\prime\prime} = 0 \wedge f^\prime = 0 \wedge f''' (x) \neq 0$
 5. Grenzwerte? Asymptotisches Verhalten?
 
-Optimirungsprobleme:
-
 ## Reihen
+Reihen können als Summe von Folgen betrachtet werden. Dabei gilt:
+
+$$
+\sum_{n=0}^\infty a_n
+$$
+Beendet man eine Reihe an einer bestimmten Stelle, so erhält man eine Partialsumme.
+$$
+s_n = \sum_{n=0}^k a_n
+$$
 
 
-### Kovnergenzkriterien
+Auch Reihen können KOnvergieren, dann gilt:
+
+$$
+\sum_{n=0}^\infty a_n = s \iff lim_{n -> \infty} {s_n} = s
+$$
+Konvergiert eine Reihe im Betrag, so ist sie absolut konvergent.
+
+## Konvergenzkriterien
+
+Eine Reihe konvergiert nur dann, wenn $a_n -> \infty$. Jedoch ist dies auch nicht ausreichend. (bsp Harmonische Reihe)
+
+### Wurzelkriterium
+
+Wenn $\exists \: \:  r = \lim_{n ->\infty} \sqrt[n]{\lvert a_n \rvert}$ und es gilt $r < 1$ so ist die Reihe konvergent.
+
+### Quotientenkriterium
+Wenn $\exists \: \:  r = \lim_{n ->\infty} \lvert \frac{a_{n+1}}{a_n}\rvert $ und es gilt $r < 1$ so ist die Reihe konvergent.
 
 
-### Potenzreihen
+## Potenzreihen
 
+Potenzreihen sind Reihen der Form:
+$$ \sum_{n=0}^{\infty} a_n (x-x_0)^n $$
+Dabei sind $a_n$ die Koeffizienten der Reihe
 
-### Taylorreihen
-  
-  
-  
+Der Wert $x_0$ ist der Entwicklungspunkt.
+
+### Konvergenzbereich
+
+Der Konvergenzbereich, ist der Bereich in dem die Potenzreihe konvergiert.
+
+    $$\{x \in \mathbb{R} \rvert x -x_0 \lvert < r \}$$
+Da für Konvergenz auch hier die allgemeinen Kriterien gelten, lässt sich ein Konvergenzradius bestimmen.
+
+Angenommen es gelte $\lim_{n\to\infty} \lvert \frac{a_{n+1}}{a_n}\rvert = q$
+Dann gelte mittels Quotientenkriterium $\rvert x- x_0 \lvert < \frac{1}{q}$
+
+Daraus folgt, dass der Konvergenzradius $\frac{1}{q}$ ist.
+
+Analog gilt dies auch für das Wurzelkriterium.
+
+## Taylorreihen
+
+Eine Taylorreihe ist die Entwicklung einer Funktion an einem Entwicklungspunkt. Die Unendliche Reihe entspricht exakt der Funktion.
+
+$f(x)= \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n $
+
+Mittels einer Taylorreihenentwicklung lassen sich auch Funktionen abschätzen. Werden nur endlich viele Taylorpolynome entwickelt, so liefert dies eine Abschätzung der Funktion. Wird der Entwicklungspunk $a$ möglichst nah an dem zu berechnenden Funktionwert gewöhlt, so liefert eine Taylorreihe n-ten Gliedes meistens relativ gute Abschätzungen.
+
